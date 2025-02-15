@@ -18,23 +18,46 @@ import {
   Shield, 
   ShieldCheck, 
   Award, 
-  ClipboardCheck
+  ClipboardCheck,
+  Wrench
 } from 'lucide-react'
 import { useSearchParams, useRouter } from 'next/navigation'
+import { type LucideIcon } from 'lucide-react'
 
-const categoryIcons = {
-  'trades': <HardHat className="h-5 w-5" />,
-  'crane-operations': <CraneIcon className="h-5 w-5" />,
-  'technology': <Brain className="h-5 w-5" />,
-  'heavy-equipment': <Truck className="h-5 w-5" />,
-  'sustainability': <Leaf className="h-5 w-5" />,
-  'management': <Briefcase className="h-5 w-5" />,
-  'apprenticeship': <Users className="h-5 w-5" />,
-  'entry-level': <GraduationCap className="h-5 w-5" />,
-  'training': <BookOpen className="h-5 w-5" />
+interface CategoryIcon {
+  [key: string]: LucideIcon
 }
 
-const categories = [
+interface Category {
+  id: string
+  label: string
+  icon: JSX.Element
+}
+
+interface SafetyRole {
+  id: string
+  title: string
+  description: string
+  requirements: string[]
+  responsibilities: string[]
+  icon: JSX.Element
+  href: string
+}
+
+const categoryIcons: CategoryIcon = {
+  'trades': HardHat,
+  'crane-operations': CraneIcon,
+  'technology': Brain,
+  'heavy-equipment': Truck,
+  'sustainability': Leaf,
+  'management': Briefcase,
+  'apprenticeship': Users,
+  'entry-level': GraduationCap,
+  'training': BookOpen,
+  'safety': Shield
+}
+
+const categories: Category[] = [
   { id: 'all', label: 'All Careers', icon: <Building2 className="h-5 w-5" /> },
   { id: 'trades', label: 'Trades', icon: <HardHat className="h-5 w-5" /> },
   { id: 'crane-operations', label: 'Crane Operations', icon: <CraneIcon className="h-5 w-5" /> },
@@ -45,85 +68,119 @@ const categories = [
   { id: 'apprenticeship', label: 'Apprenticeships', icon: <Users className="h-5 w-5" /> },
   { id: 'entry-level', label: 'Entry Level', icon: <GraduationCap className="h-5 w-5" /> },
   { id: 'training', label: 'Training', icon: <BookOpen className="h-5 w-5" /> },
+  { id: 'safety', label: 'Safety Careers', icon: <Shield className="h-5 w-5" /> }
+]
+
+const safetyRoles: SafetyRole[] = [
   {
-    title: "Safety Careers",
-    description: "Lead safety initiatives and ensure workplace compliance",
-    roles: [
-      {
-        title: "Construction Safety Officer (CSO)",
-        description: "Lead and implement site safety programs",
-        requirements: [
-          "CSO certification",
-          "3+ years construction experience",
-          "OHS regulations knowledge",
-          "First aid certification"
-        ],
-        responsibilities: [
-          "Site safety inspections",
-          "Safety program management",
-          "Incident investigation",
-          "Safety training delivery"
-        ],
-        icon: <Shield className="h-12 w-12 text-red-500" />,
-        href: "/careers/safety/cso"
-      },
-      {
-        title: "National Construction Safety Officer (NCSO)",
-        description: "Advanced safety leadership and program development",
-        requirements: [
-          "NCSO designation",
-          "5+ years safety experience",
-          "Advanced OHS training",
-          "Leadership experience"
-        ],
-        responsibilities: [
-          "Safety program development",
-          "Regulatory compliance",
-          "Risk management",
-          "Team leadership"
-        ],
-        icon: <ShieldCheck className="h-12 w-12 text-blue-500" />,
-        href: "/careers/safety/ncso"
-      },
-      {
-        title: "Canadian Registered Safety Professional (CRSP)",
-        description: "Senior safety management and strategic planning",
-        requirements: [
-          "CRSP certification",
-          "Bachelor's degree preferred",
-          "7+ years safety experience",
-          "Project management skills"
-        ],
-        responsibilities: [
-          "Safety strategy development",
-          "Program evaluation",
-          "Corporate safety leadership",
-          "Stakeholder management"
-        ],
-        icon: <Award className="h-12 w-12 text-green-500" />,
-        href: "/careers/safety/crsp"
-      },
-      {
-        title: "Safety Coordinator",
-        description: "Support safety program implementation",
-        requirements: [
-          "Safety certification",
-          "2+ years construction experience",
-          "Computer proficiency",
-          "Communication skills"
-        ],
-        responsibilities: [
-          "Safety documentation",
-          "Training coordination",
-          "Inspection assistance",
-          "Reporting"
-        ],
-        icon: <ClipboardCheck className="h-12 w-12 text-orange-500" />,
-        href: "/careers/safety/coordinator"
-      }
+    id: 'cso',
+    title: "Construction Safety Officer (CSO)",
+    description: "Lead and implement site safety programs",
+    requirements: [
+      "CSO certification",
+      "3+ years construction experience",
+      "OHS regulations knowledge",
+      "First aid certification"
     ],
-    icon: <Shield className="h-12 w-12 text-red-500" />
+    responsibilities: [
+      "Site safety inspections",
+      "Safety program management",
+      "Incident investigation",
+      "Safety training delivery"
+    ],
+    icon: <Shield className="h-12 w-12 text-red-500" />,
+    href: "/careers/safety/cso"
+  },
+  {
+    id: 'ncso',
+    title: "National Construction Safety Officer (NCSO)",
+    description: "Advanced safety leadership and program development",
+    requirements: [
+      "NCSO designation",
+      "5+ years safety experience",
+      "Advanced OHS training",
+      "Leadership experience"
+    ],
+    responsibilities: [
+      "Safety program development",
+      "Regulatory compliance",
+      "Risk management",
+      "Team leadership"
+    ],
+    icon: <ShieldCheck className="h-12 w-12 text-blue-500" />,
+    href: "/careers/safety/ncso"
+  },
+  {
+    id: 'crsp',
+    title: "Canadian Registered Safety Professional (CRSP)",
+    description: "Senior safety management and strategic planning",
+    requirements: [
+      "CRSP certification",
+      "Bachelor's degree preferred",
+      "7+ years safety experience",
+      "Project management skills"
+    ],
+    responsibilities: [
+      "Safety strategy development",
+      "Program evaluation",
+      "Corporate safety leadership",
+      "Stakeholder management"
+    ],
+    icon: <Award className="h-12 w-12 text-green-500" />,
+    href: "/careers/safety/crsp"
+  },
+  {
+    id: 'coordinator',
+    title: "Safety Coordinator",
+    description: "Support safety program implementation",
+    requirements: [
+      "Safety certification",
+      "2+ years construction experience",
+      "Computer proficiency",
+      "Communication skills"
+    ],
+    responsibilities: [
+      "Safety documentation",
+      "Training coordination",
+      "Inspection assistance",
+      "Reporting"
+    ],
+    icon: <ClipboardCheck className="h-12 w-12 text-orange-500" />,
+    href: "/careers/safety/coordinator"
   }
+]
+
+interface Career {
+  id: string
+  category: string
+  title: string
+  description: string
+  certification: string[]
+  bcSpecific: {
+    companies: string[]
+    union: string
+    regulations: string[]
+  }
+  trainingProvider: string
+  trainingUrl: string
+}
+
+const updatedCareers: Career[] = [
+  ...careers,
+  ...safetyRoles.map(role => ({
+    id: role.id,
+    category: 'safety',
+    title: role.title,
+    description: role.description,
+    certification: role.requirements,
+    bcSpecific: {
+      companies: [],
+      union: '',
+      regulations: []
+    },
+    trainingProvider: '',
+    trainingUrl: role.href
+  }))
 ]
 
 export default function CareersPage() {
@@ -132,8 +189,8 @@ export default function CareersPage() {
   const currentCategory = searchParams.get('category') || 'all'
 
   const filteredCareers = currentCategory === 'all' 
-    ? careers 
-    : careers.filter(career => career.category === currentCategory)
+    ? updatedCareers 
+    : updatedCareers.filter(career => career.category === currentCategory)
 
   return (
     <div className="space-y-8">

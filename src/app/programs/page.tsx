@@ -8,7 +8,7 @@ import {
   Globe,
   Heart,
   Target,
-  HandshakeIcon,
+  Handshake,
   Blocks,
   ArrowRightCircle,
   Building2,
@@ -41,26 +41,6 @@ const programCategories = [
         icon: <HardHat className="h-12 w-12 text-green-500" />
       }
     ],
-    funding: {
-      sources: [
-        {
-          name: "WorkBC Training Grants",
-          amount: "Up to $10,000 per participant",
-          eligibility: "BC residents, unemployed or underemployed"
-        },
-        {
-          name: "BC Access Grant",
-          amount: "Up to $4,000 per year",
-          eligibility: "Low to middle income BC students"
-        }
-      ],
-      support: [
-        "Living allowance during training",
-        "Transportation assistance",
-        "Tool and equipment subsidies",
-        "Childcare support"
-      ]
-    },
     programs: [
       {
         title: "Apprenticeships",
@@ -163,7 +143,7 @@ const programCategories = [
           "BC First Nations Construction Council"
         ],
         description: "Construction programs supporting Indigenous communities.",
-        icon: <HandshakeIcon className="h-12 w-12 text-green-500" />,
+        icon: <Handshake className="h-12 w-12 text-green-500" />,
         href: "/programs/indigenous",
         features: [
           "Cultural Integration",
@@ -287,58 +267,46 @@ export default function ProgramsPage() {
     <div className="space-y-16 py-8">
       <section className="text-center space-y-4">
         <h1 className="text-4xl font-bold tracking-tighter md:text-5xl">
-          Construction Career Programs
+          Construction Programs
         </h1>
         <p className="text-xl text-muted-foreground max-w-[800px] mx-auto">
-          Find the right program to start or advance your construction career in British Columbia
+          Comprehensive career development programs for the construction industry
         </p>
+        <Link href="/career-programs" className="text-sm text-muted-foreground hover:text-foreground">
+          View training certifications →
+        </Link>
       </section>
 
-      <section className="w-full max-w-7xl mx-auto px-4">
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {programCategories[0].programs.map((program) => (
-            <Link 
-              key={program.title}
-              href={program.href}
-              className="block group"
-            >
-              <div className="h-full border border-border hover:border-foreground/50 rounded-lg p-6 transition-colors">
-                <div className="flex flex-col items-center text-center space-y-6">
-                  <div className="transform transition-transform group-hover:scale-110">
+      {programCategories.map((category) => (
+        <section key={category.title} className="w-full max-w-7xl mx-auto px-4 space-y-8">
+          <div className="text-center space-y-4">
+            <h2 className="text-3xl font-bold tracking-tighter">{category.title}</h2>
+            <p className="text-lg text-muted-foreground max-w-[600px] mx-auto">
+              {category.description}
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {category.programs.map((program) => (
+              <Link 
+                key={program.title}
+                href={program.href}
+                className="group"
+              >
+                <div className="h-full border border-border hover:border-foreground/50 rounded-lg p-6 transition-colors">
+                  <div className="flex flex-col items-center text-center space-y-4">
                     {program.icon}
-                  </div>
-                  <div className="space-y-3">
                     <h3 className="text-xl font-semibold">{program.title}</h3>
-                    <p className="text-sm text-muted-foreground">{program.description}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {program.description}
+                    </p>
                   </div>
-                  
-                  {program.features && (
-                    <ul className="w-full space-y-2 text-sm">
-                      {program.features.map((feature) => (
-                        <li key={feature} className="flex items-center justify-center">
-                          <Building className="h-4 w-4 mr-2 text-muted-foreground" />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-
-                  {program.partners && program.partners.length > 0 && (
-                    <div className="w-full pt-6 border-t border-border">
-                      <h4 className="text-sm font-medium mb-3">Program Partners</h4>
-                      <ul className="text-sm text-muted-foreground space-y-2">
-                        {program.partners.map((partner) => (
-                          <li key={partner}>{partner}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
                 </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
+              </Link>
+            ))}
+          </div>
+        </section>
+      ))}
     </div>
   )
 } 

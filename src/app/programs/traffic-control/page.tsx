@@ -10,8 +10,8 @@ import {
   HardHat,
   Shield,
   Building,
-  SignpostBig,
-  Road
+  Navigation,
+  Map
 } from "lucide-react"
 
 const courseContent = [
@@ -33,7 +33,7 @@ const courseContent = [
       "Communication methods",
       "Traffic pattern management"
     ],
-    icon: <SignpostBig className="h-12 w-12 text-blue-500" />
+    icon: <Navigation className="h-12 w-12 text-blue-500" />
   },
   {
     title: "Work Zone Safety",
@@ -43,7 +43,7 @@ const courseContent = [
       "Temporary traffic control",
       "Night operations"
     ],
-    icon: <Road className="h-12 w-12 text-orange-500" />
+    icon: <Map className="h-12 w-12 text-orange-500" />
   }
 ]
 

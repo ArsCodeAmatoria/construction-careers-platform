@@ -40,7 +40,8 @@ const navLinks = [
       { href: '/programs/veterans', label: 'Veterans Programs' },
       { href: '/programs/accessibility', label: 'Accessible Construction' },
       { href: '/programs/union-training', label: 'Union Training' },
-      { href: '/programs/leadership', label: 'Leadership Development' }
+      { href: '/programs/leadership', label: 'Leadership Development' },
+      { href: '/career-programs', label: 'Training Certifications' }
     ]
   },
 ]
