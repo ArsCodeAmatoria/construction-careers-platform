@@ -3,14 +3,31 @@
 import { type Career, careers } from '@/data/careers'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import { HardHat, Construction as CraneIcon, Brain, MapPin, Building2, Truck } from 'lucide-react'
+import { 
+  HardHat, 
+  Construction as CraneIcon, 
+  Brain, 
+  MapPin, 
+  Building2, 
+  Truck, 
+  Leaf, 
+  Users, 
+  Briefcase,
+  GraduationCap,
+  BookOpen
+} from 'lucide-react'
 import { useSearchParams, useRouter } from 'next/navigation'
 
 const categoryIcons = {
   'trades': <HardHat className="h-5 w-5" />,
   'crane-operations': <CraneIcon className="h-5 w-5" />,
   'technology': <Brain className="h-5 w-5" />,
-  'heavy-equipment': <Truck className="h-5 w-5" />
+  'heavy-equipment': <Truck className="h-5 w-5" />,
+  'sustainability': <Leaf className="h-5 w-5" />,
+  'management': <Briefcase className="h-5 w-5" />,
+  'apprenticeship': <Users className="h-5 w-5" />,
+  'entry-level': <GraduationCap className="h-5 w-5" />,
+  'training': <BookOpen className="h-5 w-5" />
 }
 
 const categories = [
@@ -19,6 +36,11 @@ const categories = [
   { id: 'crane-operations', label: 'Crane Operations', icon: <CraneIcon className="h-5 w-5" /> },
   { id: 'heavy-equipment', label: 'Heavy Equipment', icon: <Truck className="h-5 w-5" /> },
   { id: 'technology', label: 'Tech Careers', icon: <Brain className="h-5 w-5" /> },
+  { id: 'sustainability', label: 'Green Building', icon: <Leaf className="h-5 w-5" /> },
+  { id: 'management', label: 'Management', icon: <Briefcase className="h-5 w-5" /> },
+  { id: 'apprenticeship', label: 'Apprenticeships', icon: <Users className="h-5 w-5" /> },
+  { id: 'entry-level', label: 'Entry Level', icon: <GraduationCap className="h-5 w-5" /> },
+  { id: 'training', label: 'Training', icon: <BookOpen className="h-5 w-5" /> }
 ]
 
 export default function CareersPage() {
@@ -75,7 +97,7 @@ export default function CareersPage() {
           >
             <div className="p-6 space-y-4">
               <div className="flex items-center gap-4">
-                {categoryIcons[career.category]}
+                {categoryIcons[career.category] || <Building2 className="h-5 w-5" />}
                 <h3 className="text-xl font-semibold">{career.title}</h3>
               </div>
               

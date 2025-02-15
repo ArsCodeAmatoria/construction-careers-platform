@@ -21,7 +21,10 @@ const navLinks = [
       { href: '/careers?category=heavy-equipment', label: 'Heavy Equipment' },
       { href: '/careers?category=technology', label: 'Tech Careers' },
       { href: '/careers?category=sustainability', label: 'Green Building' },
-      { href: '/careers?category=management', label: 'Construction Management' }
+      { href: '/careers?category=management', label: 'Construction Management' },
+      { href: '/careers?category=apprenticeship', label: 'Apprenticeships' },
+      { href: '/careers?category=entry-level', label: 'Entry Level Programs' },
+      { href: '/careers?category=training', label: 'Training Programs' }
     ]
   },
   { href: '/technologies', label: 'Technologies' },
@@ -54,7 +57,7 @@ export function Header() {
             height={32} 
             className="w-auto h-8"
           />
-          <span className="font-bold uppercase">Embers Staffing</span>
+          <span className="font-bold uppercase text-xl">Embers Staffing</span>
         </Link>
         
         <nav className="flex flex-1 items-center justify-end space-x-4">
