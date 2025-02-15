@@ -1,7 +1,7 @@
 export type Career = {
   id: string;
   title: string;
-  category: 'trades' | 'crane-operations' | 'technology' | 'heavy-equipment';
+  category: 'trades' | 'crane-operations' | 'technology' | 'heavy-equipment' | 'management';
   description: string;
   salary: string;
   certification: string[];
@@ -18,7 +18,11 @@ export type Career = {
     regulations?: string[];
     additionalCerts?: string[];
     companies?: string[];
+    demand?: string;
+    regions?: string[];
+    certifications?: string[];
   };
+  requirements?: string[];
 }
 
 export const careers: Career[] = [
@@ -872,6 +876,119 @@ export const careers: Career[] = [
         'Sea to Sky Removal',
         'Revolution Resource Recovery',
         'Recycling Alternative'
+      ]
+    }
+  },
+  {
+    id: 'project-manager',
+    title: 'Project Manager',
+    category: 'management',
+    description: 'Lead and oversee construction projects from inception to completion.',
+    salary: '$85,000 - $150,000',
+    requirements: [
+      'Bachelor's degree in Construction Management, Engineering, or related field',
+      '5+ years of construction experience',
+      'PMP certification preferred',
+      'Strong leadership and communication skills'
+    ],
+    bcSpecific: {
+      demand: 'High',
+      regions: ['Vancouver', 'Victoria', 'Kelowna', 'Prince George'],
+      certifications: ['Gold Seal Certification', 'PMP'],
+      regulations: [
+        'WorkSafeBC OHS Regulations',
+        'BC Building Code compliance'
+      ]
+    },
+    trainingProvider: 'BCIT',
+    trainingUrl: 'https://www.bcit.ca/programs/construction-management/'
+  },
+  {
+    id: 'field-coordinator',
+    title: 'Field Coordinator',
+    category: 'management',
+    description: 'Coordinate on-site construction activities and resources.',
+    salary: '$65,000 - $95,000',
+    requirements: [
+      'Diploma in Construction or related field',
+      '3+ years field experience',
+      'Strong organizational skills',
+      'Experience with construction scheduling software'
+    ],
+    bcSpecific: {
+      demand: 'High',
+      regions: ['Lower Mainland', 'Vancouver Island', 'Interior'],
+      certifications: ['Construction Safety Officer'],
+      regulations: [
+        'WorkSafeBC safety coordination requirements'
+      ]
+    }
+  },
+  {
+    id: 'project-coordinator',
+    title: 'Project Coordinator',
+    category: 'management',
+    description: 'Support project management team with documentation and coordination.',
+    salary: '$55,000 - $85,000',
+    requirements: [
+      'Diploma or degree in Construction Management',
+      '2+ years construction experience',
+      'Proficiency in project management software',
+      'Strong administrative skills'
+    ],
+    bcSpecific: {
+      demand: 'High',
+      regions: ['Metro Vancouver', 'Victoria', 'Kelowna'],
+      certifications: ['Construction Documentation Technician'],
+      regulations: [
+        'Contract administration requirements',
+        'Document control procedures'
+      ]
+    }
+  },
+  {
+    id: 'structural-superintendent',
+    title: 'Structural Superintendent',
+    category: 'management',
+    description: 'Oversee structural construction aspects of major projects.',
+    salary: '$90,000 - $140,000',
+    requirements: [
+      'Extensive experience in structural construction',
+      '10+ years construction experience',
+      'Strong technical knowledge of structural systems',
+      'Leadership experience'
+    ],
+    bcSpecific: {
+      demand: 'High',
+      regions: ['Vancouver', 'Surrey', 'Burnaby', 'Richmond'],
+      certifications: ['Gold Seal Certification'],
+      union: 'Optional - varies by employer',
+      regulations: [
+        'BC Building Code structural requirements',
+        'Seismic construction standards'
+      ]
+    }
+  },
+  {
+    id: 'interior-superintendent',
+    title: 'Interior Finishing Superintendent',
+    category: 'management',
+    description: 'Manage interior finishing phase of construction projects.',
+    salary: '$85,000 - $130,000',
+    requirements: [
+      'Extensive experience in interior finishing trades',
+      '8+ years construction experience',
+      'Knowledge of multiple finishing trades',
+      'Quality control experience'
+    ],
+    bcSpecific: {
+      demand: 'Medium-High',
+      regions: ['Lower Mainland', 'Victoria', 'Kelowna'],
+      certifications: ['Gold Seal Certification'],
+      union: 'Optional - varies by employer',
+      regulations: [
+        'BC Building Code interior requirements',
+        'Finishing standards compliance'
       ]
     }
   }

@@ -10,7 +10,14 @@ import {
   Target,
   HandshakeIcon,
   Blocks,
-  ArrowRightCircle
+  ArrowRightCircle,
+  Building2,
+  HardHat,
+  Briefcase,
+  School,
+  Factory,
+  BookOpen,
+  Construction
 } from "lucide-react"
 
 const programCategories = [
@@ -18,9 +25,18 @@ const programCategories = [
     title: "Career Entry Programs",
     description: "Starting your journey in construction",
     partners: [
-      { name: "WorkBC", logo: "/partners/workbc.svg" },
-      { name: "BC Construction Association", logo: "/partners/bcca.svg" },
-      { name: "Industry Training Authority BC", logo: "/partners/ita.svg" }
+      { 
+        name: "WorkBC", 
+        icon: <Briefcase className="h-12 w-12 text-blue-500" />
+      },
+      { 
+        name: "BC Construction Association", 
+        icon: <Building2 className="h-12 w-12 text-orange-500" />
+      },
+      { 
+        name: "Industry Training Authority BC", 
+        icon: <HardHat className="h-12 w-12 text-green-500" />
+      }
     ],
     funding: {
       sources: [
@@ -123,9 +139,18 @@ const programCategories = [
     title: "Specialized Programs",
     description: "Targeted support for diverse groups",
     partners: [
-      { name: "BC Construction Association", logo: "/partners/bcca.svg" },
-      { name: "WorkSafeBC", logo: "/partners/worksafe.svg" },
-      { name: "Industry Training Authority", logo: "/partners/ita.svg" }
+      { 
+        name: "BC Construction Association", 
+        icon: <Building2 className="h-12 w-12 text-orange-500" />
+      },
+      { 
+        name: "WorkSafeBC", 
+        icon: <Shield className="h-12 w-12 text-red-500" />
+      },
+      { 
+        name: "Industry Training Authority", 
+        icon: <HardHat className="h-12 w-12 text-green-500" />
+      }
     ],
     programs: [
       {
@@ -187,6 +212,20 @@ const programCategories = [
   {
     title: "Professional Development",
     description: "Advance your construction career",
+    partners: [
+      { 
+        name: "BCIT", 
+        icon: <School className="h-12 w-12 text-blue-500" />
+      },
+      { 
+        name: "BC Construction Safety Alliance", 
+        icon: <Shield className="h-12 w-12 text-red-500" />
+      },
+      { 
+        name: "BC Building Trades", 
+        icon: <Construction className="h-12 w-12 text-yellow-500" />
+      }
+    ],
     programs: [
       {
         title: "Leadership Development",
@@ -217,6 +256,20 @@ const programCategories = [
   {
     title: "Support Programs",
     description: "Additional resources and assistance",
+    partners: [
+      { 
+        name: "WorkBC", 
+        icon: <Briefcase className="h-12 w-12 text-blue-500" />
+      },
+      { 
+        name: "BC Construction Association", 
+        icon: <Building2 className="h-12 w-12 text-orange-500" />
+      },
+      { 
+        name: "Access BC", 
+        icon: <Heart className="h-12 w-12 text-pink-500" />
+      }
+    ],
     programs: [
       {
         title: "Accessible Construction",
@@ -248,98 +301,94 @@ const programCategories = [
 
 export default function ProgramsPage() {
   return (
-    <div className="flex flex-col items-center space-y-16 py-8">
-      <section className="text-center space-y-6 max-w-4xl px-4">
-        <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
+    <div className="flex flex-col items-center space-y-20 py-12">
+      <section className="text-center space-y-8 max-w-4xl px-4">
+        <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
           Construction Programs
         </h1>
-        <p className="text-xl text-muted-foreground max-w-[700px] mx-auto">
+        <p className="text-xl text-muted-foreground max-w-[800px] mx-auto leading-relaxed">
           Discover specialized programs supporting diverse communities in British Columbia's 
           construction industry. Find the support you need to build your future.
         </p>
       </section>
 
       {programCategories.map((category) => (
-        <section key={category.title} className="w-full max-w-7xl px-4 space-y-8">
-          <div className="text-center space-y-4">
-            <h2 className="text-3xl font-bold tracking-tighter">{category.title}</h2>
+        <section key={category.title} className="w-full max-w-7xl px-4 space-y-12">
+          <div className="text-center space-y-6 max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
+              {category.title}
+            </h2>
             <p className="text-lg text-muted-foreground">{category.description}</p>
-            
-            {/* Partner Organizations */}
-            <div className="mt-8">
-              <h3 className="text-lg font-semibold mb-4">Partner Organizations</h3>
-              <div className="flex flex-wrap justify-center gap-6">
+          </div>
+          
+          {category.partners && category.partners.length > 0 && (
+            <div className="text-center space-y-6">
+              <h3 className="text-xl font-semibold">Partner Organizations</h3>
+              <div className="flex flex-wrap justify-center gap-8">
                 {category.partners.map((partner) => (
-                  <div key={partner.name} className="text-center">
-                    <div className="w-24 h-24 bg-card rounded-lg p-2 flex items-center justify-center">
-                      <img 
-                        src={partner.logo} 
-                        alt={partner.name} 
-                        className="max-w-full max-h-full object-contain"
-                      />
+                  <div key={partner.name} className="text-center group">
+                    <div className="w-28 h-28 border border-border rounded-xl p-5 flex items-center justify-center 
+                                  transition-colors hover:border-foreground/50 hover:bg-accent">
+                      {partner.icon}
                     </div>
-                    <p className="mt-2 text-sm text-muted-foreground">{partner.name}</p>
+                    <p className="mt-3 text-sm font-medium text-muted-foreground group-hover:text-foreground">
+                      {partner.name}
+                    </p>
                   </div>
                 ))}
               </div>
             </div>
-          </div>
+          )}
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 place-items-center">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 place-items-stretch">
             {category.programs.map((program) => (
               <Link 
                 key={program.title} 
                 href={program.href}
-                className="w-full group"
+                className="group h-full"
               >
-                <div className="h-full border border-border hover:border-foreground/50 rounded-lg p-6 transition-colors">
-                  <div className="flex flex-col items-center text-center">
-                    {program.icon}
-                    <h3 className="mt-4 text-xl font-semibold">{program.title}</h3>
-                    <p className="mt-2 text-sm text-muted-foreground">{program.description}</p>
-                    <ul className="mt-4 space-y-2 text-sm w-full">
+                <div className="h-full border border-border hover:border-foreground/50 rounded-xl p-8 
+                               transition-all duration-300 hover:shadow-md hover:-translate-y-1">
+                  <div className="flex flex-col items-center text-center space-y-6">
+                    <div className="transform transition-transform group-hover:scale-110">
+                      {program.icon}
+                    </div>
+                    <div className="space-y-3">
+                      <h3 className="text-xl font-semibold">{program.title}</h3>
+                      <p className="text-sm text-muted-foreground">{program.description}</p>
+                    </div>
+                    
+                    <ul className="w-full space-y-2 text-sm">
                       {program.features.map((feature) => (
                         <li key={feature} className="flex items-center justify-center">
                           <Building className="h-4 w-4 mr-2 text-muted-foreground" />
-                          {feature}
+                          <span>{feature}</span>
                         </li>
                       ))}
                     </ul>
-                    
-                    {/* Program Partners */}
-                    <div className="mt-4 pt-4 border-t border-border w-full">
-                      <h4 className="text-sm font-medium mb-2">Program Partners</h4>
-                      <ul className="text-sm text-muted-foreground space-y-1">
-                        {program.partners.map((partner) => (
-                          <li key={partner}>{partner}</li>
-                        ))}
-                      </ul>
-                    </div>
 
-                    {/* Funding Information */}
+                    {program.partners && program.partners.length > 0 && (
+                      <div className="w-full pt-6 border-t border-border">
+                        <h4 className="text-sm font-medium mb-3">Program Partners</h4>
+                        <ul className="text-sm text-muted-foreground space-y-2">
+                          {program.partners.map((partner) => (
+                            <li key={partner}>{partner}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
                     {program.funding && (
-                      <div className="mt-4 pt-4 border-t border-border w-full">
-                        <h4 className="text-sm font-medium mb-2">Funding & Support</h4>
-                        
-                        {/* Available Grants */}
-                        <div className="space-y-3">
+                      <div className="w-full pt-6 border-t border-border space-y-4">
+                        <h4 className="text-sm font-medium">Funding & Support</h4>
+                        <div className="space-y-4">
                           {program.funding.grants.map((grant) => (
                             <div key={grant.name} className="text-left">
-                              <h5 className="text-sm font-medium text-foreground">{grant.name}</h5>
+                              <h5 className="text-sm font-medium">{grant.name}</h5>
                               <p className="text-sm text-muted-foreground">{grant.amount}</p>
                               <p className="text-xs text-muted-foreground">{grant.details}</p>
                             </div>
                           ))}
-                        </div>
-                        
-                        {/* Additional Support */}
-                        <div className="mt-3">
-                          <h5 className="text-sm font-medium mb-1">Additional Support</h5>
-                          <ul className="text-xs text-muted-foreground space-y-1">
-                            {program.funding.additional.map((support) => (
-                              <li key={support}>{support}</li>
-                            ))}
-                          </ul>
                         </div>
                       </div>
                     )}
@@ -348,56 +397,51 @@ export default function ProgramsPage() {
               </Link>
             ))}
           </div>
+
+          {category.funding && (
+            <div className="border border-border rounded-xl p-8 mt-12 max-w-4xl mx-auto">
+              <h3 className="text-2xl font-semibold text-center mb-8">Available Funding</h3>
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="space-y-6">
+                  <h4 className="text-xl font-medium">Funding Sources</h4>
+                  <div className="space-y-6">
+                    {category.funding.sources.map((source) => (
+                      <div key={source.name} className="space-y-2">
+                        <h5 className="font-medium">{source.name}</h5>
+                        <p className="text-sm text-muted-foreground">{source.amount}</p>
+                        <p className="text-sm text-muted-foreground">
+                          Eligibility: {source.eligibility}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="space-y-6">
+                  <h4 className="text-xl font-medium">Support Services</h4>
+                  <ul className="space-y-4">
+                    {category.funding.support.map((item) => (
+                      <li key={item} className="flex items-center text-sm text-muted-foreground">
+                        <Shield className="h-4 w-4 mr-3 flex-shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          )}
         </section>
       ))}
 
-      {/* Add category-level funding section */}
-      <section className="w-full max-w-7xl px-4 mt-8">
-        <div className="border border-border rounded-lg p-6">
-          <h3 className="text-xl font-semibold text-center mb-4">Available Funding</h3>
-          
-          <div className="grid md:grid-cols-2 gap-6">
-            {/* Funding Sources */}
-            <div>
-              <h4 className="text-lg font-medium mb-3">Funding Sources</h4>
-              <div className="space-y-4">
-                {category.funding.sources.map((source) => (
-                  <div key={source.name} className="space-y-1">
-                    <h5 className="font-medium">{source.name}</h5>
-                    <p className="text-sm text-muted-foreground">{source.amount}</p>
-                    <p className="text-sm text-muted-foreground">
-                      Eligibility: {source.eligibility}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            {/* Support Services */}
-            <div>
-              <h4 className="text-lg font-medium mb-3">Support Services</h4>
-              <ul className="space-y-2">
-                {category.funding.support.map((item) => (
-                  <li key={item} className="text-sm text-muted-foreground flex items-center">
-                    <Shield className="h-4 w-4 mr-2" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="w-full max-w-4xl px-4 text-center space-y-6">
-        <h2 className="text-3xl font-bold tracking-tighter">
+      <section className="w-full max-w-4xl px-4 text-center space-y-8 py-8">
+        <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
           Find Your Program
         </h2>
-        <p className="text-lg text-muted-foreground">
+        <p className="text-xl text-muted-foreground max-w-[600px] mx-auto">
           Explore programs designed to support your journey in BC's construction industry.
         </p>
         <Link href="/careers">
-          <Button size="lg">
+          <Button size="lg" className="px-8">
             <Building className="mr-2 h-5 w-5" />
             View Career Options
           </Button>

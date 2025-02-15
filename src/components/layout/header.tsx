@@ -20,6 +20,7 @@ const navLinks = [
       { href: '/careers?category=heavy-equipment', label: 'Heavy Equipment' },
       { href: '/careers?category=technology', label: 'Tech Careers' },
       { href: '/careers?category=sustainability', label: 'Green Building' },
+      { href: '/careers?category=management', label: 'Construction Management' }
     ]
   },
   { href: '/technologies', label: 'Technologies' },
