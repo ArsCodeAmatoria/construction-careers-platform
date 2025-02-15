@@ -14,7 +14,11 @@ import {
   Users, 
   Briefcase,
   GraduationCap,
-  BookOpen
+  BookOpen,
+  Shield, 
+  ShieldCheck, 
+  Award, 
+  ClipboardCheck
 } from 'lucide-react'
 import { useSearchParams, useRouter } from 'next/navigation'
 
@@ -40,7 +44,86 @@ const categories = [
   { id: 'management', label: 'Management', icon: <Briefcase className="h-5 w-5" /> },
   { id: 'apprenticeship', label: 'Apprenticeships', icon: <Users className="h-5 w-5" /> },
   { id: 'entry-level', label: 'Entry Level', icon: <GraduationCap className="h-5 w-5" /> },
-  { id: 'training', label: 'Training', icon: <BookOpen className="h-5 w-5" /> }
+  { id: 'training', label: 'Training', icon: <BookOpen className="h-5 w-5" /> },
+  {
+    title: "Safety Careers",
+    description: "Lead safety initiatives and ensure workplace compliance",
+    roles: [
+      {
+        title: "Construction Safety Officer (CSO)",
+        description: "Lead and implement site safety programs",
+        requirements: [
+          "CSO certification",
+          "3+ years construction experience",
+          "OHS regulations knowledge",
+          "First aid certification"
+        ],
+        responsibilities: [
+          "Site safety inspections",
+          "Safety program management",
+          "Incident investigation",
+          "Safety training delivery"
+        ],
+        icon: <Shield className="h-12 w-12 text-red-500" />,
+        href: "/careers/safety/cso"
+      },
+      {
+        title: "National Construction Safety Officer (NCSO)",
+        description: "Advanced safety leadership and program development",
+        requirements: [
+          "NCSO designation",
+          "5+ years safety experience",
+          "Advanced OHS training",
+          "Leadership experience"
+        ],
+        responsibilities: [
+          "Safety program development",
+          "Regulatory compliance",
+          "Risk management",
+          "Team leadership"
+        ],
+        icon: <ShieldCheck className="h-12 w-12 text-blue-500" />,
+        href: "/careers/safety/ncso"
+      },
+      {
+        title: "Canadian Registered Safety Professional (CRSP)",
+        description: "Senior safety management and strategic planning",
+        requirements: [
+          "CRSP certification",
+          "Bachelor's degree preferred",
+          "7+ years safety experience",
+          "Project management skills"
+        ],
+        responsibilities: [
+          "Safety strategy development",
+          "Program evaluation",
+          "Corporate safety leadership",
+          "Stakeholder management"
+        ],
+        icon: <Award className="h-12 w-12 text-green-500" />,
+        href: "/careers/safety/crsp"
+      },
+      {
+        title: "Safety Coordinator",
+        description: "Support safety program implementation",
+        requirements: [
+          "Safety certification",
+          "2+ years construction experience",
+          "Computer proficiency",
+          "Communication skills"
+        ],
+        responsibilities: [
+          "Safety documentation",
+          "Training coordination",
+          "Inspection assistance",
+          "Reporting"
+        ],
+        icon: <ClipboardCheck className="h-12 w-12 text-orange-500" />,
+        href: "/careers/safety/coordinator"
+      }
+    ],
+    icon: <Shield className="h-12 w-12 text-red-500" />
+  }
 ]
 
 export default function CareersPage() {

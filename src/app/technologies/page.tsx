@@ -8,7 +8,14 @@ import {
   Plane,
   LineChart,
   Cog,
-  Brain
+  Brain,
+  Zap,
+  Recycle,
+  Sun,
+  Trash2,
+  Network,
+  Settings,
+  Users
 } from "lucide-react"
 
 const technologyCategories = [
@@ -50,10 +57,30 @@ const technologyCategories = [
     icon: <Leaf className="h-12 w-12 text-green-500" />,
     href: "/technologies/green",
     features: [
-      "Energy Efficiency",
-      "Sustainable Materials",
-      "Renewable Systems",
-      "Waste Reduction"
+      {
+        title: "Energy Efficiency",
+        description: "Optimize building energy performance",
+        icon: <Zap className="h-12 w-12 text-yellow-500" />,
+        href: "/technologies/green/energy-efficiency"
+      },
+      {
+        title: "Sustainable Materials",
+        description: "Eco-friendly construction materials",
+        icon: <Recycle className="h-12 w-12 text-green-500" />,
+        href: "/technologies/green/sustainable-materials"
+      },
+      {
+        title: "Renewable Systems",
+        description: "Clean energy integration",
+        icon: <Sun className="h-12 w-12 text-orange-500" />,
+        href: "/technologies/green/renewable-systems"
+      },
+      {
+        title: "Waste Reduction",
+        description: "Minimize construction waste",
+        icon: <Trash2 className="h-12 w-12 text-blue-500" />,
+        href: "/technologies/green/waste-reduction"
+      }
     ]
   },
   {
@@ -62,10 +89,30 @@ const technologyCategories = [
     icon: <Cpu className="h-12 w-12 text-blue-500" />,
     href: "/technologies/smart-building",
     features: [
-      "IoT Systems",
-      "Energy Management",
-      "Automated Controls",
-      "Occupancy Optimization"
+      {
+        title: "IoT Systems",
+        description: "Connected building systems",
+        icon: <Network className="h-12 w-12 text-purple-500" />,
+        href: "/technologies/smart-building/iot"
+      },
+      {
+        title: "Energy Management",
+        description: "Smart energy monitoring and control",
+        icon: <Zap className="h-12 w-12 text-yellow-500" />,
+        href: "/technologies/smart-building/energy"
+      },
+      {
+        title: "Automated Controls",
+        description: "Intelligent building automation",
+        icon: <Settings className="h-12 w-12 text-blue-500" />,
+        href: "/technologies/smart-building/automation"
+      },
+      {
+        title: "Occupancy Optimization",
+        description: "Smart space utilization",
+        icon: <Users className="h-12 w-12 text-green-500" />,
+        href: "/technologies/smart-building/occupancy"
+      }
     ]
   }
 ]
@@ -108,29 +155,35 @@ export default function TechnologiesPage() {
 
       <section className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 w-full max-w-7xl px-4 place-items-center">
         {technologyCategories.map((category) => (
-          <Link 
+          <div 
             key={category.title} 
-            href={category.href}
             className="w-full group"
           >
             <div className="h-full border border-border hover:border-foreground/50 rounded-lg p-6 transition-colors">
               <div className="flex flex-col items-center text-center">
                 {category.icon}
-                <h3 className="mt-4 text-xl font-semibold">{category.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{category.description}</p>
+                <Link href={category.href}>
+                  <h3 className="mt-4 text-xl font-semibold">{category.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{category.description}</p>
+                </Link>
                 <ul className="mt-4 space-y-2 text-sm w-full">
                   {category.features.map((feature) => (
-                    <li key={feature.title} className="flex items-center justify-center">
-                      {feature.icon}
-                      <Link href={feature.href} className="ml-2 text-sm text-muted-foreground">
-                        {feature.title}
+                    <li key={feature.title}>
+                      <Link 
+                        href={feature.href} 
+                        className="flex items-center justify-center hover:text-foreground"
+                      >
+                        {feature.icon}
+                        <span className="ml-2 text-sm text-muted-foreground">
+                          {feature.title}
+                        </span>
                       </Link>
                     </li>
                   ))}
                 </ul>
               </div>
             </div>
-          </Link>
+          </div>
         ))}
       </section>
 
