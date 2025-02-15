@@ -47,7 +47,7 @@ export function Header() {
       <div className="container flex h-16 items-center">
         <Link href="/" className="flex items-center space-x-2">
           <Building2 className="h-6 w-6" />
-          <span className="font-bold">ConstructTech BC</span>
+          <span className="font-bold">Embers Staffing</span>
         </Link>
         
         <nav className="flex flex-1 items-center justify-end space-x-4">
