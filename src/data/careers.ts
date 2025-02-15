@@ -885,6 +885,11 @@ export const careers: Career[] = [
     category: 'management',
     description: 'Lead and oversee construction projects from inception to completion.',
     salary: '$85,000 - $150,000',
+    certification: [
+      'Project Management Professional (PMP)',
+      'Gold Seal Certification',
+      'Construction Management Certificate'
+    ],
     requirements: [
       'Bachelor\'s degree in Construction Management, Engineering, or related field',
       '5+ years of construction experience',
@@ -909,6 +914,11 @@ export const careers: Career[] = [
     category: 'management',
     description: 'Coordinate on-site construction activities and resources.',
     salary: '$65,000 - $95,000',
+    certification: [
+      'Construction Safety Officer (CSO)',
+      'First Aid Level 1',
+      'Site Management Safety Training Scheme'
+    ],
     requirements: [
       'Diploma in Construction or related field',
       '3+ years field experience',
@@ -930,6 +940,11 @@ export const careers: Career[] = [
     category: 'management',
     description: 'Support project management team with documentation and coordination.',
     salary: '$55,000 - $85,000',
+    certification: [
+      'Construction Documentation Technician',
+      'Project Coordination Certificate',
+      'Safety Coordination Training'
+    ],
     requirements: [
       'Diploma or degree in Construction Management',
       '2+ years construction experience',
@@ -952,6 +967,11 @@ export const careers: Career[] = [
     category: 'management',
     description: 'Oversee structural construction aspects of major projects.',
     salary: '$90,000 - $140,000',
+    certification: [
+      'Gold Seal Certification',
+      'Structural Inspection Certificate',
+      'Advanced Safety Management'
+    ],
     requirements: [
       'Extensive experience in structural construction',
       '10+ years construction experience',
@@ -975,6 +995,11 @@ export const careers: Career[] = [
     category: 'management',
     description: 'Manage interior finishing phase of construction projects.',
     salary: '$85,000 - $130,000',
+    certification: [
+      'Gold Seal Certification',
+      'Interior Systems Supervision Certificate',
+      'Quality Control Management'
+    ],
     requirements: [
       'Extensive experience in interior finishing trades',
       '8+ years construction experience',
