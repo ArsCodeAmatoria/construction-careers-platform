@@ -12,7 +12,8 @@ import {
   Shield,
   Building,
   Wrench,
-  Waves
+  Waves,
+  Container
 } from "lucide-react"
 
 const courseContent = [
@@ -34,7 +35,7 @@ const courseContent = [
       "Canadian offshore regulations",
       "Environmental monitoring"
     ],
-    icon: <Waves className="h-12 w-12 text-blue-500" />
+    icon: <Container className="h-12 w-12 text-blue-500" />
   },
   {
     title: "Technical Skills",
@@ -86,7 +87,7 @@ const highlights = [
   {
     title: "Industry Ready",
     description: "Direct pathway to offshore positions",
-    icon: <HardHat className="h-6 w-6 text-green-500" />
+    icon: <Container className="h-6 w-6 text-green-500" />
   }
 ]
 

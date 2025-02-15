@@ -13,7 +13,7 @@ import {
   Building,
   Wrench,
   Calculator,
-  Crane
+  Container
 } from "lucide-react"
 
 const courseContent = [
@@ -35,7 +35,7 @@ const courseContent = [
       "Engineered lifts",
       "Specialized equipment"
     ],
-    icon: <Crane className="h-12 w-12 text-blue-500" />
+    icon: <Container className="h-12 w-12 text-blue-500" />
   },
   {
     title: "Technical Mastery",
@@ -80,7 +80,7 @@ const highlights = [
   {
     title: "Specialized Skills",
     description: "Handle high-risk and engineered lifts",
-    icon: <Crane className="h-6 w-6 text-green-500" />
+    icon: <Container className="h-6 w-6 text-green-500" />
   }
 ]
 

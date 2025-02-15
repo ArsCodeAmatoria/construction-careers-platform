@@ -25,7 +25,7 @@ import { useSearchParams, useRouter } from 'next/navigation'
 import { type LucideIcon } from 'lucide-react'
 
 interface CategoryIcon {
-  [key: string]: LucideIcon
+  [key: string]: React.ReactNode
 }
 
 interface Category {
@@ -45,16 +45,16 @@ interface SafetyRole {
 }
 
 const categoryIcons: CategoryIcon = {
-  'trades': HardHat,
-  'crane-operations': CraneIcon,
-  'technology': Brain,
-  'heavy-equipment': Truck,
-  'sustainability': Leaf,
-  'management': Briefcase,
-  'apprenticeship': Users,
-  'entry-level': GraduationCap,
-  'training': BookOpen,
-  'safety': Shield
+  'trades': <HardHat className="h-5 w-5" />,
+  'crane-operations': <CraneIcon className="h-5 w-5" />,
+  'technology': <Brain className="h-5 w-5" />,
+  'heavy-equipment': <Truck className="h-5 w-5" />,
+  'sustainability': <Leaf className="h-5 w-5" />,
+  'management': <Briefcase className="h-5 w-5" />,
+  'apprenticeship': <Users className="h-5 w-5" />,
+  'entry-level': <GraduationCap className="h-5 w-5" />,
+  'training': <BookOpen className="h-5 w-5" />,
+  'safety': <Shield className="h-5 w-5" />
 }
 
 const categories: Category[] = [
