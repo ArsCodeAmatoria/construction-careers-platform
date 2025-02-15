@@ -19,7 +19,8 @@ import {
   BookOpen,
   Construction,
   Users2,
-  Plane
+  Plane,
+  Box
 } from "lucide-react"
 
 const programCategories = [
@@ -77,7 +78,13 @@ const programCategories = [
         title: "Training Programs",
         description: "Develop new skills and certifications",
         icon: <BookOpen className="h-12 w-12 text-purple-500" />,
-        href: "/careers?category=training"
+        href: "/programs/training"
+      },
+      {
+        title: "BIM Integration",
+        description: "Learn Building Information Modeling for modern construction",
+        icon: <Box className="h-12 w-12 text-indigo-500" />,
+        href: "/programs/bim-integration"
       },
       {
         title: "Women in Construction",

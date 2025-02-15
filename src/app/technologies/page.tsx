@@ -16,12 +16,32 @@ const technologyCategories = [
     title: "Digital Construction",
     description: "AI, automation, and digital tools transforming construction.",
     icon: <Cpu className="h-12 w-12 text-purple-500" />,
-    href: "/ai-automation",
+    href: "/technologies/digital-construction",
     features: [
-      "Artificial Intelligence",
-      "Robotics & Automation",
-      "BIM Integration",
-      "Digital Project Management"
+      {
+        title: "Artificial Intelligence",
+        description: "AI-powered solutions for construction optimization",
+        icon: <Brain className="h-12 w-12 text-purple-500" />,
+        href: "/technologies/digital-construction/ai"
+      },
+      {
+        title: "Robotics & Automation",
+        description: "Advanced robotics and automated construction processes",
+        icon: <Cog className="h-12 w-12 text-orange-500" />,
+        href: "/technologies/digital-construction/robotics"
+      },
+      {
+        title: "BIM Integration",
+        description: "Advanced 3D modeling and project coordination",
+        icon: <Database className="h-12 w-12 text-blue-500" />,
+        href: "/technologies/digital-construction/bim"
+      },
+      {
+        title: "Digital Project Management",
+        description: "Modern tools for efficient project delivery",
+        icon: <LineChart className="h-12 w-12 text-green-500" />,
+        href: "/technologies/digital-construction/project-management"
+      }
     ]
   },
   {
@@ -37,10 +57,10 @@ const technologyCategories = [
     ]
   },
   {
-    title: "Smart Buildings",
-    description: "Intelligent building systems and IoT integration.",
-    icon: <Building2 className="h-12 w-12 text-blue-500" />,
-    href: "/technologies/smart-buildings",
+    title: "Smart Building Technologies",
+    description: "Automation and control systems for modern buildings",
+    icon: <Cpu className="h-12 w-12 text-blue-500" />,
+    href: "/technologies/smart-building",
     features: [
       "IoT Systems",
       "Energy Management",
@@ -100,9 +120,11 @@ export default function TechnologiesPage() {
                 <p className="mt-2 text-sm text-muted-foreground">{category.description}</p>
                 <ul className="mt-4 space-y-2 text-sm w-full">
                   {category.features.map((feature) => (
-                    <li key={feature} className="flex items-center justify-center">
-                      <Cpu className="h-4 w-4 mr-2 text-muted-foreground" />
-                      {feature}
+                    <li key={feature.title} className="flex items-center justify-center">
+                      {feature.icon}
+                      <Link href={feature.href} className="ml-2 text-sm text-muted-foreground">
+                        {feature.title}
+                      </Link>
                     </li>
                   ))}
                 </ul>
