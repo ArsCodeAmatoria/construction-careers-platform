@@ -67,7 +67,7 @@ export const careers: Career[] = [
     id: 'electrical',
     title: 'Electrician',
     category: 'trades',
-    description: 'Power BC's construction industry, working on everything from Vancouver's Skytrain expansion to northern BC resource projects.',
+    description: 'Power BC\'s construction industry, working on everything from Vancouver\'s Skytrain expansion to northern BC resource projects.',
     salary: '$38-50/hr in BC (Union rates available)',
     certification: [
       'Red Seal Certification',
@@ -89,7 +89,7 @@ export const careers: Career[] = [
     id: 'tower-crane',
     title: 'Tower Crane Operator',
     category: 'crane-operations',
-    description: 'Essential for BC's high-rise construction boom, particularly in Vancouver, Burnaby, and Victoria's growing skylines.',
+    description: 'Essential for BC\'s high-rise construction boom, particularly in Vancouver, Burnaby, and Victoria\'s growing skylines.',
     salary: '$40-55/hr in BC (Union rates may vary)',
     certification: [
       'BC Crane Safety Certification',
@@ -109,7 +109,7 @@ export const careers: Career[] = [
     id: 'mobile-crane',
     title: 'Mobile Crane Operator',
     category: 'crane-operations',
-    description: 'Operate mobile cranes across BC's diverse construction sites, from Vancouver's urban projects to remote resource developments.',
+    description: 'Operate mobile cranes across BC\'s diverse construction sites, from Vancouver\'s urban projects to remote resource developments.',
     salary: '$38-52/hr in BC',
     certification: [
       'BC Crane Safety Certification',
@@ -129,7 +129,7 @@ export const careers: Career[] = [
     id: 'stiff-boom',
     title: 'Stiff Boom Crane Operator',
     category: 'crane-operations',
-    description: 'Specialized crane operation vital for BC's construction and resource sectors, particularly in forestry and mining.',
+    description: 'Specialized crane operation vital for BC\'s construction and resource sectors, particularly in forestry and mining.',
     salary: '$35-45/hr in BC',
     certification: [
       'BC Crane Safety Certification',
@@ -149,7 +149,7 @@ export const careers: Career[] = [
     id: 'folding-boom',
     title: 'Folding Boom Crane Operator',
     category: 'crane-operations',
-    description: 'Operate versatile folding boom cranes across BC's construction sites, particularly useful in urban development projects.',
+    description: 'Operate versatile folding boom cranes across BC\'s construction sites, particularly useful in urban development projects.',
     salary: '$35-45/hr in BC',
     certification: [
       'BC Crane Safety Certification',
@@ -295,7 +295,7 @@ export const careers: Career[] = [
     id: 'heavy-equipment-operator',
     title: 'Heavy Equipment Operator',
     category: 'trades',
-    description: 'Operate heavy machinery across BC's construction sites, from urban development to resource projects. Work with excavators, bulldozers, and loaders.',
+    description: 'Operate heavy machinery across BC\'s construction sites, from urban development to resource projects. Work with excavators, bulldozers, and loaders.',
     salary: '$35-50/hr in BC (Union rates may vary)',
     certification: [
       'Heavy Equipment Operator Certificate',
@@ -361,7 +361,7 @@ export const careers: Career[] = [
     id: 'bulldozer-operator',
     title: 'Bulldozer Operator',
     category: 'trades',
-    description: 'Shape and grade BC's construction landscapes, from residential developments to resource roads in northern BC.',
+    description: 'Shape and grade BC\'s construction landscapes, from residential developments to resource roads in northern BC.',
     salary: '$35-45/hr in BC',
     certification: [
       'Heavy Equipment Operator Certificate',
@@ -397,7 +397,7 @@ export const careers: Career[] = [
     description: 'Transport construction materials across BC construction sites, from urban developments to resource projects.',
     salary: '$30-45/hr in BC (Union rates available)',
     certification: [
-      'Class 3 Driver's License',
+      'Class 3 Driver\'s License',
       'Air Brake Endorsement',
       'Transportation of Dangerous Goods (TDG)'
     ],
@@ -435,7 +435,7 @@ export const careers: Career[] = [
     description: 'Transport heavy construction equipment throughout BC, specializing in oversized and specialized loads.',
     salary: '$35-50/hr in BC (Union scale)',
     certification: [
-      'Class 1 Driver's License',
+      'Class 1 Driver\'s License',
       'Air Brake Endorsement',
       'Heavy Equipment Transport Certification'
     ],
@@ -470,10 +470,10 @@ export const careers: Career[] = [
     id: 'concrete-mixer-driver',
     title: 'Concrete Mixer Driver',
     category: 'heavy-equipment',
-    description: 'Deliver ready-mix concrete to construction sites across BC's Lower Mainland and beyond.',
+    description: 'Deliver ready-mix concrete to construction sites across BC\'s Lower Mainland and beyond.',
     salary: '$32-45/hr in BC',
     certification: [
-      'Class 3 Driver's License',
+      'Class 3 Driver\'s License',
       'Air Brake Endorsement',
       'Concrete Delivery Certification'
     ],
@@ -511,7 +511,7 @@ export const careers: Career[] = [
     description: 'Supply fuel to construction equipment and sites across BC, ensuring continuous operations.',
     salary: '$32-45/hr in BC',
     certification: [
-      'Class 3 Driver's License with Air Brake',
+      'Class 3 Driver\'s License with Air Brake',
       'TDG Certification',
       'WHMIS Certification',
       'Petroleum Transport Certification'
@@ -547,7 +547,7 @@ export const careers: Career[] = [
     id: 'pipeline-welder',
     title: 'Pipeline Welder',
     category: 'trades',
-    description: 'Specialize in welding for BC's expanding LNG and pipeline projects, particularly in northern BC and coastal regions.',
+    description: 'Specialize in welding for BC\'s expanding LNG and pipeline projects, particularly in northern BC and coastal regions.',
     salary: '$45-65/hr in BC (Union rates)',
     certification: [
       'Red Seal Welding Certification',
@@ -581,7 +581,7 @@ export const careers: Career[] = [
     id: 'pipeline-inspector',
     title: 'Pipeline Construction Inspector',
     category: 'trades',
-    description: 'Ensure quality and safety standards in BC's pipeline construction projects, from LNG facilities to distribution networks.',
+    description: 'Ensure quality and safety standards in BC\'s pipeline construction projects, from LNG facilities to distribution networks.',
     salary: '$85,000-120,000/year in BC',
     certification: [
       'NACE Pipeline Inspector Certification',
@@ -613,7 +613,7 @@ export const careers: Career[] = [
     id: 'gas-plant-operator',
     title: 'LNG Plant Construction Operator',
     category: 'trades',
-    description: 'Operate and maintain equipment during construction of BC's LNG facilities, focusing on Kitimat and Prince Rupert regions.',
+    description: 'Operate and maintain equipment during construction of BC\'s LNG facilities, focusing on Kitimat and Prince Rupert regions.',
     salary: '$40-60/hr in BC',
     certification: [
       'Power Engineering Certification',
@@ -647,7 +647,7 @@ export const careers: Career[] = [
     id: 'environmental-monitor',
     title: 'Environmental Monitor - Oil & Gas',
     category: 'technology',
-    description: 'Monitor environmental compliance during construction of BC's energy projects, ensuring protection of sensitive ecosystems.',
+    description: 'Monitor environmental compliance during construction of BC\'s energy projects, ensuring protection of sensitive ecosystems.',
     salary: '$75,000-95,000/year in BC',
     certification: [
       'Environmental Professional Certification',
@@ -679,7 +679,7 @@ export const careers: Career[] = [
     id: 'pipeline-equipment-operator',
     title: 'Pipeline Equipment Operator',
     category: 'heavy-equipment',
-    description: 'Operate specialized equipment for pipeline construction across BC's diverse terrain, from coastal regions to northern projects.',
+    description: 'Operate specialized equipment for pipeline construction across BC\'s diverse terrain, from coastal regions to northern projects.',
     salary: '$38-55/hr in BC',
     certification: [
       'Pipeline Construction Safety Training',
@@ -745,7 +745,7 @@ export const careers: Career[] = [
     id: 'energy-modeler',
     title: 'Building Energy Modeler',
     category: 'technology',
-    description: 'Model and optimize energy performance for BC's sustainable construction projects and retrofits.',
+    description: 'Model and optimize energy performance for BC\'s sustainable construction projects and retrofits.',
     salary: '$75,000-110,000/year in BC',
     certification: [
       'Certified Energy Modeler (ASHRAE)',

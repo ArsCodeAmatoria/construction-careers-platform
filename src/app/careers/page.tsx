@@ -71,7 +71,7 @@ export default function CareersPage() {
         {filteredCareers.map((career) => (
           <div 
             key={career.id}
-            className="rounded-lg border bg-card text-card-foreground shadow-sm hover:shadow-md transition-shadow"
+            className="rounded-lg border border-border hover:border-foreground/50 transition-colors"
           >
             <div className="p-6 space-y-4">
               <div className="flex items-center gap-4">

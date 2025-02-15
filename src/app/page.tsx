@@ -8,8 +8,8 @@ import {
   Truck,
   Hammer,
   Cpu,
-  Drone,
-  HardDrive,
+  Plane,
+  Database,
   Factory,
   Leaf,
   LineChart
@@ -62,12 +62,12 @@ const techHighlights = [
   {
     title: "BIM Technology",
     description: "Create detailed 3D models and collaborate across construction teams.",
-    icon: <HardDrive className="h-8 w-8 text-blue-500" />
+    icon: <Database className="h-8 w-8 text-blue-500" />
   },
   {
-    title: "Drone Operations",
+    title: "Aerial Surveying",
     description: "Monitor and survey construction sites with advanced aerial technology.",
-    icon: <Drone className="h-8 w-8 text-green-500" />
+    icon: <Plane className="h-8 w-8 text-green-500" />
   },
   {
     title: "VR/AR Solutions",
@@ -119,21 +119,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Career Sections */}
-      <section className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 w-full max-w-7xl px-4">
+      {/* Career Sections - centered grid */}
+      <section className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 w-full max-w-7xl px-4 place-items-center">
         {careerSections.map((section) => (
           <Link 
             key={section.title} 
             href={section.href}
-            className="group"
+            className="group w-full"
           >
-            <div className="flex flex-col items-center p-6 border rounded-lg bg-card text-card-foreground hover:shadow-md transition-shadow">
+            <div className="flex flex-col items-center p-6 border border-border hover:border-foreground/50 rounded-lg transition-colors h-full">
               {section.icon}
-              <h3 className="mt-4 text-xl font-semibold">{section.title}</h3>
+              <h3 className="mt-4 text-xl font-semibold text-center">{section.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground text-center">{section.description}</p>
-              <ul className="mt-4 space-y-2 text-sm">
+              <ul className="mt-4 space-y-2 text-sm w-full">
                 {section.features.map((feature) => (
-                  <li key={feature} className="flex items-center">
+                  <li key={feature} className="flex items-center justify-center">
                     <Hammer className="h-4 w-4 mr-2 text-muted-foreground" />
                     {feature}
                   </li>
@@ -144,20 +144,20 @@ export default function Home() {
         ))}
       </section>
 
-      {/* Technology Highlights */}
+      {/* Technology Highlights - centered grid */}
       <section className="w-full max-w-7xl px-4 space-y-8">
         <h2 className="text-3xl font-bold tracking-tighter text-center">
           Construction Technology
         </h2>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 place-items-center">
           {techHighlights.map((tech) => (
             <div 
               key={tech.title}
-              className="p-6 border rounded-lg bg-card text-card-foreground"
+              className="p-6 border border-border hover:border-foreground/50 rounded-lg transition-colors w-full h-full flex flex-col items-center"
             >
               {tech.icon}
-              <h3 className="mt-4 text-lg font-semibold">{tech.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{tech.description}</p>
+              <h3 className="mt-4 text-lg font-semibold text-center">{tech.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground text-center">{tech.description}</p>
             </div>
           ))}
         </div>
