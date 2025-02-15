@@ -707,5 +707,172 @@ export const careers: Career[] = [
         'Banister Pipelines'
       ]
     }
+  },
+  {
+    id: 'sustainability-coordinator',
+    title: 'Construction Sustainability Coordinator',
+    category: 'technology',
+    description: 'Lead sustainable building practices and LEED certification processes for BC construction projects.',
+    salary: '$70,000-95,000/year in BC',
+    certification: [
+      'LEED Green Associate',
+      'LEED AP Building Design + Construction',
+      'Passive House Certification',
+      'BC Energy Step Code Training'
+    ],
+    skills: [
+      'Green Building Standards',
+      'Sustainability Assessment',
+      'Energy Modeling',
+      'Environmental Compliance',
+      'Project Documentation'
+    ],
+    bcSpecific: {
+      regulations: [
+        'BC Energy Step Code',
+        'Vancouver Green Building Policy',
+        'BC Building Code Sustainability Requirements'
+      ],
+      companies: [
+        'Perkins & Will',
+        'Dialog Design',
+        'Integral Group',
+        'Fast + Epp'
+      ]
+    }
+  },
+  {
+    id: 'energy-modeler',
+    title: 'Building Energy Modeler',
+    category: 'technology',
+    description: 'Model and optimize energy performance for BC's sustainable construction projects and retrofits.',
+    salary: '$75,000-110,000/year in BC',
+    certification: [
+      'Certified Energy Modeler (ASHRAE)',
+      'BC Energy Step Code Certification',
+      'Building Energy Specialist',
+      'Energy Management Certificate'
+    ],
+    skills: [
+      'Energy Simulation Software',
+      'Building Performance Analysis',
+      'Technical Report Writing',
+      'HVAC Systems Knowledge',
+      'Renewable Energy Integration'
+    ],
+    bcSpecific: {
+      regulations: [
+        'BC Energy Step Code Requirements',
+        'Clean BC Building Innovation Fund Guidelines',
+        'Municipal Green Building Requirements'
+      ],
+      companies: [
+        'Stantec',
+        'RDH Building Science',
+        'Morrison Hershfield',
+        'WSP Canada'
+      ]
+    }
+  },
+  {
+    id: 'renewable-systems-installer',
+    title: 'Renewable Energy Systems Installer',
+    category: 'trades',
+    description: 'Install and maintain solar, geothermal, and other renewable energy systems in BC buildings.',
+    salary: '$38-52/hr in BC',
+    certification: [
+      'Red Seal Electrician',
+      'Solar PV Installation Certification',
+      'Heat Pump Installation Certificate',
+      'NABCEP Certification'
+    ],
+    skills: [
+      'Solar PV Installation',
+      'Geothermal Systems',
+      'Heat Pump Technology',
+      'Electrical Systems',
+      'Renewable Integration'
+    ],
+    bcSpecific: {
+      union: 'IBEW Local 213',
+      regulations: [
+        'Technical Safety BC Standards',
+        'BC Renewable Energy Requirements',
+        'Clean BC Program Standards'
+      ],
+      companies: [
+        'Shift Energy',
+        'Terratek Energy',
+        'Vancouver Renewable Energy',
+        'Empower Energy'
+      ]
+    }
+  },
+  {
+    id: 'green-building-inspector',
+    title: 'Green Building Inspector',
+    category: 'technology',
+    description: 'Inspect and verify sustainable construction practices and energy efficiency measures across BC projects.',
+    salary: '$75,000-100,000/year in BC',
+    certification: [
+      'Building Officials Certification',
+      'LEED Green Associate',
+      'Energy Code Compliance Specialist',
+      'BC Energy Step Code Verifier'
+    ],
+    skills: [
+      'Building Code Knowledge',
+      'Energy Efficiency Standards',
+      'Inspection Protocols',
+      'Documentation Review',
+      'Compliance Verification'
+    ],
+    bcSpecific: {
+      regulations: [
+        'BC Building Code (Part 10)',
+        'Vancouver Building Bylaw',
+        'BC Energy Step Code',
+        'Zero Carbon Building Standards'
+      ],
+      companies: [
+        'City of Vancouver',
+        'City of Surrey',
+        'BC Housing',
+        'Passive House Canada'
+      ]
+    }
+  },
+  {
+    id: 'waste-management-specialist',
+    title: 'Construction Waste Management Specialist',
+    category: 'technology',
+    description: 'Develop and implement waste reduction strategies for BC construction projects, focusing on recycling and circular economy principles.',
+    salary: '$65,000-85,000/year in BC',
+    certification: [
+      'Waste Management Professional',
+      'LEED Materials & Resources Specialist',
+      'Construction Waste Recycling Certificate',
+      'Environmental Management Systems'
+    ],
+    skills: [
+      'Waste Reduction Planning',
+      'Recycling Programs',
+      'Material Recovery',
+      'Regulatory Compliance',
+      'Data Analysis'
+    ],
+    bcSpecific: {
+      regulations: [
+        'Metro Vancouver Waste Regulations',
+        'BC Construction Waste Guidelines',
+        'Clean BC Waste Reduction Requirements'
+      ],
+      companies: [
+        'Urban Impact Recycling',
+        'Sea to Sky Removal',
+        'Revolution Resource Recovery',
+        'Recycling Alternative'
+      ]
+    }
   }
 ] 

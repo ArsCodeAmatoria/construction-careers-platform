@@ -19,6 +19,7 @@ const navLinks = [
       { href: '/careers?category=crane-operations', label: 'Crane Operations' },
       { href: '/careers?category=heavy-equipment', label: 'Heavy Equipment' },
       { href: '/careers?category=technology', label: 'Tech Careers' },
+      { href: '/careers?category=sustainability', label: 'Green Building' },
     ]
   },
   { href: '/technologies', label: 'Technologies' },

@@ -10,7 +10,9 @@ import {
   Cpu,
   Drone,
   HardDrive,
-  Factory
+  Factory,
+  Leaf,
+  LineChart
 } from "lucide-react";
 
 const careerSections = [
@@ -41,6 +43,18 @@ const careerSections = [
     icon: <Cpu className="h-12 w-12 text-purple-500" />,
     features: ["BIM Modeling", "VR/AR Solutions", "Digital Project Management", "Smart Systems"],
     href: "/careers?category=technology"
+  },
+  {
+    title: "Green Building",
+    description: "Lead the transition to sustainable construction and renewable energy systems.",
+    icon: <Leaf className="h-12 w-12 text-green-500" />,
+    features: [
+      "Sustainability Coordination",
+      "Energy Modeling",
+      "Renewable Systems",
+      "Waste Management"
+    ],
+    href: "/careers?category=sustainability"
   }
 ]
 
@@ -64,6 +78,16 @@ const techHighlights = [
     title: "Digital Project Management",
     description: "Lead construction projects with modern digital tools and methodologies.",
     icon: <Factory className="h-8 w-8 text-orange-500" />
+  },
+  {
+    title: "Sustainable Technologies",
+    description: "Implement green building solutions and renewable energy systems.",
+    icon: <Leaf className="h-8 w-8 text-green-500" />
+  },
+  {
+    title: "Energy Modeling",
+    description: "Optimize building performance with advanced simulation tools.",
+    icon: <LineChart className="h-8 w-8 text-blue-500" />
   }
 ]
 
