@@ -1,7 +1,10 @@
+'use client'
+
 import { careers } from '@/data/careers'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import { HardHat, Crane, Brain, MapPin } from 'lucide-react'
+import { HardHat, Crane, Brain, MapPin, Building2 } from 'lucide-react'
+import { useSearchParams, useRouter } from 'next/navigation'
 
 const categoryIcons = {
   'trades': <HardHat className="h-5 w-5" />,
@@ -9,7 +12,22 @@ const categoryIcons = {
   'technology': <Brain className="h-5 w-5" />
 }
 
+const categories = [
+  { id: 'all', label: 'All Careers', icon: <Building2 className="h-5 w-5" /> },
+  { id: 'trades', label: 'Trades', icon: <HardHat className="h-5 w-5" /> },
+  { id: 'crane-operations', label: 'Crane Operations', icon: <Crane className="h-5 w-5" /> },
+  { id: 'technology', label: 'Tech Careers', icon: <Brain className="h-5 w-5" /> },
+]
+
 export default function CareersPage() {
+  const searchParams = useSearchParams()
+  const router = useRouter()
+  const currentCategory = searchParams.get('category') || 'all'
+
+  const filteredCareers = currentCategory === 'all' 
+    ? careers 
+    : careers.filter(career => career.category === currentCategory)
+
   return (
     <div className="space-y-8">
       <section className="text-center space-y-4">
@@ -24,11 +42,34 @@ export default function CareersPage() {
         </div>
       </section>
 
+      {/* Category Tabs */}
+      <div className="flex gap-2 overflow-x-auto pb-2">
+        {categories.map((category) => (
+          <Button
+            key={category.id}
+            variant={currentCategory === category.id ? "default" : "outline"}
+            className="flex items-center gap-2"
+            onClick={() => {
+              const params = new URLSearchParams(searchParams)
+              if (category.id === 'all') {
+                params.delete('category')
+              } else {
+                params.set('category', category.id)
+              }
+              router.push(`/careers?${params.toString()}`)
+            }}
+          >
+            {category.icon}
+            {category.label}
+          </Button>
+        ))}
+      </div>
+
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {careers.map((career) => (
+        {filteredCareers.map((career) => (
           <div 
             key={career.id}
-            className="rounded-lg border bg-card text-card-foreground shadow-sm"
+            className="rounded-lg border bg-card text-card-foreground shadow-sm hover:shadow-md transition-shadow"
           >
             <div className="p-6 space-y-4">
               <div className="flex items-center gap-4">
@@ -54,6 +95,16 @@ export default function CareersPage() {
 
               {career.bcSpecific && (
                 <div className="space-y-2">
+                  {career.bcSpecific.companies && (
+                    <div>
+                      <div className="text-sm font-medium">BC Companies:</div>
+                      <ul className="text-sm text-muted-foreground list-disc list-inside">
+                        {career.bcSpecific.companies.map((company) => (
+                          <li key={company}>{company}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                   {career.bcSpecific.union && (
                     <div>
                       <div className="text-sm font-medium">BC Union:</div>

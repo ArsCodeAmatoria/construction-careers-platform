@@ -12,6 +12,7 @@ export type Career = {
     union?: string;
     regulations?: string[];
     additionalCerts?: string[];
+    companies?: string[];
   };
 }
 
@@ -159,4 +160,130 @@ export const careers: Career[] = [
       ]
     }
   },
+
+  // Technology Careers
+  {
+    id: 'bim-specialist',
+    title: 'BIM Specialist',
+    category: 'technology',
+    description: 'Create and manage Building Information Models for BC construction projects, supporting major developments across Vancouver and the Lower Mainland.',
+    salary: '$65,000-95,000/year in BC',
+    certification: [
+      'Autodesk Certified Professional',
+      'BCIT BIM Technology Certificate',
+      'CanBIM Certification'
+    ],
+    skills: [
+      'Revit/AutoCAD',
+      '3D Modeling',
+      'Construction Documentation',
+      'Coordination',
+      'Technical Communication'
+    ],
+    bcSpecific: {
+      companies: [
+        'PCL Construction',
+        'EllisDon',
+        'Ledcor Group',
+        'Clark Builders'
+      ],
+      regulations: [
+        'BC Building Code compliance',
+        'WorkSafeBC digital documentation standards'
+      ]
+    }
+  },
+  {
+    id: 'vr-specialist',
+    title: 'VR/AR Construction Specialist',
+    category: 'technology',
+    description: 'Implement virtual and augmented reality solutions for construction projects across BC, enhancing project visualization and safety training.',
+    salary: '$70,000-100,000/year in BC',
+    certification: [
+      'Unity Certified Developer',
+      'Unreal Engine Certification',
+      'BCIT Digital Construction Certificate'
+    ],
+    skills: [
+      'VR/AR Development',
+      '3D Visualization',
+      'Unity/Unreal Engine',
+      'Safety Training Design',
+      'Project Communication'
+    ],
+    bcSpecific: {
+      companies: [
+        'Binnie Construction',
+        'Fusion Projects',
+        'BC Construction Innovation Hub'
+      ],
+      regulations: [
+        'WorkSafeBC Virtual Training Standards',
+        'BC Construction Safety Alliance guidelines'
+      ]
+    }
+  },
+  {
+    id: 'drone-operator',
+    title: 'Construction Drone Specialist',
+    category: 'technology',
+    description: 'Operate drones for surveying, inspection, and progress monitoring on BC construction sites, from urban developments to remote infrastructure projects.',
+    salary: '$60,000-85,000/year in BC',
+    certification: [
+      'Advanced RPAS Certificate (Transport Canada)',
+      'BC Land Surveyors certification',
+      'Construction Site Mapping Certification'
+    ],
+    skills: [
+      'Drone Operation',
+      'Photogrammetry',
+      'Site Mapping',
+      'Data Analysis',
+      'Safety Protocols'
+    ],
+    bcSpecific: {
+      regulations: [
+        'Transport Canada RPAS regulations',
+        'BC Privacy Laws for Aerial Photography',
+        'WorkSafeBC Aerial Work Standards'
+      ],
+      companies: [
+        'SkyTech Imaging',
+        'Vancouver Drone Services',
+        'BC Infrastructure Benefits Inc.'
+      ]
+    }
+  },
+  {
+    id: 'digital-construction-manager',
+    title: 'Digital Construction Manager',
+    category: 'technology',
+    description: 'Lead digital transformation initiatives in BC construction projects, integrating BIM, VR, and drone technologies for improved project delivery.',
+    salary: '$85,000-130,000/year in BC',
+    certification: [
+      'PMP Certification',
+      'Digital Construction Management Certificate',
+      'CanBIM Manager Certification'
+    ],
+    skills: [
+      'Digital Project Management',
+      'BIM Coordination',
+      'Technology Integration',
+      'Team Leadership',
+      'Innovation Strategy'
+    ],
+    bcSpecific: {
+      companies: [
+        'Bosa Properties',
+        'Anthem Properties',
+        'Concert Properties',
+        'Ventana Construction'
+      ],
+      regulations: [
+        'BC Construction Standards',
+        'Digital Project Delivery Guidelines',
+        'BC Building Code Digital Submissions'
+      ]
+    }
+  }
 ] 
