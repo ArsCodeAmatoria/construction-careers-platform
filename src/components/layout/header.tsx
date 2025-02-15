@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
-import { Construction, Search, Menu, Cpu } from 'lucide-react'
+import { Construction, Search, Menu, Cpu, Truck } from 'lucide-react'
 
 const navLinks = [
   {
@@ -10,6 +10,7 @@ const navLinks = [
     subLinks: [
       { href: '/careers?category=trades', label: 'Trades' },
       { href: '/careers?category=crane-operations', label: 'Crane Operations' },
+      { href: '/careers?category=heavy-equipment', label: 'Heavy Equipment' },
       { href: '/careers?category=technology', label: 'Tech Careers' },
     ]
   },

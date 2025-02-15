@@ -1,13 +1,18 @@
 export type Career = {
   id: string;
   title: string;
-  category: 'trades' | 'crane-operations' | 'technology';
+  category: 'trades' | 'crane-operations' | 'technology' | 'heavy-equipment';
   description: string;
   salary: string;
   certification: string[];
   skills: string[];
   trainingProvider?: string;
   trainingUrl?: string;
+  driverLicense?: {
+    class: string;
+    endorsements?: string[];
+    airBrake?: boolean;
+  };
   bcSpecific?: {
     union?: string;
     regulations?: string[];
@@ -283,6 +288,423 @@ export const careers: Career[] = [
         'BC Construction Standards',
         'Digital Project Delivery Guidelines',
         'BC Building Code Digital Submissions'
+      ]
+    }
+  },
+  {
+    id: 'heavy-equipment-operator',
+    title: 'Heavy Equipment Operator',
+    category: 'trades',
+    description: 'Operate heavy machinery across BC's construction sites, from urban development to resource projects. Work with excavators, bulldozers, and loaders.',
+    salary: '$35-50/hr in BC (Union rates may vary)',
+    certification: [
+      'Heavy Equipment Operator Certificate',
+      'BC Ground Disturbance Certificate',
+      'IUOE Certification'
+    ],
+    skills: [
+      'Equipment Operation',
+      'Safety Protocols',
+      'Ground Assessment',
+      'Maintenance Knowledge',
+      'GPS/Machine Control Systems'
+    ],
+    bcSpecific: {
+      union: 'International Union of Operating Engineers Local 115',
+      regulations: [
+        'WorkSafeBC Heavy Equipment Standards',
+        'BC Construction Safety Alliance compliance',
+        'Environmental Operations certification'
+      ],
+      companies: [
+        'Ledcor Construction',
+        'Jacob Bros Construction',
+        'Mainland Construction Materials',
+        'Fraser River Pile & Dredge'
+      ]
+    }
+  },
+  {
+    id: 'excavator-operator',
+    title: 'Excavator Operator',
+    category: 'trades',
+    description: 'Specialize in precision excavation for BC construction projects, from residential foundations to major infrastructure work.',
+    salary: '$35-48/hr in BC (Union scale)',
+    certification: [
+      'Excavator Operator Certificate',
+      'Ground Disturbance Level II',
+      'BC Construction Safety Alliance Training'
+    ],
+    skills: [
+      'Precision Control',
+      'Site Reading',
+      'Grade Checking',
+      'Machine Maintenance',
+      'Digital Grade Control Systems'
+    ],
+    bcSpecific: {
+      union: 'International Union of Operating Engineers Local 115',
+      regulations: [
+        'WorkSafeBC Excavation Standards',
+        'Municipal Excavation Permits',
+        'BC One Call compliance'
+      ],
+      companies: [
+        'Hall Constructors',
+        'B&B Contracting',
+        'Jack Cewe Construction',
+        'Lafarge Canada'
+      ]
+    }
+  },
+  {
+    id: 'bulldozer-operator',
+    title: 'Bulldozer Operator',
+    category: 'trades',
+    description: 'Shape and grade BC's construction landscapes, from residential developments to resource roads in northern BC.',
+    salary: '$35-45/hr in BC',
+    certification: [
+      'Heavy Equipment Operator Certificate',
+      'Surface Mining Certification (where applicable)',
+      'BC Ground Disturbance Certificate'
+    ],
+    skills: [
+      'Grade Control',
+      'Site Preparation',
+      'Machine Control Technology',
+      'Soil Assessment',
+      'Safety Protocols'
+    ],
+    bcSpecific: {
+      union: 'International Union of Operating Engineers Local 115',
+      regulations: [
+        'WorkSafeBC Heavy Equipment Standards',
+        'BC Forest Safety Council certification (for resource work)',
+        'Environmental Operations certification'
+      ],
+      companies: [
+        'Arthon Construction',
+        'Emil Anderson Construction',
+        'Pittman Asphalt',
+        'Peter Kiewit Sons'
+      ]
+    }
+  },
+  {
+    id: 'dump-truck-driver',
+    title: 'Dump Truck Driver',
+    category: 'heavy-equipment',
+    description: 'Transport construction materials across BC construction sites, from urban developments to resource projects.',
+    salary: '$30-45/hr in BC (Union rates available)',
+    certification: [
+      'Class 3 Driver's License',
+      'Air Brake Endorsement',
+      'Transportation of Dangerous Goods (TDG)'
+    ],
+    skills: [
+      'Vehicle Operation',
+      'Load Management',
+      'Safety Protocols',
+      'Route Planning',
+      'Equipment Maintenance'
+    ],
+    driverLicense: {
+      class: 'Class 3',
+      endorsements: ['Air Brake'],
+      airBrake: true
+    },
+    bcSpecific: {
+      union: 'Teamsters Local Union No. 213',
+      regulations: [
+        'BC Commercial Vehicle Safety Compliance',
+        'WorkSafeBC Transportation Standards',
+        'Municipal Hauling Permits'
+      ],
+      companies: [
+        'Mainland Construction Materials',
+        'Columbia Bitulithic',
+        'Ocean Concrete',
+        'LaFarge Canada'
+      ]
+    }
+  },
+  {
+    id: 'lowbed-operator',
+    title: 'Lowbed Truck Operator',
+    category: 'heavy-equipment',
+    description: 'Transport heavy construction equipment throughout BC, specializing in oversized and specialized loads.',
+    salary: '$35-50/hr in BC (Union scale)',
+    certification: [
+      'Class 1 Driver's License',
+      'Air Brake Endorsement',
+      'Heavy Equipment Transport Certification'
+    ],
+    skills: [
+      'Heavy Load Management',
+      'Route Planning',
+      'Equipment Securing',
+      'Permit Compliance',
+      'Safety Protocols'
+    ],
+    driverLicense: {
+      class: 'Class 1',
+      endorsements: ['Air Brake'],
+      airBrake: true
+    },
+    bcSpecific: {
+      union: 'Teamsters Local Union No. 213',
+      regulations: [
+        'BC Commercial Transport Regulations',
+        'Oversize Load Permits',
+        'BC Highway Load Restrictions'
+      ],
+      companies: [
+        'Triton Transport',
+        'Island Tractor',
+        'Western Equipment Transport',
+        'United Rentals'
+      ]
+    }
+  },
+  {
+    id: 'concrete-mixer-driver',
+    title: 'Concrete Mixer Driver',
+    category: 'heavy-equipment',
+    description: 'Deliver ready-mix concrete to construction sites across BC's Lower Mainland and beyond.',
+    salary: '$32-45/hr in BC',
+    certification: [
+      'Class 3 Driver's License',
+      'Air Brake Endorsement',
+      'Concrete Delivery Certification'
+    ],
+    skills: [
+      'Mixer Operation',
+      'Time Management',
+      'Quality Control',
+      'Site Safety',
+      'Customer Service'
+    ],
+    driverLicense: {
+      class: 'Class 3',
+      endorsements: ['Air Brake'],
+      airBrake: true
+    },
+    bcSpecific: {
+      union: 'Teamsters Local Union No. 213',
+      regulations: [
+        'WorkSafeBC Concrete Delivery Standards',
+        'BC Commercial Vehicle Safety',
+        'Environmental Regulations'
+      ],
+      companies: [
+        'Ocean Concrete',
+        'Butler Concrete',
+        'Lafarge Canada',
+        'Columbia Ready-Mix'
+      ]
+    }
+  },
+  {
+    id: 'fuel-truck-driver',
+    title: 'Construction Fuel Truck Driver',
+    category: 'heavy-equipment',
+    description: 'Supply fuel to construction equipment and sites across BC, ensuring continuous operations.',
+    salary: '$32-45/hr in BC',
+    certification: [
+      'Class 3 Driver's License with Air Brake',
+      'TDG Certification',
+      'WHMIS Certification',
+      'Petroleum Transport Certification'
+    ],
+    skills: [
+      'Fuel Delivery',
+      'Safety Protocols',
+      'Hazmat Handling',
+      'Equipment Maintenance',
+      'Documentation'
+    ],
+    driverLicense: {
+      class: 'Class 3',
+      endorsements: ['Air Brake', 'TDG'],
+      airBrake: true
+    },
+    bcSpecific: {
+      union: 'Teamsters Local Union No. 213',
+      regulations: [
+        'BC Fuel Transport Regulations',
+        'WorkSafeBC Hazardous Materials Standards',
+        'Environmental Emergency (E2) Regulations'
+      ],
+      companies: [
+        '4Refuel',
+        'Coastal Mountain Fuels',
+        'North Arm Transportation',
+        'Parkland Corporation'
+      ]
+    }
+  },
+  {
+    id: 'pipeline-welder',
+    title: 'Pipeline Welder',
+    category: 'trades',
+    description: 'Specialize in welding for BC's expanding LNG and pipeline projects, particularly in northern BC and coastal regions.',
+    salary: '$45-65/hr in BC (Union rates)',
+    certification: [
+      'Red Seal Welding Certification',
+      'CWB Certification',
+      'Pipeline Welding Endorsement',
+      'Pressure Vessel Certification'
+    ],
+    skills: [
+      'Pipeline Welding Techniques',
+      'Quality Control',
+      'Blueprint Reading',
+      'Safety Protocols',
+      'Material Knowledge'
+    ],
+    bcSpecific: {
+      union: 'UA Local 170 Pipefitters',
+      regulations: [
+        'Technical Safety BC Standards',
+        'BC Oil and Gas Commission Standards',
+        'CWB Certification Requirements'
+      ],
+      companies: [
+        'LNG Canada',
+        'Coastal GasLink',
+        'Trans Mountain Pipeline',
+        'Ledcor Pipeline'
+      ]
+    }
+  },
+  {
+    id: 'pipeline-inspector',
+    title: 'Pipeline Construction Inspector',
+    category: 'trades',
+    description: 'Ensure quality and safety standards in BC's pipeline construction projects, from LNG facilities to distribution networks.',
+    salary: '$85,000-120,000/year in BC',
+    certification: [
+      'NACE Pipeline Inspector Certification',
+      'API Pipeline Inspector Certification',
+      'BC Safety Authority Certification'
+    ],
+    skills: [
+      'Quality Control',
+      'Regulatory Compliance',
+      'Technical Documentation',
+      'Project Management',
+      'Safety Standards'
+    ],
+    bcSpecific: {
+      regulations: [
+        'BC Oil and Gas Commission Requirements',
+        'Environmental Assessment Standards',
+        'First Nations Consultation Guidelines'
+      ],
+      companies: [
+        'TC Energy',
+        'Enbridge',
+        'FortisBC',
+        'Coastal GasLink'
+      ]
+    }
+  },
+  {
+    id: 'gas-plant-operator',
+    title: 'LNG Plant Construction Operator',
+    category: 'trades',
+    description: 'Operate and maintain equipment during construction of BC's LNG facilities, focusing on Kitimat and Prince Rupert regions.',
+    salary: '$40-60/hr in BC',
+    certification: [
+      'Power Engineering Certification',
+      'Gas Process Operator Certificate',
+      'WHMIS Certification',
+      'Confined Space Entry'
+    ],
+    skills: [
+      'Process Operations',
+      'Safety Systems',
+      'Equipment Monitoring',
+      'Emergency Response',
+      'Environmental Compliance'
+    ],
+    bcSpecific: {
+      union: 'IUOE Local 115',
+      regulations: [
+        'BC Oil and Gas Commission Standards',
+        'WorkSafeBC Industrial Standards',
+        'Environmental Operations Certification'
+      ],
+      companies: [
+        'LNG Canada',
+        'Woodfibre LNG',
+        'Chevron Canada',
+        'Shell Canada'
+      ]
+    }
+  },
+  {
+    id: 'environmental-monitor',
+    title: 'Environmental Monitor - Oil & Gas',
+    category: 'technology',
+    description: 'Monitor environmental compliance during construction of BC's energy projects, ensuring protection of sensitive ecosystems.',
+    salary: '$75,000-95,000/year in BC',
+    certification: [
+      'Environmental Professional Certification',
+      'Registered Professional Biologist (RPBio)',
+      'Environmental Monitoring Certificate'
+    ],
+    skills: [
+      'Environmental Assessment',
+      'Regulatory Compliance',
+      'Wildlife Management',
+      'Water Quality Monitoring',
+      'Reporting'
+    ],
+    bcSpecific: {
+      regulations: [
+        'BC Environmental Assessment Act',
+        'Species at Risk Act Compliance',
+        'First Nations Environmental Standards'
+      ],
+      companies: [
+        'Coastal GasLink',
+        'Environmental Dynamics Inc.',
+        'Hemmera',
+        'Stantec'
+      ]
+    }
+  },
+  {
+    id: 'pipeline-equipment-operator',
+    title: 'Pipeline Equipment Operator',
+    category: 'heavy-equipment',
+    description: 'Operate specialized equipment for pipeline construction across BC's diverse terrain, from coastal regions to northern projects.',
+    salary: '$38-55/hr in BC',
+    certification: [
+      'Pipeline Construction Safety Training',
+      'Heavy Equipment Operator Certification',
+      'Ground Disturbance Level II'
+    ],
+    skills: [
+      'Pipeline Equipment Operation',
+      'Terrain Assessment',
+      'Safety Protocols',
+      'Environmental Protection',
+      'Team Coordination'
+    ],
+    bcSpecific: {
+      union: 'IUOE Local 115',
+      regulations: [
+        'BC Oil and Gas Commission Standards',
+        'WorkSafeBC Pipeline Standards',
+        'Environmental Operations Requirements'
+      ],
+      companies: [
+        'Surerus Pipeline',
+        'SA Energy Group',
+        'Macro Pipelines',
+        'Banister Pipelines'
       ]
     }
   }
