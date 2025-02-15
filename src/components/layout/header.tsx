@@ -30,7 +30,12 @@ const navLinks = [
     subLinks: [
       { href: '/programs/women-in-construction', label: 'Women in Construction' },
       { href: '/programs/indigenous', label: 'Indigenous Programs' },
-      { href: '/programs/mentorship', label: 'Mentorship' },
+      { href: '/programs/youth', label: 'Youth Programs' },
+      { href: '/programs/newcomers', label: 'Newcomers to Canada' },
+      { href: '/programs/veterans', label: 'Veterans Programs' },
+      { href: '/programs/accessibility', label: 'Accessible Construction' },
+      { href: '/programs/union-training', label: 'Union Training' },
+      { href: '/programs/leadership', label: 'Leadership Development' }
     ]
   },
 ]
