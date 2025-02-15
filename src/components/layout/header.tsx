@@ -24,6 +24,15 @@ const navLinks = [
   },
   { href: '/technologies', label: 'Technologies' },
   { href: '/ai-automation', label: 'Digital Construction' },
+  { 
+    href: '/programs',
+    label: 'Programs',
+    subLinks: [
+      { href: '/programs/women-in-construction', label: 'Women in Construction' },
+      { href: '/programs/indigenous', label: 'Indigenous Programs' },
+      { href: '/programs/mentorship', label: 'Mentorship' },
+    ]
+  },
 ]
 
 export function Header() {
