@@ -886,7 +886,7 @@ export const careers: Career[] = [
     description: 'Lead and oversee construction projects from inception to completion.',
     salary: '$85,000 - $150,000',
     requirements: [
-      'Bachelor's degree in Construction Management, Engineering, or related field',
+      'Bachelor\'s degree in Construction Management, Engineering, or related field',
       '5+ years of construction experience',
       'PMP certification preferred',
       'Strong leadership and communication skills'
