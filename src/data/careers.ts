@@ -1016,5 +1016,435 @@ export const careers: Career[] = [
         'Finishing standards compliance'
       ]
     }
+  },
+  {
+    id: 'construction-manager',
+    title: 'Construction Manager',
+    category: 'management',
+    description: 'Overall management of large construction projects and multiple teams.',
+    salary: '$95,000 - $160,000',
+    certification: [
+      'Gold Seal Certification',
+      'PMP Certification',
+      'Construction Management Certificate'
+    ],
+    requirements: [
+      'Bachelor\'s degree in Construction Management or Engineering',
+      '10+ years construction experience',
+      'Proven track record of project delivery',
+      'Strong financial management skills'
+    ],
+    bcSpecific: {
+      demand: 'High',
+      regions: ['Vancouver', 'Victoria', 'Kelowna', 'Surrey'],
+      certifications: ['Gold Seal Certification'],
+      regulations: [
+        'WorkSafeBC Management Standards',
+        'BC Building Code compliance',
+        'Environmental regulations'
+      ]
+    }
+  },
+  {
+    id: 'safety-manager',
+    title: 'Construction Safety Manager',
+    category: 'management',
+    description: 'Oversee safety programs and compliance across construction projects.',
+    salary: '$80,000 - $120,000',
+    certification: [
+      'CRSP (Canadian Registered Safety Professional)',
+      'NCSO (National Construction Safety Officer)',
+      'First Aid Level 3'
+    ],
+    requirements: [
+      'Degree in Occupational Health and Safety or related field',
+      '5+ years construction safety experience',
+      'Strong knowledge of WorkSafeBC regulations',
+      'Experience developing safety programs'
+    ],
+    bcSpecific: {
+      demand: 'High',
+      regions: ['Lower Mainland', 'Vancouver Island', 'Interior'],
+      certifications: ['BCSA Safety Program Certification'],
+      regulations: [
+        'WorkSafeBC OHS Regulations',
+        'BC Construction Safety Alliance standards',
+        'First Aid requirements'
+      ]
+    }
+  },
+  {
+    id: 'quality-manager',
+    title: 'Quality Control Manager',
+    category: 'management',
+    description: 'Ensure construction quality standards and specifications are met.',
+    salary: '$85,000 - $130,000',
+    certification: [
+      'Quality Management Professional',
+      'ISO 9001 Lead Auditor',
+      'Construction Quality Management Certificate'
+    ],
+    requirements: [
+      'Degree in Engineering or Construction Management',
+      '7+ years construction experience',
+      'Experience with quality management systems',
+      'Strong attention to detail'
+    ],
+    bcSpecific: {
+      demand: 'Medium-High',
+      regions: ['Metro Vancouver', 'Victoria', 'Kelowna'],
+      certifications: ['BC Building Envelope Certificate'],
+      regulations: [
+        'BC Building Code quality standards',
+        'Material testing requirements',
+        'Quality assurance protocols'
+      ]
+    }
+  },
+  {
+    id: 'estimating-manager',
+    title: 'Senior Estimating Manager',
+    category: 'management',
+    description: 'Lead construction cost estimation and bidding processes.',
+    salary: '$90,000 - $140,000',
+    certification: [
+      'Professional Quantity Surveyor (PQS)',
+      'Gold Seal Certification in Estimating',
+      'Construction Estimating Certificate'
+    ],
+    requirements: [
+      'Degree in Construction Management or Engineering',
+      '8+ years estimating experience',
+      'Advanced knowledge of estimating software',
+      'Strong analytical skills'
+    ],
+    bcSpecific: {
+      demand: 'High',
+      regions: ['Vancouver', 'Surrey', 'Burnaby', 'Richmond'],
+      certifications: ['CIQS Designation'],
+      regulations: [
+        'BC Bidding and Contract Standards',
+        'Cost reporting requirements',
+        'Procurement guidelines'
+      ]
+    }
+  },
+  {
+    id: 'mechanical-superintendent',
+    title: 'Mechanical Systems Superintendent',
+    category: 'management',
+    description: 'Oversee mechanical systems installation and coordination.',
+    salary: '$85,000 - $135,000',
+    certification: [
+      'Red Seal in relevant trade',
+      'Gold Seal Certification',
+      'Mechanical Systems Management Certificate'
+    ],
+    requirements: [
+      'Red Seal certification in mechanical trade',
+      '8+ years mechanical systems experience',
+      'Strong coordination skills',
+      'Experience with BIM and mechanical modeling'
+    ],
+    bcSpecific: {
+      demand: 'High',
+      regions: ['Lower Mainland', 'Victoria', 'Kelowna'],
+      certifications: ['TQ in relevant trade'],
+      regulations: [
+        'BC Building Code mechanical requirements',
+        'Technical Safety BC standards',
+        'Energy efficiency requirements'
+      ]
+    }
+  },
+  {
+    id: 'electrical-superintendent',
+    title: 'Electrical Systems Superintendent',
+    category: 'management',
+    description: 'Manage electrical systems installation and coordination on major projects.',
+    salary: '$90,000 - $140,000',
+    certification: [
+      'Red Seal Electrician',
+      'Gold Seal Certification',
+      'FSR Class A or B',
+      'High Voltage Systems Certificate'
+    ],
+    requirements: [
+      'Red Seal Electrician certification',
+      '8+ years electrical construction experience',
+      'Experience with high-voltage systems',
+      'Strong team leadership skills'
+    ],
+    bcSpecific: {
+      demand: 'High',
+      regions: ['Lower Mainland', 'Victoria', 'Kelowna'],
+      certifications: ['Technical Safety BC FSR'],
+      regulations: [
+        'BC Electrical Code',
+        'Technical Safety BC requirements',
+        'WorkSafeBC electrical safety standards'
+      ]
+    }
+  },
+  {
+    id: 'civil-superintendent',
+    title: 'Civil Works Superintendent',
+    category: 'management',
+    description: 'Oversee civil construction projects including infrastructure and site development.',
+    salary: '$95,000 - $145,000',
+    certification: [
+      'Gold Seal Certification',
+      'Civil Engineering Technology Diploma',
+      'Ground Disturbance Level II',
+      'Erosion and Sediment Control certification'
+    ],
+    requirements: [
+      'Civil Engineering or Construction Management degree',
+      '10+ years civil construction experience',
+      'Experience with infrastructure projects',
+      'Strong knowledge of civil engineering principles'
+    ],
+    bcSpecific: {
+      demand: 'High',
+      regions: ['Metro Vancouver', 'Fraser Valley', 'Vancouver Island'],
+      certifications: ['MMCD Certification'],
+      regulations: [
+        'Municipal infrastructure standards',
+        'Environmental protection requirements',
+        'BC Water and Sewer regulations'
+      ]
+    }
+  },
+  {
+    id: 'environmental-manager',
+    title: 'Environmental Compliance Manager',
+    category: 'management',
+    description: 'Ensure environmental compliance and sustainability in construction projects.',
+    salary: '$85,000 - $130,000',
+    certification: [
+      'Environmental Professional (EP)',
+      'LEED Accredited Professional',
+      'Certified Environmental Practitioner',
+      'Erosion and Sediment Control Lead'
+    ],
+    requirements: [
+      'Degree in Environmental Science or related field',
+      '5+ years environmental management experience',
+      'Knowledge of BC environmental regulations',
+      'Experience with environmental assessments'
+    ],
+    bcSpecific: {
+      demand: 'High',
+      regions: ['All BC regions'],
+      certifications: ['BC Environmental Management Certificate'],
+      regulations: [
+        'BC Environmental Management Act',
+        'Species at Risk Act compliance',
+        'Municipal environmental bylaws'
+      ]
+    }
+  },
+  {
+    id: 'vdc-manager',
+    title: 'Virtual Design & Construction Manager',
+    category: 'management',
+    description: 'Lead BIM implementation and digital construction processes.',
+    salary: '$90,000 - $140,000',
+    certification: [
+      'Autodesk BIM Professional',
+      'VDC Certificate',
+      'PMP Certification',
+      'Digital Construction Management Certificate'
+    ],
+    requirements: [
+      'Degree in Architecture, Engineering, or Construction',
+      '7+ years VDC/BIM experience',
+      'Advanced knowledge of BIM software',
+      'Experience leading digital transformation'
+    ],
+    bcSpecific: {
+      demand: 'High',
+      regions: ['Vancouver', 'Surrey', 'Burnaby', 'Victoria'],
+      certifications: ['CanBIM Certification'],
+      regulations: [
+        'BC BIM standards',
+        'Digital delivery requirements',
+        'BC Building Code compliance'
+      ]
+    }
+  },
+  {
+    id: 'procurement-manager',
+    title: 'Construction Procurement Manager',
+    category: 'management',
+    description: 'Manage procurement and supply chain for construction projects.',
+    salary: '$85,000 - $130,000',
+    certification: [
+      'Supply Chain Management Professional (SCMP)',
+      'Construction Procurement Certificate',
+      'Contract Management Professional',
+      'PMAC Certification'
+    ],
+    requirements: [
+      'Degree in Supply Chain Management or related field',
+      '6+ years procurement experience',
+      'Experience with construction materials',
+      'Strong negotiation skills'
+    ],
+    bcSpecific: {
+      demand: 'Medium-High',
+      regions: ['Metro Vancouver', 'Victoria', 'Kelowna'],
+      certifications: ['SCMP Designation'],
+      regulations: [
+        'BC Procurement Guidelines',
+        'Trade agreements compliance',
+        'Public tender requirements'
+      ]
+    }
+  },
+  {
+    id: 'hr-manager-construction',
+    title: 'Construction HR Manager',
+    category: 'management',
+    description: 'Lead human resources strategies for construction companies and projects.',
+    salary: '$85,000 - $130,000',
+    certification: [
+      'CPHR (Chartered Professional in Human Resources)',
+      'Construction HR Management Certificate',
+      'Workplace Safety Management',
+      'Labour Relations Certificate'
+    ],
+    requirements: [
+      'Bachelor\'s degree in HR Management or related field',
+      '5+ years HR experience in construction',
+      'Knowledge of construction labour laws',
+      'Experience with union environments'
+    ],
+    bcSpecific: {
+      demand: 'High',
+      regions: ['Metro Vancouver', 'Victoria', 'Kelowna'],
+      certifications: ['CPHR BC & Yukon'],
+      regulations: [
+        'BC Employment Standards Act',
+        'Labour Relations Code',
+        'WorkSafeBC requirements'
+      ]
+    }
+  },
+  {
+    id: 'talent-acquisition-specialist',
+    title: 'Construction Talent Acquisition Specialist',
+    category: 'management',
+    description: 'Recruit and hire skilled workers for construction projects.',
+    salary: '$65,000 - $95,000',
+    certification: [
+      'Certified Recruitment Professional',
+      'CPHR Candidate',
+      'Construction Industry Recruitment Certificate',
+      'Trade Skills Assessment Certification'
+    ],
+    requirements: [
+      'Degree in HR, Business, or related field',
+      '3+ years construction recruitment experience',
+      'Understanding of trades and certifications',
+      'Strong networking abilities'
+    ],
+    bcSpecific: {
+      demand: 'High',
+      regions: ['Lower Mainland', 'Vancouver Island', 'Interior'],
+      certifications: ['BC Construction HR Certificate'],
+      regulations: [
+        'BC Employment Standards',
+        'Immigration requirements',
+        'Trade certification standards'
+      ]
+    }
+  },
+  {
+    id: 'training-development-manager',
+    title: 'Construction Training & Development Manager',
+    category: 'management',
+    description: 'Develop and implement training programs for construction personnel.',
+    salary: '$80,000 - $120,000',
+    certification: [
+      'Adult Education Certificate',
+      'Construction Training Professional',
+      'Safety Training Management',
+      'Instructional Design Certificate'
+    ],
+    requirements: [
+      'Degree in Education, HR, or Construction field',
+      '5+ years training experience in construction',
+      'Experience developing training programs',
+      'Knowledge of adult learning principles'
+    ],
+    bcSpecific: {
+      demand: 'Medium-High',
+      regions: ['Vancouver', 'Victoria', 'Prince George'],
+      certifications: ['BC Construction Safety Alliance Trainer'],
+      regulations: [
+        'WorkSafeBC training requirements',
+        'Trade qualification standards',
+        'Professional development regulations'
+      ]
+    }
+  },
+  {
+    id: 'labour-relations-manager',
+    title: 'Construction Labour Relations Manager',
+    category: 'management',
+    description: 'Manage union relationships and labor agreements in construction.',
+    salary: '$90,000 - $140,000',
+    certification: [
+      'Labour Relations Professional',
+      'CPHR Designation',
+      'Alternative Dispute Resolution Certificate',
+      'Construction Labour Law Certificate'
+    ],
+    requirements: [
+      'Degree in Labour Relations, Law, or HR',
+      '7+ years labour relations experience',
+      'Strong negotiation skills',
+      'Experience with collective agreements'
+    ],
+    bcSpecific: {
+      demand: 'High',
+      regions: ['Metro Vancouver', 'Victoria', 'Kelowna'],
+      certifications: ['BC Labour Relations Certificate'],
+      regulations: [
+        'BC Labour Relations Code',
+        'Construction Collective Agreements',
+        'Employment Standards Act'
+      ]
+    }
+  },
+  {
+    id: 'workforce-planning-manager',
+    title: 'Construction Workforce Planning Manager',
+    category: 'management',
+    description: 'Strategic planning and management of construction workforce needs.',
+    salary: '$85,000 - $130,000',
+    certification: [
+      'Workforce Planning Professional',
+      'CPHR Designation',
+      'Project Management Professional',
+      'Construction Management Certificate'
+    ],
+    requirements: [
+      'Degree in HR, Business, or Construction Management',
+      '6+ years workforce planning experience',
+      'Strong analytical skills',
+      'Experience with construction scheduling'
+    ],
+    bcSpecific: {
+      demand: 'High',
+      regions: ['Lower Mainland', 'Vancouver Island', 'Interior'],
+      certifications: ['Strategic Workforce Planning'],
+      regulations: [
+        'Employment equity requirements',
+        'Immigration regulations',
+        'Skills training standards'
+      ]
+    }
   }
 ] 

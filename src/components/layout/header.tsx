@@ -9,6 +9,7 @@ import {
   Truck,
   Building2
 } from 'lucide-react'
+import Image from 'next/image'
 
 const navLinks = [
   {
@@ -45,9 +46,15 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
-        <Link href="/" className="flex items-center space-x-2">
-          <Building2 className="h-6 w-6" />
-          <span className="font-bold">Embers Staffing</span>
+        <Link href="/" className="flex items-center space-x-2 pl-8">
+          <Image 
+            src="/ember.svg" 
+            alt="EMBERS STAFFING" 
+            width={32} 
+            height={32} 
+            className="w-auto h-8"
+          />
+          <span className="font-bold uppercase">Embers Staffing</span>
         </Link>
         
         <nav className="flex flex-1 items-center justify-end space-x-4">
