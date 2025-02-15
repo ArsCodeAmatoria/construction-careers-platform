@@ -55,19 +55,40 @@ const programs = [
 
 const partnerships = [
   {
-    name: "LNG Canada Indigenous Relations",
-    description: "Construction partnerships with First Nations in northern BC.",
-    icon: <Globe className="h-8 w-8 text-blue-500" />
+    name: "LNG Canada & Haisla Nation",
+    description: "Construction and skills development partnership in Kitimat region.",
+    icon: <Globe className="h-8 w-8 text-blue-500" />,
+    link: "https://www.lngcanada.ca/about-us/working-with-first-nations/"
   },
   {
-    name: "BC Hydro Indigenous Initiatives",
-    description: "Infrastructure projects with Indigenous communities.",
-    icon: <TreePine className="h-8 w-8 text-green-500" />
+    name: "Coastal GasLink & First Nations",
+    description: "Partnerships with 20 First Nations along the project corridor.",
+    icon: <TreePine className="h-8 w-8 text-green-500" />,
+    link: "https://www.coastalgaslink.com/sustainability/indigenous-relations/"
   },
   {
-    name: "First Nations Major Projects Coalition",
-    description: "Supporting Indigenous participation in construction projects.",
-    icon: <HandshakeIcon className="h-8 w-8 text-yellow-500" />
+    name: "Site C & Treaty 8 Nations",
+    description: "Infrastructure projects with Treaty 8 First Nations.",
+    icon: <Building className="h-8 w-8 text-yellow-500" />,
+    link: "https://www.sitecproject.com/working-with-first-nations"
+  },
+  {
+    name: "Tsleil-Waututh Nation Projects",
+    description: "Construction initiatives in Metro Vancouver region.",
+    icon: <HandshakeIcon className="h-8 w-8 text-purple-500" />,
+    link: "https://twnation.ca/"
+  },
+  {
+    name: "Squamish Nation Developments",
+    description: "Major construction projects in partnership with Squamish Nation.",
+    icon: <Building className="h-8 w-8 text-orange-500" />,
+    link: "https://www.squamish.net/development/"
+  },
+  {
+    name: "Musqueam Capital Corp",
+    description: "Construction and development projects led by Musqueam Nation.",
+    icon: <Globe className="h-8 w-8 text-red-500" />,
+    link: "https://www.musqueamcapital.ca/"
   }
 ]
 
@@ -101,6 +122,47 @@ const initiatives = [
       "Community Consultation",
       "Cultural Awareness"
     ]
+  },
+  {
+    title: "First Nations Major Projects",
+    description: "Supporting Indigenous-led construction projects across BC.",
+    features: [
+      "Capacity Building",
+      "Project Management",
+      "Technical Training",
+      "Leadership Development"
+    ]
+  },
+  {
+    title: "Traditional Construction Methods",
+    description: "Integrating traditional building practices with modern techniques.",
+    features: [
+      "Cultural Knowledge",
+      "Sustainable Practices",
+      "Local Materials",
+      "Traditional Techniques"
+    ]
+  }
+]
+
+const successStories = [
+  {
+    nation: "Haisla Nation",
+    project: "Cedar Valley Lodge",
+    description: "Construction and operation of worker accommodation facility.",
+    impact: "Created 300+ jobs and ongoing training opportunities."
+  },
+  {
+    nation: "Squamish Nation",
+    project: "Sen̓áḵw Development",
+    description: "Largest First Nations economic development project in Canadian history.",
+    impact: "Creating thousands of construction jobs and housing units."
+  },
+  {
+    nation: "Tk'emlúps te Secwépemc",
+    project: "Community Infrastructure",
+    description: "Major infrastructure development projects.",
+    impact: "Building capacity and creating sustainable employment."
   }
 ]
 
@@ -161,6 +223,13 @@ export default function IndigenousProgramsPage() {
               {partnership.icon}
               <h3 className="mt-4 text-lg font-semibold">{partnership.name}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{partnership.description}</p>
+              <div className="mt-4 pt-4 border-t border-border w-full">
+                <Link href={partnership.link} target="_blank">
+                  <Button variant="outline" className="w-full">
+                    Learn More
+                  </Button>
+                </Link>
+              </div>
             </div>
           ))}
         </div>
@@ -204,6 +273,25 @@ export default function IndigenousProgramsPage() {
             Explore Opportunities
           </Button>
         </Link>
+      </section>
+
+      <section className="w-full max-w-7xl px-4 space-y-8">
+        <h2 className="text-3xl font-bold tracking-tighter text-center">
+          Success Stories
+        </h2>
+        <div className="grid gap-6 md:grid-cols-3 place-items-center">
+          {successStories.map((story) => (
+            <div 
+              key={story.nation}
+              className="w-full h-full border border-border hover:border-foreground/50 rounded-lg p-6 transition-colors"
+            >
+              <h3 className="text-lg font-semibold">{story.nation}</h3>
+              <h4 className="text-md font-medium text-muted-foreground mt-2">{story.project}</h4>
+              <p className="mt-2 text-sm text-muted-foreground">{story.description}</p>
+              <p className="mt-2 text-sm text-muted-foreground font-medium">{story.impact}</p>
+            </div>
+          ))}
+        </div>
       </section>
     </div>
   )
