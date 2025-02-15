@@ -47,7 +47,7 @@ export const careers: Career[] = [
     id: 'plumbing',
     title: 'Plumber',
     category: 'trades',
-    description: 'Essential trade for BC's growing infrastructure, from residential developments in the Lower Mainland to commercial projects across the province.',
+    description: 'Essential trade for BC\'s growing infrastructure, from residential developments in the Lower Mainland to commercial projects across the province.',
     salary: '$38-48/hr in BC (Union scale)',
     certification: [
       'Red Seal Certification',

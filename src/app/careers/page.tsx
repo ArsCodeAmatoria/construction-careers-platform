@@ -1,6 +1,6 @@
 'use client'
 
-import { careers } from '@/data/careers'
+import { type Career, careers } from '@/data/careers'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { HardHat, Construction as CraneIcon, Brain, MapPin, Building2, Truck } from 'lucide-react'
