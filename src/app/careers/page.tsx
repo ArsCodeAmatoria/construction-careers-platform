@@ -3,12 +3,12 @@
 import { careers } from '@/data/careers'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import { HardHat, Crane, Brain, MapPin, Building2, Truck } from 'lucide-react'
+import { HardHat, Construction as CraneIcon, Brain, MapPin, Building2, Truck } from 'lucide-react'
 import { useSearchParams, useRouter } from 'next/navigation'
 
 const categoryIcons = {
   'trades': <HardHat className="h-5 w-5" />,
-  'crane-operations': <Crane className="h-5 w-5" />,
+  'crane-operations': <CraneIcon className="h-5 w-5" />,
   'technology': <Brain className="h-5 w-5" />,
   'heavy-equipment': <Truck className="h-5 w-5" />
 }
@@ -16,7 +16,7 @@ const categoryIcons = {
 const categories = [
   { id: 'all', label: 'All Careers', icon: <Building2 className="h-5 w-5" /> },
   { id: 'trades', label: 'Trades', icon: <HardHat className="h-5 w-5" /> },
-  { id: 'crane-operations', label: 'Crane Operations', icon: <Crane className="h-5 w-5" /> },
+  { id: 'crane-operations', label: 'Crane Operations', icon: <CraneIcon className="h-5 w-5" /> },
   { id: 'heavy-equipment', label: 'Heavy Equipment', icon: <Truck className="h-5 w-5" /> },
   { id: 'technology', label: 'Tech Careers', icon: <Brain className="h-5 w-5" /> },
 ]

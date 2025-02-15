@@ -27,7 +27,7 @@ export const careers: Career[] = [
     id: 'carpentry',
     title: 'Carpenter',
     category: 'trades',
-    description: 'Build and maintain structures across British Columbia's diverse construction landscape, from Vancouver high-rises to remote resource projects.',
+    description: 'Build and maintain structures across British Columbia\'s diverse construction landscape, from Vancouver high-rises to remote resource projects.',
     salary: '$35-45/hr in BC (Union rates may be higher)',
     certification: [
       'Red Seal Certification',
