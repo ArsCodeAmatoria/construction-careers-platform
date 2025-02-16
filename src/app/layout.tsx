@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/header";
 import Link from "next/link";
 import { Footer } from '@/components/layout/footer'
+import { ChatButton } from "@/components/ai/chat-button"
 
 const geist = Geist({
   subsets: ["latin"],
@@ -28,6 +29,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <ChatButton />
       </body>
     </html>
   );

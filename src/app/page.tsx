@@ -21,28 +21,28 @@ const careerSections = [
     description: "Master the foundational skills of construction with Red Seal certification opportunities.",
     icon: <HardHat className="h-12 w-12 text-blue-500" />,
     features: ["Carpentry", "Plumbing", "Electrical", "Welding"],
-    href: "/careers?category=trades"
+    href: "/programs/trades"
   },
   {
     title: "Crane Operations",
     description: "Operate state-of-the-art crane equipment in BC's growing construction industry.",
     icon: <CraneIcon className="h-12 w-12 text-orange-500" />,
     features: ["Tower Cranes", "Mobile Cranes", "Specialized Equipment", "Safety Certification"],
-    href: "/careers?category=crane-operations"
+    href: "/programs/crane"
   },
   {
     title: "Heavy Equipment",
     description: "Drive and operate essential construction machinery across BC's diverse projects.",
     icon: <Truck className="h-12 w-12 text-yellow-500" />,
     features: ["Excavators", "Bulldozers", "Dump Trucks", "Specialized Transport"],
-    href: "/careers?category=heavy-equipment"
+    href: "/programs/heavy-equipment"
   },
   {
     title: "Digital Construction",
     description: "Shape the future of construction with cutting-edge technology and innovation.",
     icon: <Cpu className="h-12 w-12 text-purple-500" />,
     features: ["BIM Modeling", "VR/AR Solutions", "Digital Project Management", "Smart Systems"],
-    href: "/careers?category=technology"
+    href: "/ai-automation"
   },
   {
     title: "Green Building",
@@ -54,7 +54,7 @@ const careerSections = [
       "Renewable Systems",
       "Waste Management"
     ],
-    href: "/careers?category=sustainability"
+    href: "/technologies/green"
   }
 ]
 
