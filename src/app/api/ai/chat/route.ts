@@ -8,15 +8,17 @@ export async function POST(req: Request) {
     console.log('API Request:', {
       apiKeyPresent: !!process.env.OPENAI_API_KEY,
       projectIdPresent: !!process.env.OPENAI_PROJECT_ID,
+      orgIdPresent: !!process.env.OPENAI_ORG_ID,
       messageCount: messages.length
     })
 
-    const projectId = process.env.OPENAI_PROJECT_ID
-    const response = await fetch(`https://api.openai.com/v1/projects/${projectId}/chat/completions`, {
+    const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
+        'OpenAI-Organization': process.env.OPENAI_ORG_ID,
+        'OpenAI-Project-Id': process.env.OPENAI_PROJECT_ID
       },
       body: JSON.stringify({
         model: "gpt-3.5-turbo",
