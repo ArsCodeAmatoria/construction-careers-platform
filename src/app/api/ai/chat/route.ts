@@ -4,13 +4,15 @@ export async function POST(req: Request) {
   try {
     const { messages }: { messages: ChatMessage[] } = await req.json()
     
-    console.log('Request details:', {
-      apiKey: process.env.OPENAI_API_KEY ? 'Present' : 'Missing',
-      messageCount: messages.length,
-      firstMessage: messages[0]?.content.substring(0, 50)
+    // More detailed logging
+    console.log('API Request:', {
+      apiKeyPresent: !!process.env.OPENAI_API_KEY,
+      projectIdPresent: !!process.env.OPENAI_PROJECT_ID,
+      messageCount: messages.length
     })
 
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+    const projectId = process.env.OPENAI_PROJECT_ID
+    const response = await fetch(`https://api.openai.com/v1/projects/${projectId}/chat/completions`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -61,12 +63,17 @@ export async function POST(req: Request) {
     })
 
     if (!response.ok) {
-      const error = await response.json()
-      throw new Error(error.error?.message || 'OpenAI API error')
+      const errorData = await response.json().catch(() => ({}))
+      console.error('OpenAI Error Response:', {
+        status: response.status,
+        statusText: response.statusText,
+        headers: Object.fromEntries(response.headers.entries()),
+        error: errorData
+      })
+      throw new Error(errorData.error?.message || `OpenAI API error: ${response.status}`)
     }
 
     const data = await response.json()
-
     return new Response(JSON.stringify({
       content: data.choices[0].message.content
     }), {
@@ -74,12 +81,13 @@ export async function POST(req: Request) {
     })
 
   } catch (error: any) {
-    console.error('API Error:', {
+    console.error('Detailed API Error:', {
       message: error.message,
       type: error.type,
       code: error.code,
       param: error.param,
-      stack: error.stack
+      stack: error.stack,
+      response: error.response?.data
     })
 
     return new Response(JSON.stringify({
