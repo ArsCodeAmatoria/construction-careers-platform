@@ -1,26 +1,32 @@
+import OpenAI from "openai"
 import type { ChatMessage } from "@/types/chat"
+
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+  organization: process.env.OPENAI_ORG_ID,
+  baseURL: 'https://api.openai.com/v1',
+  defaultHeaders: {
+    'OpenAI-Beta': 'project-api-next',
+    'OpenAI-Project-Id': process.env.OPENAI_PROJECT_ID
+  }
+})
 
 export async function POST(req: Request) {
   try {
     const { messages }: { messages: ChatMessage[] } = await req.json()
     
-    // More detailed logging
-    console.log('API Request:', {
+    // Log full configuration and request details
+    console.log('API Configuration:', {
       apiKeyPresent: !!process.env.OPENAI_API_KEY,
+      apiKeyType: process.env.OPENAI_API_KEY?.startsWith('sk-proj-') ? 'project' : 'standard',
       projectIdPresent: !!process.env.OPENAI_PROJECT_ID,
       orgIdPresent: !!process.env.OPENAI_ORG_ID,
+      baseURL: process.env.OPENAI_API_BASE_URL,
       messageCount: messages.length
     })
 
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
-        'OpenAI-Organization': process.env.OPENAI_ORG_ID,
-        'OpenAI-Project-Id': process.env.OPENAI_PROJECT_ID
-      },
-      body: JSON.stringify({
+    try {
+      const completion = await openai.chat.completions.create({
         model: "gpt-3.5-turbo",
         messages: [
           {
@@ -58,43 +64,54 @@ export async function POST(req: Request) {
           ...messages
             .filter((m): m is Omit<ChatMessage, "id"> => m.role !== "error")
             .map(({ role, content }) => ({ role, content }))
-        ],
-        temperature: 0.7,
-        max_tokens: 500
+        ]
       })
-    })
 
-    if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}))
-      console.error('OpenAI Error Response:', {
-        status: response.status,
-        statusText: response.statusText,
-        headers: Object.fromEntries(response.headers.entries()),
-        error: errorData
+      return new Response(JSON.stringify({
+        content: completion.choices[0].message.content
+      }), {
+        headers: { 'Content-Type': 'application/json' },
       })
-      throw new Error(errorData.error?.message || `OpenAI API error: ${response.status}`)
+
+    } catch (openaiError: any) {
+      // Log detailed OpenAI error
+      console.error('OpenAI API Error:', {
+        name: openaiError.name,
+        message: openaiError.message,
+        status: openaiError.status,
+        type: openaiError.type,
+        code: openaiError.code,
+        param: openaiError.param,
+        response: {
+          status: openaiError.response?.status,
+          statusText: openaiError.response?.statusText,
+          data: openaiError.response?.data,
+          headers: openaiError.response?.headers
+        }
+      })
+
+      throw openaiError
     }
 
-    const data = await response.json()
-    return new Response(JSON.stringify({
-      content: data.choices[0].message.content
-    }), {
-      headers: { 'Content-Type': 'application/json' },
-    })
-
   } catch (error: any) {
-    console.error('Detailed API Error:', {
+    // Log general error with full details
+    console.error('Request Error:', {
+      name: error.name,
       message: error.message,
-      type: error.type,
-      code: error.code,
-      param: error.param,
-      stack: error.stack,
-      response: error.response?.data
+      status: error.status,
+      stack: error.stack?.split('\n'),
+      cause: error.cause,
+      config: {
+        baseURL: openai.baseURL,
+        defaultHeaders: openai.defaultHeaders,
+        organization: openai.organization
+      }
     })
 
     return new Response(JSON.stringify({
       error: 'OpenAI API Error',
       details: error.message,
+      type: error.type,
       code: error.code
     }), {
       status: 500,
