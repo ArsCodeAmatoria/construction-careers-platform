@@ -1,15 +1,10 @@
 "use client"
 
 import { useState } from "react"
-
-interface Message {
-  id: string
-  role: "user" | "assistant" | "error"
-  content: string
-}
+import type { ChatMessage } from "@/types/chat"
 
 export function useChat() {
-  const [messages, setMessages] = useState<Message[]>([])
+  const [messages, setMessages] = useState<ChatMessage[]>([])
   const [input, setInput] = useState("")
   const [isLoading, setIsLoading] = useState(false)
 
@@ -18,7 +13,7 @@ export function useChat() {
     if (!input.trim() || isLoading) return
 
     // Add user message
-    const userMessage: Message = {
+    const userMessage: ChatMessage = {
       id: Date.now().toString(),
       role: "user",
       content: input
@@ -51,7 +46,7 @@ export function useChat() {
       }
 
       // Add assistant message
-      const assistantMessage: Message = {
+      const assistantMessage: ChatMessage = {
         id: Date.now().toString(),
         role: "assistant",
         content: data.content
@@ -60,7 +55,7 @@ export function useChat() {
     } catch (error) {
       console.error("Chat error:", error)
       // Add error message to chat
-      const errorMessage: Message = {
+      const errorMessage: ChatMessage = {
         id: Date.now().toString(),
         role: "error",
         content: "Sorry, I'm having trouble responding right now. Please try again."
