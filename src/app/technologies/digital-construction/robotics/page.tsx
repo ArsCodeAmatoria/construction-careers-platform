@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { 
   Cog, 
-  Robot, 
+  Settings,
   Truck, 
   Wrench, 
   Shield, 
@@ -23,7 +23,7 @@ const roboticSolutions = [
       "Demolition robots",
       "Welding automation"
     ],
-    icon: <Robot className="h-12 w-12 text-blue-500" />
+    icon: <Settings className="h-12 w-12 text-blue-500" />
   },
   {
     title: "Autonomous Equipment",
@@ -177,7 +177,7 @@ export default function RoboticsPage() {
         <div className="flex justify-center gap-4">
           <Link href="/contact">
             <Button size="lg">
-              <Robot className="mr-2 h-5 w-5" />
+              <Settings className="mr-2 h-5 w-5" />
               Request Demo
             </Button>
           </Link>

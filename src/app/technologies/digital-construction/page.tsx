@@ -8,7 +8,12 @@ import {
   Cog, 
   Cloud,
   ArrowRight,
-  Building 
+  Building,
+  Boxes,
+  Plane,
+  Wifi,
+  Settings,
+  Network
 } from "lucide-react"
 
 const digitalSolutions = [
@@ -80,19 +85,38 @@ const benefits = [
   }
 ]
 
+const bcProjects = [
+  {
+    title: "Vancouver Smart City Initiative",
+    description: "Digital infrastructure integration in urban development.",
+    icon: <Network className="h-8 w-8 text-blue-500" />
+  },
+  {
+    title: "BC Construction Innovation Hub",
+    description: "Advancing digital construction technologies across BC.",
+    icon: <Brain className="h-8 w-8 text-purple-500" />
+  },
+  {
+    title: "Digital Twin Projects",
+    description: "Creating virtual replicas of BC infrastructure.",
+    icon: <Database className="h-8 w-8 text-green-500" />
+  }
+]
+
 export default function DigitalConstructionPage() {
   return (
-    <div className="space-y-16 py-8">
-      <section className="text-center space-y-4">
-        <h1 className="text-4xl font-bold tracking-tighter md:text-5xl">
+    <div className="flex flex-col items-center space-y-16 py-8">
+      <section className="text-center space-y-6 max-w-4xl px-4">
+        <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
           Digital Construction
         </h1>
-        <p className="text-xl text-muted-foreground max-w-[800px] mx-auto">
-          Transforming construction through advanced digital technologies and automation
+        <p className="text-xl text-muted-foreground max-w-[700px] mx-auto">
+          Explore how digital technologies and automation are transforming BC's construction industry. 
+          From AI to robotics, discover the future of construction.
         </p>
       </section>
 
-      <section className="w-full max-w-7xl mx-auto px-4 space-y-8">
+      <section className="w-full max-w-7xl px-4 space-y-8">
         <h2 className="text-3xl font-bold tracking-tighter text-center">
           Digital Solutions
         </h2>
@@ -140,6 +164,24 @@ export default function DigitalConstructionPage() {
                 <h3 className="font-semibold">{benefit.title}</h3>
                 <p className="text-sm text-muted-foreground">{benefit.description}</p>
               </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="w-full max-w-7xl px-4 space-y-8">
+        <h2 className="text-3xl font-bold tracking-tighter text-center">
+          BC Innovation Projects
+        </h2>
+        <div className="grid gap-6 md:grid-cols-3 place-items-center">
+          {bcProjects.map((project) => (
+            <div 
+              key={project.title}
+              className="w-full h-full border border-border hover:border-foreground/50 rounded-lg p-6 transition-colors flex flex-col items-center text-center"
+            >
+              {project.icon}
+              <h3 className="mt-4 text-lg font-semibold">{project.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{project.description}</p>
             </div>
           ))}
         </div>

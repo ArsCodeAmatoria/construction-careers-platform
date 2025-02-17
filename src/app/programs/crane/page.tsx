@@ -10,13 +10,19 @@ import {
   Book,
   Users,
   CheckCircle,
-  Building
+  Building,
+  Ship,
+  Anchor,
+  Warehouse,
+  Clock
 } from "lucide-react"
 
 const cranePrograms = [
   {
     title: "Tower Crane",
-    description: "Comprehensive training for tower crane operations",
+    description: "Master the operation of tower cranes for high-rise construction. Get Red Seal certified through our comprehensive 16-week program covering safety, operations, and maintenance.",
+    duration: "16 weeks",
+    certification: "Red Seal",
     features: [
       "Load charts and calculations",
       "Safety protocols",
@@ -28,7 +34,9 @@ const cranePrograms = [
   },
   {
     title: "Mobile Crane",
-    description: "Expert training in mobile crane operations",
+    description: "Learn to operate mobile cranes with expert instruction. Program includes Class 3 license training and covers load charts, rigging, and safety protocols.",
+    duration: "12 weeks",
+    certification: "Class 3 License included",
     features: [
       "Site setup and planning",
       "Load management",
@@ -39,16 +47,88 @@ const cranePrograms = [
     href: "/programs/crane/mobile-crane"
   },
   {
-    title: "Rigging",
-    description: "Essential rigging and hoisting skills",
+    title: "Boom Truck Operator (Unlimited)",
+    description: "Operate truck-mounted folding boom cranes with capacity over 22 tonnes. Learn lifting techniques, site planning, and safety procedures.",
+    duration: "7 weeks",
+    certification: "BC Crane Safety",
+    features: [
+      "Lifting techniques",
+      "Site planning",
+      "Safety procedures",
+      "Load capacity management"
+    ],
+    icon: <Construction className="h-12 w-12 text-green-500" />,
+    href: "/programs/crane/boom-truck"
+  },
+  {
+    title: "Marine Pedestal Crane",
+    description: "Specialized training for ship-mounted crane operations. Master folding boom, stiff boom, and hydraulic marine crane operations for maritime work.",
+    duration: "8 hours + assessment",
+    certification: "Marine Crane Operator Certificate",
+    features: [
+      "Maritime operations",
+      "Ship-mounted systems",
+      "Hydraulic controls",
+      "Maritime safety"
+    ],
+    icon: <Ship className="h-12 w-12 text-cyan-500" />,
+    href: "/programs/crane/marine"
+  },
+  {
+    title: "Dock Crane",
+    description: "Learn to operate dock-mounted cranes for small craft harbors. Covers hydraulic cranes, load charts, and pre-operation inspections.",
+    duration: "Self-paced",
+    certification: "Level 1 & 2 Available",
+    features: [
+      "Harbor operations",
+      "Load charts",
+      "Equipment inspection",
+      "Safety protocols"
+    ],
+    icon: <Anchor className="h-12 w-12 text-purple-500" />,
+    href: "/programs/crane/dock"
+  },
+  {
+    title: "Bridge/Overhead Crane",
+    description: "Comprehensive training in overhead crane operations. Learn safe lifting practices, maintenance checks, and operational procedures.",
+    duration: "2 weeks",
+    certification: "Fulford Certified",
+    features: [
+      "Overhead operations",
+      "Safety practices",
+      "Maintenance procedures",
+      "Load management"
+    ],
+    icon: <Warehouse className="h-12 w-12 text-red-500" />,
+    href: "/programs/crane/overhead"
+  },
+  {
+    title: "Rigging Level 1",
+    description: "Essential rigging and hoisting skills for construction projects. Learn fundamental techniques for safe and efficient load handling.",
+    duration: "1 week",
+    certification: "Bigfoot Certified",
     features: [
       "Rigging techniques",
       "Load securement",
       "Signal operations",
       "Safety standards"
     ],
-    icon: <Link2 className="h-12 w-12 text-green-500" />,
+    icon: <Link2 className="h-12 w-12 text-emerald-500" />,
     href: "/programs/crane/rigging-1"
+  },
+  {
+    title: "Advanced Rigging",
+    description: "Master complex rigging operations and specialized lifting techniques. Advanced certification for experienced riggers.",
+    duration: "2 weeks",
+    certification: "Advanced Rigging Certificate",
+    features: [
+      "Complex lift planning",
+      "Advanced calculations",
+      "Multiple crane operations",
+      "Critical lift management"
+    ],
+    icon: <Link2 className="h-12 w-12 text-indigo-500" />,
+    href: "/programs/crane/rigging-advanced"
   }
 ]
 

@@ -11,6 +11,7 @@ import {
   Flame
 } from 'lucide-react'
 import Image from 'next/image'
+import { Search as SearchComponent } from "@/components/search"
 
 const navLinks = [
   {
@@ -29,7 +30,18 @@ const navLinks = [
     ]
   },
   { href: '/technologies', label: 'Technologies' },
-  { href: '/ai-automation', label: 'Digital Construction' },
+  { 
+    href: '/bigfoot-academy',
+    label: 'Bigfoot Academy',
+    subLinks: [
+      { href: '/bigfoot-academy/crane-operator', label: 'Crane Operator Programs' },
+      { href: '/bigfoot-academy/rigging', label: 'Rigger Certifications' },
+      { href: '/bigfoot-academy/hoist', label: 'Hoist Operator Training' },
+      { href: '/bigfoot-academy/simulator', label: 'Simulator Training' },
+      { href: '/bigfoot-academy/equipment', label: 'Equipment Training' },
+      { href: '/bigfoot-academy/onsite', label: 'On-Site Training' }
+    ]
+  },
   { 
     href: '/programs',
     label: 'Programs',
@@ -109,9 +121,7 @@ export function Header() {
           </Sheet>
 
           {/* Search Button */}
-          <Button variant="ghost" size="icon">
-            <Search className="h-5 w-5" />
-          </Button>
+          <SearchComponent />
         </nav>
       </div>
     </header>
