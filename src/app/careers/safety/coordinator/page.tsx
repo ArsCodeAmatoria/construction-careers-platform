@@ -4,7 +4,12 @@ import {
   Shield, 
   FileCheck,
   Briefcase,
-  Users
+  Users,
+  Book,
+  HardHat,
+  CheckSquare,
+  Target,
+  FileText
 } from "lucide-react"
 
 const responsibilities = [

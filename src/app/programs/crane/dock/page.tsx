@@ -1,18 +1,11 @@
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { 
-  Anchor, 
-  Clock, 
-  Calendar,
-  CheckCircle,
-  Book,
-  Users,
-  HardHat,
-  Cog,
   Shield,
-  Ship,
+  Cog,
   Wrench,
-  Calculator
+  CheckCircle,
+  HardHat
 } from "lucide-react"
 
 const courseContent = [

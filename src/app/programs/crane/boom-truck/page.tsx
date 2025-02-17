@@ -4,7 +4,9 @@ import {
   Truck,
   Shield,
   Cog,
-  Wrench
+  Wrench,
+  CheckCircle,
+  HardHat
 } from "lucide-react"
 
 const courseContent = [

@@ -8,8 +8,7 @@ import {
   Warehouse,
   Clock,
   Award,
-  HardHat,
-  Book
+  HardHat
 } from "lucide-react"
 
 const cranePrograms = [
