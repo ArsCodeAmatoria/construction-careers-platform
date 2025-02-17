@@ -13,8 +13,16 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "ConstructTech Careers",
-  description: "Explore modern careers in construction technology",
+  title: "Bigfoot Crane Academy",
+  description: "Construction training and certification in British Columbia",
+  icons: {
+    icon: [
+      {
+        url: '/favicon.ico',
+        href: '/favicon.ico',
+      }
+    ]
+  }
 };
 
 export default function RootLayout({
