@@ -19,7 +19,7 @@
   },
   "overrides": [
     {
-      "files": ["src/app/**/*.tsx"],
+      "files": ["src/app/**/*.tsx", "src/components/**/*.tsx"],
       "rules": {
         "@typescript-eslint/no-unused-vars": "off"
       }
@@ -31,7 +31,8 @@
     "out/",
     "public/",
     "*.config.js",
-    "*.config.ts"
+    "*.config.ts",
+    ".vercel/"
   ],
   "settings": {
     "react": {
