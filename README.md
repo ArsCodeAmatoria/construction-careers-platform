@@ -9,12 +9,23 @@ A modern platform for construction trades education and career development.
 - **Program Details**: Duration, prerequisites, and certification information
 - **Responsive Design**: Mobile-friendly interface for easy access
 
-## Getting Started
-
-### Prerequisites
+## Prerequisites
 
 - Node.js 18+ and npm
 - OpenAI API access (for AI chat feature)
+
+## Environment Variables
+
+Copy `.env.example` to `.env.local` and fill in your OpenAI credentials:
+
+```bash
+OPENAI_API_KEY=your-api-key-here
+OPENAI_ORG_ID=your-org-id-here
+```
+
+You can get these from the [OpenAI Dashboard](https://platform.openai.com/account/api-keys).
+
+## Getting Started
 
 ### Installation
 
@@ -29,13 +40,7 @@ cd constructtech-careers
 npm install
 ```
 
-3. Set up environment variables:
-- Copy `.env.example` to `.env.local`
-- Add your OpenAI Project API key and Project ID
-```env
-OPENAI_API_KEY=your-project-api-key-here
-OPENAI_PROJECT_ID=your-project-id-here
-```
+3. Set up environment variables (see above)
 
 4. Run the development server:
 ```bash

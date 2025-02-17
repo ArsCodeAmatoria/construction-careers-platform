@@ -1,121 +1,74 @@
 import OpenAI from "openai"
 import type { ChatMessage } from "@/types/chat"
+import { queryLlama } from "@/lib/huggingface"
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
   organization: process.env.OPENAI_ORG_ID,
-  baseURL: 'https://api.openai.com/v1',
-  defaultHeaders: {
-    'OpenAI-Beta': 'project-api-next',
-    'OpenAI-Project-Id': process.env.OPENAI_PROJECT_ID
-  }
 })
+
+const SYSTEM_PROMPT = `You are an AI assistant for Bigfoot Crane Academy in British Columbia. Here are our programs:
+
+CRANE OPERATIONS:
+- Tower Crane Operator: 16-week program, Red Seal certification
+- Mobile Crane Operator: 12-week program, includes Class 3 license
+- Hoist Operator: 8-week program, industry certification
+- Bridge/Overhead Crane: 2-week program, Fulford certified
+- Rigging: Basic (1 week) and Advanced (2 weeks) programs
+
+SAFETY CERTIFICATIONS:
+- Construction Safety Officer (CSO): 3+ years experience required
+- National CSO (NCSO): Advanced certification, 5+ years experience
+- CRSP: Senior safety management, 7+ years experience
+- Safety Coordinator: Entry-level, 2+ years construction experience
+
+HEAVY EQUIPMENT:
+- Excavator Operation: 8-week program
+- Bulldozer Operation: 6-week program
+- Heavy Equipment Transportation: Class 1 license required
+
+Please provide accurate, concise information about our programs and guide students to appropriate career paths.`
 
 export async function POST(req: Request) {
   try {
     const { messages }: { messages: ChatMessage[] } = await req.json()
-    
-    // Log full configuration and request details
-    console.log('API Configuration:', {
-      apiKeyPresent: !!process.env.OPENAI_API_KEY,
-      apiKeyType: process.env.OPENAI_API_KEY?.startsWith('sk-proj-') ? 'project' : 'standard',
-      projectIdPresent: !!process.env.OPENAI_PROJECT_ID,
-      orgIdPresent: !!process.env.OPENAI_ORG_ID,
-      baseURL: process.env.OPENAI_API_BASE_URL,
-      messageCount: messages.length
+
+    const completion = await openai.chat.completions.create({
+      model: "gpt-3.5-turbo",
+      messages: [
+        { role: "system", content: SYSTEM_PROMPT },
+        ...messages.map(m => ({
+          role: m.role === "error" ? "assistant" : m.role,
+          content: m.content
+        }))
+      ],
+      temperature: 0.7,
+      max_tokens: 500,
     })
 
-    try {
-      const completion = await openai.chat.completions.create({
-        model: "gpt-3.5-turbo",
-        messages: [
-          {
-            role: "system",
-            content: `You are a helpful AI assistant for ConstructTech Careers, a construction trades training school in BC. 
-            
-            Our Trade Programs include:
-            - Carpentry (32 weeks): Residential/commercial construction, blueprint reading, framing
-            - Electrical (40 weeks): Electrical systems, wiring, code standards, automation
-            - Plumbing (36 weeks): Pipe fitting, drainage systems, code compliance
-            - Welding (28 weeks): Multiple processes, metal fabrication, blueprint interpretation
-            - HVAC (32 weeks): System installation, maintenance, energy efficiency
-            - Sheet Metal (34 weeks): Metal fabrication, HVAC systems, pattern development
-            - Ironworker (36 weeks): Structural steel, reinforcing, rigging techniques
-            - Heavy Duty Mechanic (40 weeks): Equipment repair, diagnostics, hydraulic systems
-            - Lineworker (30 weeks): Power distribution, climbing techniques, safety protocols
-            - Glazier (30 weeks): Glass installation, curtain walls, storefront systems
-            - Millwright (36 weeks): Industrial machinery, precision measurement, hydraulics
-            - Boilermaker (36 weeks): Pressure vessels, welding, quality control
-
-            Common prerequisites across programs:
-            - High school diploma or equivalent
-            - Physical capability
-            - Safety orientation
-            - Math fundamentals
-
-            All programs include:
-            - Red Seal certification preparation
-            - Safety certifications
-            - Hands-on training
-            - Industry work experience
-
-            Be concise, friendly, and informative. Focus on helping students choose the right program based on their interests and capabilities.`
-          },
-          ...messages
-            .filter((m): m is Omit<ChatMessage, "id"> => m.role !== "error")
-            .map(({ role, content }) => ({ role, content }))
-        ]
-      })
-
-      return new Response(JSON.stringify({
-        content: completion.choices[0].message.content
+    return new Response(
+      JSON.stringify({ 
+        message: completion.choices[0].message.content 
       }), {
         headers: { 'Content-Type': 'application/json' },
-      })
-
-    } catch (openaiError: any) {
-      // Log detailed OpenAI error
-      console.error('OpenAI API Error:', {
-        name: openaiError.name,
-        message: openaiError.message,
-        status: openaiError.status,
-        type: openaiError.type,
-        code: openaiError.code,
-        param: openaiError.param,
-        response: {
-          status: openaiError.response?.status,
-          statusText: openaiError.response?.statusText,
-          data: openaiError.response?.data,
-          headers: openaiError.response?.headers
-        }
-      })
-
-      throw openaiError
-    }
+      }
+    )
 
   } catch (error: any) {
-    // Log general error with full details
-    console.error('Request Error:', {
-      name: error.name,
-      message: error.message,
-      status: error.status,
-      stack: error.stack?.split('\n'),
-      cause: error.cause,
-      config: {
-        baseURL: openai.baseURL,
-        defaultHeaders: openai.defaultHeaders,
-        organization: openai.organization
-      }
-    })
+    console.error('API Error:', error)
+    const status = error.status || 500
+    const message = status === 429 
+      ? "AI service is currently unavailable. Please try again later."
+      : "Sorry, there was an error processing your request."
 
-    return new Response(JSON.stringify({
-      error: 'OpenAI API Error',
-      details: error.message,
-      type: error.type,
-      code: error.code
-    }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    })
+    return new Response(
+      JSON.stringify({ 
+        error: 'API Error',
+        details: message,
+      }), {
+        status,
+        headers: { 'Content-Type': 'application/json' },
+      }
+    )
   }
 } 

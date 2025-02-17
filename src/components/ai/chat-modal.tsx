@@ -4,8 +4,9 @@ import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { Bot, User, Loader2, Send, AlertCircle } from "lucide-react"
+import { Bot, User, Loader2, Send, AlertCircle, Cpu } from "lucide-react"
 import { useChat } from "@/hooks/use-chat"
+import { Alert, AlertDescription } from "@/components/ui/alert"
 
 interface ChatModalProps {
   open: boolean
@@ -13,25 +14,36 @@ interface ChatModalProps {
 }
 
 export function ChatModal({ open, onClose }: ChatModalProps) {
-  const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat()
+  const { 
+    messages, 
+    input, 
+    handleInputChange, 
+    handleSubmit, 
+    isLoading,
+    error
+  } = useChat()
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[440px] h-[600px] flex flex-col gap-4 p-0 overflow-hidden bg-zinc-950 text-zinc-50">
-        {/* Header */}
         <div className="px-6 py-4 border-b border-zinc-800">
           <div className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-full bg-zinc-800 flex items-center justify-center">
-              <Bot className="h-5 w-5 text-zinc-400" />
-            </div>
+            <Bot className="h-5 w-5" />
             <DialogTitle className="text-lg font-semibold text-zinc-50">
-              Construction Career AI
+              Bigfoot Career Assistant
             </DialogTitle>
           </div>
           <p className="text-sm text-zinc-400 mt-1">
-            Ask me about our trade programs and career paths
+            Ask me about our training programs and career paths
           </p>
         </div>
+
+        {error && (
+          <Alert variant="destructive" className="mx-6 bg-red-900/50 border-red-900">
+            <AlertCircle className="h-4 w-4" />
+            <AlertDescription>{error}</AlertDescription>
+          </Alert>
+        )}
 
         {/* Chat Messages */}
         <ScrollArea className="flex-1 px-6">
@@ -95,12 +107,12 @@ export function ChatModal({ open, onClose }: ChatModalProps) {
               onChange={handleInputChange}
               placeholder="Ask about our trade programs..."
               className="flex-1 bg-zinc-900 border-zinc-800 text-zinc-100 placeholder:text-zinc-500"
-              disabled={isLoading}
+              disabled={isLoading || !!error}
             />
             <Button 
               type="submit" 
               size="icon" 
-              disabled={isLoading}
+              disabled={isLoading || !!error}
               className="bg-zinc-800 hover:bg-zinc-700"
             >
               {isLoading ? (

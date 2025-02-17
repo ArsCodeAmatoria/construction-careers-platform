@@ -3,7 +3,7 @@ import { Geist } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
 import Link from "next/link";
-import { Footer } from '@/components/layout/footer'
+import { Footer } from "@/components/footer";
 import { ChatButton } from "@/components/ai/chat-button"
 
 const geist = Geist({

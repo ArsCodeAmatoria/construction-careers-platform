@@ -1,6 +1,6 @@
 'use client'
 
-import { type Career, careers } from '@/data/careers'
+import { careers as careerData } from '@/data/careers'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { 
@@ -19,7 +19,11 @@ import {
   ShieldCheck, 
   Award, 
   ClipboardCheck,
-  Wrench
+  Wrench,
+  Search, 
+  Menu, 
+  Cpu, 
+  Flame
 } from 'lucide-react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { type LucideIcon } from 'lucide-react'
@@ -31,16 +35,39 @@ interface CategoryIcon {
 interface Category {
   id: string
   label: string
-  icon: JSX.Element
+  icon: React.ReactElement
+}
+
+interface Career {
+  id: string
+  category: string
+  title: string
+  description: string
+  certification: string[]
+  salary?: string
+  bcSpecific?: {
+    companies: string[]
+    union: string
+    regulations: string[]
+  }
+  trainingProvider?: string
+  trainingUrl?: string
+}
+
+interface CategoryLink {
+  id: string
+  label: string
+  icon: React.ReactElement
 }
 
 interface SafetyRole {
   id: string
   title: string
+  category: string
   description: string
   requirements: string[]
   responsibilities: string[]
-  icon: JSX.Element
+  icon: React.ReactElement
   href: string
 }
 
@@ -75,6 +102,7 @@ const safetyRoles: SafetyRole[] = [
   {
     id: 'cso',
     title: "Construction Safety Officer (CSO)",
+    category: 'safety',
     description: "Lead and implement site safety programs",
     requirements: [
       "CSO certification",
@@ -94,6 +122,7 @@ const safetyRoles: SafetyRole[] = [
   {
     id: 'ncso',
     title: "National Construction Safety Officer (NCSO)",
+    category: 'safety',
     description: "Advanced safety leadership and program development",
     requirements: [
       "NCSO designation",
@@ -113,6 +142,7 @@ const safetyRoles: SafetyRole[] = [
   {
     id: 'crsp',
     title: "Canadian Registered Safety Professional (CRSP)",
+    category: 'safety',
     description: "Senior safety management and strategic planning",
     requirements: [
       "CRSP certification",
@@ -132,6 +162,7 @@ const safetyRoles: SafetyRole[] = [
   {
     id: 'coordinator',
     title: "Safety Coordinator",
+    category: 'safety',
     description: "Support safety program implementation",
     requirements: [
       "Safety certification",
@@ -150,38 +181,23 @@ const safetyRoles: SafetyRole[] = [
   }
 ]
 
-interface Career {
-  id: string
-  category: string
-  title: string
-  description: string
-  certification: string[]
-  bcSpecific: {
-    companies: string[]
-    union: string
-    regulations: string[]
-  }
-  trainingProvider: string
-  trainingUrl: string
-}
-
-const updatedCareers: Career[] = [
-  ...careers,
+const updatedCareers = [
+  ...careerData,
   ...safetyRoles.map(role => ({
     id: role.id,
-    category: 'safety',
+    category: role.category,
     title: role.title,
     description: role.description,
-    certification: role.requirements,
+    certification: [],
     bcSpecific: {
       companies: [],
-      union: '',
+      union: "Construction Safety Officers Association",
       regulations: []
     },
-    trainingProvider: '',
-    trainingUrl: role.href
+    trainingProvider: "BCIT",
+    trainingUrl: "https://www.bcit.ca/construction"
   }))
-]
+] as Career[]
 
 export default function CareersPage() {
   const searchParams = useSearchParams()
