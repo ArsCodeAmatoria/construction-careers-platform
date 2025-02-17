@@ -1,5 +1,7 @@
 import OpenAI from "openai"
 import type { ChatMessage } from "@/types/chat"
+import { OpenAIStream, StreamingTextResponse } from 'ai'
+import { NextResponse } from 'next/server'
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -55,14 +57,17 @@ export async function POST(req: Request) {
 
   } catch (error: unknown) {
     console.error('API Error:', error)
-    const status = error instanceof Error ? 500 : 500
-    const message = status === 429 
+    let status = 500
+    
+    // Check if it's a rate limit error from OpenAI
+    if (error instanceof Error && error.message.includes('rate_limit')) {
+      status = 429
+    }
+
+    const message = status === 429
       ? "AI service is currently unavailable. Please try again later."
       : "Sorry, there was an error processing your request."
 
-    return new Response(
-      JSON.stringify({ message }),
-      { status, headers: { 'Content-Type': 'application/json' } }
-    )
+    return NextResponse.json({ error: message }, { status })
   }
 } 
