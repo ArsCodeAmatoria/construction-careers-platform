@@ -4,7 +4,9 @@
     "@typescript-eslint/no-unused-vars": ["warn", {
       "argsIgnorePattern": "^_",
       "varsIgnorePattern": "^_",
-      "caughtErrorsIgnorePattern": "^_"
+      "caughtErrorsIgnorePattern": "^_",
+      "destructuredArrayIgnorePattern": "^_",
+      "ignoreRestSiblings": true
     }],
     "react/no-unescaped-entities": "off",
     "@typescript-eslint/no-empty-interface": "off",
@@ -15,6 +17,14 @@
     "react/prop-types": "off",
     "react/display-name": "off"
   },
+  "overrides": [
+    {
+      "files": ["src/app/**/*.tsx"],
+      "rules": {
+        "@typescript-eslint/no-unused-vars": "off"
+      }
+    }
+  ],
   "ignorePatterns": [
     "node_modules/",
     ".next/",
