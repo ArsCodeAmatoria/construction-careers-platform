@@ -91,7 +91,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="hover:text-foreground transition-colors duration-200 flex items-center gap-1"
                 >
-                  <PawPrint className="h-4 w-4" />
+                  <PawPrint className="h-4 w-4 text-green-500" />
                   <span>Bigfoot Crane Academy</span>
                 </Link>
               </div>
