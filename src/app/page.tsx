@@ -101,7 +101,7 @@ export default function Home() {
         </h1>
         <p className="text-xl text-muted-foreground max-w-[700px] mx-auto">
           From traditional trades to cutting-edge technology, discover rewarding careers 
-          in British Columbia's thriving construction industry.
+          in British Columbia&apos;s thriving construction industry.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link href="/careers">
@@ -169,8 +169,8 @@ export default function Home() {
           Start Your Journey Today
         </h2>
         <p className="text-lg text-muted-foreground">
-          Whether you're interested in traditional trades or cutting-edge technology, 
-          BC's construction industry offers diverse opportunities for growth and success.
+          Whether you&apos;re interested in traditional trades or cutting-edge technology, 
+          BC&apos;s construction industry offers diverse opportunities for growth and success.
         </p>
         <Link href="/careers">
           <Button size="lg">

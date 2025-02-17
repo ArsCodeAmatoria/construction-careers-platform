@@ -9,7 +9,7 @@ export default function HeatPumpPage() {
       <section className="text-center space-y-4">
         <h1 className="text-4xl font-bold tracking-tighter">Heat Pump Technology</h1>
         <p className="text-lg text-muted-foreground max-w-[900px] mx-auto">
-          Master the installation and maintenance of advanced heat pump systems optimized for BC's climate zones. 
+          Master the installation and maintenance of advanced heat pump systems optimized for BC&apos;s climate zones. 
           Learn about air-source and ground-source solutions for efficient building heating and cooling.
         </p>
       </section>
@@ -34,7 +34,7 @@ export default function HeatPumpPage() {
           <Thermometer className="h-12 w-12 text-red-500" />
           <h3 className="text-xl font-semibold">Climate Optimization</h3>
           <p className="text-muted-foreground">
-            Optimize heat pump performance for BC's diverse climate zones.
+            Optimize heat pump performance for BC&apos;s diverse climate zones.
           </p>
         </div>
       </section>

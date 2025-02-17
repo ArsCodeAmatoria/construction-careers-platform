@@ -1,15 +1,10 @@
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { 
-  Crane, 
-  Building2, 
+  Construction,
   Truck, 
   Anchor,
   Ship,
-  Construction,
-  Clock,
-  Award,
-  HardHat,
   Warehouse
 } from "lucide-react"
 
@@ -19,7 +14,7 @@ const cranePrograms = [
     description: "Master the operation of tower cranes for high-rise construction. Get Red Seal certified through our comprehensive 16-week program covering safety, operations, and maintenance.",
     duration: "16 weeks",
     certification: "Red Seal",
-    icon: <Crane className="h-12 w-12 text-blue-500" />
+    icon: <Construction className="h-12 w-12 text-blue-500" />
   },
   {
     title: "Mobile Crane Operator",

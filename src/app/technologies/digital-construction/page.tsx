@@ -111,8 +111,7 @@ export default function DigitalConstructionPage() {
           Digital Construction
         </h1>
         <p className="text-xl text-muted-foreground max-w-[700px] mx-auto">
-          Explore how digital technologies and automation are transforming BC's construction industry. 
-          From AI to robotics, discover the future of construction.
+          Today&apos;s construction sites are transforming through digital innovation. Let&apos;s explore BC&apos;s digital future.
         </p>
       </section>
 

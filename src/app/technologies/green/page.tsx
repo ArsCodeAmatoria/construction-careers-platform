@@ -21,7 +21,7 @@ const greenTechnologies = [
   },
   {
     title: "Heat Pump Technology",
-    description: "Advanced heat pump systems optimized for BC's climate zones, including air-source and ground-source solutions.",
+    description: "Advanced heat pump systems optimized for BC&apos;s climate zones, including air-source and ground-source solutions.",
     icon: <Wind className="h-12 w-12 text-blue-500" />,
     href: "/technologies/green/heat-pump"
   },
@@ -39,7 +39,7 @@ const greenTechnologies = [
   },
   {
     title: "Passive House Design",
-    description: "Learn ultra-low energy building design principles adapted for BC's climate, including superinsulation and heat recovery.",
+    description: "Learn ultra-low energy building design principles adapted for BC&apos;s climate, including superinsulation and heat recovery.",
     icon: <Building2 className="h-12 w-12 text-purple-500" />,
     href: "/technologies/green/passive-house"
   },
@@ -59,7 +59,7 @@ const bcPrograms = [
   },
   {
     title: "Zero Emissions Buildings",
-    description: "Vancouver's initiative for carbon-neutral construction by 2030.",
+    description: "Vancouver&apos;s initiative for carbon-neutral construction by 2030.",
     icon: <Factory className="h-12 w-12 text-blue-500" />
   },
   {
@@ -78,7 +78,7 @@ export default function GreenTechnologiesPage() {
           Green Building Technologies
         </h1>
         <p className="text-xl text-muted-foreground max-w-[700px] mx-auto">
-          Discover sustainable construction technologies shaping BC's green building future. 
+          Discover sustainable construction technologies shaping BC&apos;s green building future. 
           From renewable energy to waste reduction, explore innovations driving environmental performance.
         </p>
       </section>
@@ -122,7 +122,7 @@ export default function GreenTechnologiesPage() {
       {/* Call to Action */}
       <section className="w-full max-w-4xl px-4 text-center space-y-6">
         <h2 className="text-3xl font-bold tracking-tighter">
-          Join BC's Green Building Revolution
+          Join BC&apos;s Green Building Revolution
         </h2>
         <p className="text-lg text-muted-foreground">
           Explore careers in sustainable construction and help build a cleaner future for British Columbia.

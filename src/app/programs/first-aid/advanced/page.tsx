@@ -5,13 +5,12 @@ import {
   Clock, 
   Calendar,
   CheckCircle,
-  Book,
   Users,
-  Stethoscope,
-  Brain,
   Ambulance,
   Building,
-  HeartPulse
+  HeartPulse,
+  Heart,
+  Shield
 } from "lucide-react"
 
 const courseContent = [
@@ -43,7 +42,7 @@ const courseContent = [
       "Team leadership",
       "Resource coordination"
     ],
-    icon: <Brain className="h-12 w-12 text-purple-500" />
+    icon: <Heart className="h-12 w-12 text-purple-500" />
   }
 ]
 

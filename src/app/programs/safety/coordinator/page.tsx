@@ -8,7 +8,8 @@ import {
   Users,
   FileCheck,
   Briefcase,
-  CheckSquare
+  CheckSquare,
+  Award
 } from "lucide-react"
 
 const courseContent = [

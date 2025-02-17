@@ -6,11 +6,8 @@ import {
   HardHat,
   Award,
   Book,
-  Users,
   CheckCircle,
-  Building,
-  Shovel,
-  Forklift
+  Shovel
 } from "lucide-react"
 
 const equipmentPrograms = [
@@ -53,7 +50,7 @@ const equipmentPrograms = [
 ]
 
 const certifications = [
-  "Class 1 Driver's License",
+  "Class 1 Driver&apos;s License",
   "Air Brake Endorsement",
   "Heavy Equipment Certification",
   "WHMIS",

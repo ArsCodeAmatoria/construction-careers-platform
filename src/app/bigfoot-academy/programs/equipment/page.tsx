@@ -144,8 +144,8 @@ export default function EquipmentTrainingPage() {
         <h2 className="text-3xl font-bold tracking-tighter">
           Get Certified Today
         </h2>
-        <p className="text-lg text-muted-foreground max-w-[600px] mx-auto">
-          Join Bigfoot Academy's equipment training programs and become a certified operator.
+        <p className="text-lg text-muted-foreground">
+          BC&apos;s most comprehensive heavy equipment training program.
         </p>
         <div className="flex justify-center gap-4">
           <Link href="/contact">

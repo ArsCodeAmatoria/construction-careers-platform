@@ -18,7 +18,7 @@ export default function PassiveHousePage() {
       <section className="text-center space-y-4">
         <h1 className="text-4xl font-bold tracking-tighter">Passive House Design</h1>
         <p className="text-lg text-muted-foreground max-w-[900px] mx-auto">
-          Master ultra-low energy building design principles adapted for BC's climate. 
+          Master ultra-low energy building design principles adapted for BC&apos;s climate. 
           Learn advanced techniques in superinsulation, airtightness, and heat recovery systems.
         </p>
       </section>

@@ -1,20 +1,11 @@
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { 
-  Construction, 
+  Construction,
   Truck, 
-  Container,
-  Link2,
-  HardHat,
-  Award,
-  Book,
-  Users,
-  CheckCircle,
-  Building,
-  Ship,
   Anchor,
-  Warehouse,
-  Clock
+  Ship,
+  Warehouse
 } from "lucide-react"
 
 const cranePrograms = [

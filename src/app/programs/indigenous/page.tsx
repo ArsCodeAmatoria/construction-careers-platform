@@ -265,7 +265,7 @@ export default function IndigenousProgramsPage() {
           Build Your Future
         </h2>
         <p className="text-lg text-muted-foreground">
-          Join the growing community of Indigenous professionals shaping BC's construction industry.
+          Join the growing community of Indigenous professionals shaping BC&apos;s construction industry.
         </p>
         <Link href="/careers">
           <Button size="lg">

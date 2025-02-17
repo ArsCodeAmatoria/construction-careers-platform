@@ -1,14 +1,8 @@
-import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { 
-  Brain, 
-  Cpu, 
-  Boxes, 
-  Cog,
-  Plane,
-  Wifi,
+import {
+  Brain,
   Settings,
-  Building2
+  Wifi
 } from "lucide-react"
 
 const digitalTechnologies = [

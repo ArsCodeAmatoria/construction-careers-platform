@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { Cpu, HardHat, Shield, Clock, Award, Building2, Construction, Truck } from "lucide-react"
+import { Cpu, Shield, Clock, Award, Building2, Construction, Truck } from "lucide-react"
 import Image from "next/image"
 
 const programs = [

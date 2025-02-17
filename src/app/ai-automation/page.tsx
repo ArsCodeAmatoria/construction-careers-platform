@@ -25,7 +25,7 @@ const digitalTechnologies = [
   },
   {
     title: "AI in Construction",
-    description: "Artificial Intelligence optimizing project planning and execution.",
+    description: "Today&apos;s construction industry is being transformed by artificial intelligence...",
     icon: <Brain className="h-12 w-12 text-purple-500" />,
     features: [
       "Predictive Analytics",
@@ -106,7 +106,7 @@ export default function DigitalConstructionPage() {
           Digital Construction
         </h1>
         <p className="text-xl text-muted-foreground max-w-[700px] mx-auto">
-          Explore how digital technologies and automation are transforming BC's construction industry. 
+          Explore how digital technologies and automation are transforming BC&apos;s construction industry. 
           From AI to robotics, discover the future of construction.
         </p>
       </section>
@@ -157,7 +157,7 @@ export default function DigitalConstructionPage() {
           Join the Digital Revolution
         </h2>
         <p className="text-lg text-muted-foreground">
-          Discover careers in digital construction and help shape the future of BC's building industry.
+          Discover careers in digital construction and help shape the future of BC&apos;s building industry.
         </p>
         <Link href="/careers?category=technology">
           <Button size="lg">

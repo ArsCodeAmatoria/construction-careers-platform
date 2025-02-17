@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import {
   NavigationMenu,
@@ -13,10 +12,7 @@ import {
   GraduationCap, 
   Building2, 
   Users,
-  Shield,
-  Heart,
-  Container,
-  Car
+  Shield
 } from "lucide-react"
 
 const programsMenu = [
