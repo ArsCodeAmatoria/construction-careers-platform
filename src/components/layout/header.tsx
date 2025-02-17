@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
-import { Construction as CraneIcon, Flame, Menu } from 'lucide-react'
+import { Menu, Flame } from 'lucide-react'
 import { Search } from "@/components/search"
 
 const navLinks = [
