@@ -13,7 +13,7 @@ import {
   Plane,
   Wifi,
   Settings,
-  Network
+  Building2
 } from "lucide-react"
 
 const digitalSolutions = [
@@ -89,7 +89,7 @@ const bcProjects = [
   {
     title: "Vancouver Smart City Initiative",
     description: "Digital infrastructure integration in urban development.",
-    icon: <Network className="h-8 w-8 text-blue-500" />
+    icon: <Building2 className="h-8 w-8 text-blue-500" />
   },
   {
     title: "BC Construction Innovation Hub",
@@ -105,13 +105,14 @@ const bcProjects = [
 
 export default function DigitalConstructionPage() {
   return (
-    <div className="flex flex-col items-center space-y-16 py-8">
+    <div className="container mx-auto px-4 py-8 space-y-12">
       <section className="text-center space-y-6 max-w-4xl px-4">
         <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
           Digital Construction
         </h1>
-        <p className="text-xl text-muted-foreground max-w-[700px] mx-auto">
-          Today&apos;s construction sites are transforming through digital innovation. Let&apos;s explore BC&apos;s digital future.
+        <p className="text-lg text-muted-foreground max-w-[900px] mx-auto">
+          Transform construction with advanced digital solutions. From AI to BIM, 
+          discover how technology is revolutionizing the building industry in BC.
         </p>
       </section>
 
@@ -124,19 +125,20 @@ export default function DigitalConstructionPage() {
             <Link 
               key={solution.title}
               href={solution.href}
-              className="group"
+              className="group w-full"
             >
               <div className="h-full border border-border hover:border-foreground/50 rounded-lg p-6 transition-colors">
                 <div className="flex flex-col items-center text-center space-y-4">
-                  <div className="transform transition-transform group-hover:scale-110">
-                    {solution.icon}
-                  </div>
+                  {solution.icon}
                   <h3 className="text-xl font-semibold">{solution.title}</h3>
                   <p className="text-sm text-muted-foreground">{solution.description}</p>
-                  <ul className="w-full space-y-2 text-sm">
+                  <ul className="mt-4 space-y-2 text-sm">
                     {solution.features.map((feature) => (
-                      <li key={feature} className="flex items-center justify-center">
-                        <ArrowRight className="h-4 w-4 mr-2 text-muted-foreground" />
+                      <li 
+                        key={feature} 
+                        className="flex items-center text-muted-foreground"
+                      >
+                        <ArrowRight className="h-4 w-4 mr-2" />
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -148,21 +150,21 @@ export default function DigitalConstructionPage() {
         </div>
       </section>
 
-      <section className="w-full max-w-4xl mx-auto px-4 text-center space-y-8">
-        <h2 className="text-3xl font-bold tracking-tighter">
+      <section className="w-full max-w-7xl px-4 space-y-8">
+        <h2 className="text-3xl font-bold tracking-tighter text-center">
           Key Benefits
         </h2>
         <div className="grid gap-6 md:grid-cols-3">
           {benefits.map((benefit) => (
             <div 
               key={benefit.title}
-              className="p-6 border border-border rounded-lg"
+              className="border border-border rounded-lg p-6 text-center space-y-4"
             >
-              <div className="flex flex-col items-center space-y-3">
+              <div className="flex justify-center">
                 {benefit.icon}
-                <h3 className="font-semibold">{benefit.title}</h3>
-                <p className="text-sm text-muted-foreground">{benefit.description}</p>
               </div>
+              <h3 className="text-xl font-semibold">{benefit.title}</h3>
+              <p className="text-sm text-muted-foreground">{benefit.description}</p>
             </div>
           ))}
         </div>
@@ -172,25 +174,27 @@ export default function DigitalConstructionPage() {
         <h2 className="text-3xl font-bold tracking-tighter text-center">
           BC Innovation Projects
         </h2>
-        <div className="grid gap-6 md:grid-cols-3 place-items-center">
+        <div className="grid gap-6 md:grid-cols-3">
           {bcProjects.map((project) => (
             <div 
               key={project.title}
-              className="w-full h-full border border-border hover:border-foreground/50 rounded-lg p-6 transition-colors flex flex-col items-center text-center"
+              className="border border-border rounded-lg p-6 text-center space-y-4"
             >
-              {project.icon}
-              <h3 className="mt-4 text-lg font-semibold">{project.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{project.description}</p>
+              <div className="flex justify-center">
+                {project.icon}
+              </div>
+              <h3 className="text-xl font-semibold">{project.title}</h3>
+              <p className="text-sm text-muted-foreground">{project.description}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="w-full max-w-4xl mx-auto px-4 text-center space-y-6">
-        <h2 className="text-3xl font-bold tracking-tighter">
+      <section className="w-full max-w-7xl px-4 space-y-8">
+        <h2 className="text-3xl font-bold tracking-tighter text-center">
           Start Your Digital Transformation
         </h2>
-        <p className="text-lg text-muted-foreground">
+        <p className="text-lg text-muted-foreground text-center max-w-[900px] mx-auto">
           Discover how digital technologies can revolutionize your construction projects
         </p>
         <div className="flex justify-center gap-4">
@@ -200,10 +204,12 @@ export default function DigitalConstructionPage() {
               Schedule Consultation
             </Button>
           </Link>
-          <Button variant="outline" size="lg">
-            <Building className="mr-2 h-5 w-5" />
-            View Case Studies
-          </Button>
+          <Link href="/case-studies">
+            <Button variant="outline" size="lg">
+              <Building className="mr-2 h-5 w-5" />
+              View Case Studies
+            </Button>
+          </Link>
         </div>
       </section>
     </div>

@@ -5,7 +5,12 @@ import {
   Truck, 
   Anchor,
   Ship,
-  Warehouse
+  Warehouse,
+  Link2,
+  CheckCircle,
+  Award,
+  HardHat,
+  Book
 } from "lucide-react"
 
 const cranePrograms = [

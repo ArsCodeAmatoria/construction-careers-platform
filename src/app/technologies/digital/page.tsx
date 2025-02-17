@@ -2,7 +2,10 @@ import Link from "next/link"
 import {
   Brain,
   Settings,
-  Wifi
+  Wifi,
+  Building2,
+  Boxes,
+  Plane
 } from "lucide-react"
 
 const digitalTechnologies = [
@@ -46,13 +49,12 @@ const digitalTechnologies = [
 
 export default function DigitalTechnologiesPage() {
   return (
-    <div className="flex flex-col items-center space-y-16 py-8">
-      {/* Hero Section */}
+    <div className="container mx-auto px-4 py-8 space-y-12">
       <section className="text-center space-y-6 max-w-4xl px-4">
         <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
           Digital Construction Technologies
         </h1>
-        <p className="text-xl text-muted-foreground max-w-[700px] mx-auto">
+        <p className="text-lg text-muted-foreground max-w-[900px] mx-auto">
           Explore cutting-edge digital technologies transforming the construction industry. 
           From AI to robotics, master the tools shaping the future of building in British Columbia.
         </p>

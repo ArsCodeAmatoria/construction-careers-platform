@@ -142,83 +142,92 @@ const innovationHighlights = [
 
 export default function TechnologiesPage() {
   return (
-    <div className="flex flex-col items-center space-y-16 py-8">
-      <section className="text-center space-y-6 max-w-4xl px-4">
-        <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
-          Construction Technologies
-        </h1>
-        <p className="text-xl text-muted-foreground max-w-[700px] mx-auto">
-          Explore the cutting-edge technologies shaping BC's construction industry. 
-          From digital innovation to sustainable solutions, discover what's building our future.
-        </p>
-      </section>
+    <div className="flex flex-col items-center">
+      <div className="w-full py-24 bg-background">
+        <div className="container px-4 md:px-6">
+          <div className="flex flex-col items-center space-y-4 text-center">
+            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
+              Construction Technologies
+            </h1>
+            <p className="mx-auto max-w-[700px] text-muted-foreground">
+              BC&apos;s construction industry is evolving with cutting-edge technologies. 
+              From digital innovations to sustainable solutions, we&apos;re building the future 
+              of construction in British Columbia.
+            </p>
+          </div>
+        </div>
+      </div>
 
-      <section className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 w-full max-w-7xl px-4 place-items-center">
-        {technologyCategories.map((category) => (
-          <div 
-            key={category.title} 
-            className="w-full group"
-          >
-            <div className="h-full border border-border hover:border-foreground/50 rounded-lg p-6 transition-colors">
-              <div className="flex flex-col items-center text-center">
-                {category.icon}
-                <Link href={category.href}>
-                  <h3 className="mt-4 text-xl font-semibold">{category.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{category.description}</p>
-                </Link>
-                <ul className="mt-4 space-y-2 text-sm w-full">
-                  {category.features.map((feature) => (
-                    <li key={feature.title}>
-                      <Link 
-                        href={feature.href} 
-                        className="flex items-center justify-center hover:text-foreground"
-                      >
-                        {feature.icon}
-                        <span className="ml-2 text-sm text-muted-foreground">
-                          {feature.title}
-                        </span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+      <div className="container py-12 space-y-12 px-4 md:px-6">
+        <section className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 w-full max-w-7xl place-items-center">
+          {technologyCategories.map((category) => (
+            <div 
+              key={category.title} 
+              className="w-full group"
+            >
+              <div className="h-full border border-border hover:border-foreground/50 rounded-lg p-6 transition-colors">
+                <div className="flex flex-col items-center text-center">
+                  {category.icon}
+                  <Link href={category.href}>
+                    <h3 className="mt-4 text-xl font-semibold">{category.title}</h3>
+                    <p className="mt-2 text-sm text-muted-foreground">{category.description}</p>
+                  </Link>
+                  <ul className="mt-4 space-y-2 text-sm w-full">
+                    {category.features.map((feature) => (
+                      <li key={feature.title}>
+                        <Link 
+                          href={feature.href} 
+                          className="flex items-center justify-center hover:text-foreground"
+                        >
+                          {feature.icon}
+                          <span className="ml-2 text-sm text-muted-foreground">
+                            {feature.title}
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </section>
-
-      <section className="w-full max-w-7xl px-4 space-y-8">
-        <h2 className="text-3xl font-bold tracking-tighter text-center">
-          Innovation Highlights
-        </h2>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 place-items-center">
-          {innovationHighlights.map((tech) => (
-            <div 
-              key={tech.title}
-              className="w-full h-full border border-border hover:border-foreground/50 rounded-lg p-6 transition-colors flex flex-col items-center text-center"
-            >
-              {tech.icon}
-              <h3 className="mt-4 text-lg font-semibold">{tech.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{tech.description}</p>
-            </div>
           ))}
-        </div>
-      </section>
+        </section>
 
-      <section className="w-full max-w-4xl px-4 text-center space-y-6">
-        <h2 className="text-3xl font-bold tracking-tighter">
-          Shape the Future
-        </h2>
-        <p className="text-lg text-muted-foreground">
-          Join the technological revolution in BC's construction industry.
-        </p>
-        <Link href="/careers?category=technology">
-          <Button size="lg">
-            <Cpu className="mr-2 h-5 w-5" />
-            View Tech Careers
-          </Button>
-        </Link>
-      </section>
+        <section className="w-full max-w-7xl px-4 space-y-8">
+          <h2 className="text-3xl font-bold tracking-tighter text-center">
+            Innovation Highlights
+          </h2>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 place-items-center">
+            {innovationHighlights.map((tech) => (
+              <div 
+                key={tech.title}
+                className="w-full h-full border border-border hover:border-foreground/50 rounded-lg p-6 transition-colors flex flex-col items-center text-center"
+              >
+                {tech.icon}
+                <h3 className="mt-4 text-lg font-semibold">{tech.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{tech.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="w-full max-w-7xl space-y-8">
+          <div className="flex flex-col items-center space-y-4 text-center">
+            <h2 className="text-3xl font-bold tracking-tighter">
+              Shape the Future
+            </h2>
+            <p className="mx-auto max-w-[700px] text-muted-foreground">
+              Join the technological revolution in BC&apos;s construction industry.
+            </p>
+            <Link href="/careers?category=technology">
+              <Button size="lg">
+                <Cpu className="mr-2 h-5 w-5" />
+                View Tech Careers
+              </Button>
+            </Link>
+          </div>
+        </section>
+      </div>
     </div>
   )
 } 
