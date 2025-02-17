@@ -20,6 +20,7 @@ import {
   ClipboardCheck
 } from 'lucide-react'
 import { useSearchParams, useRouter } from 'next/navigation'
+import { Suspense } from 'react'
 
 interface CategoryIcon {
   [key: string]: React.ReactNode
@@ -186,7 +187,7 @@ const updatedCareers = [
   }))
 ] as Career[]
 
-export default function CareersPage() {
+function CareerSearch() {
   const searchParams = useSearchParams()
   const router = useRouter()
   const currentCategory = searchParams.get('category') || 'all'
@@ -196,43 +197,48 @@ export default function CareersPage() {
     : updatedCareers.filter(career => career.category === currentCategory)
 
   return (
+    <div className="flex gap-2 overflow-x-auto pb-2">
+      {categories.map((category) => (
+        <Button
+          key={category.id}
+          variant={currentCategory === category.id ? "default" : "outline"}
+          className="flex items-center gap-2"
+          onClick={() => {
+            const params = new URLSearchParams(searchParams)
+            if (category.id === 'all') {
+              params.delete('category')
+            } else {
+              params.set('category', category.id)
+            }
+            router.push(`/careers?${params.toString()}`)
+          }}
+        >
+          {category.icon}
+          {category.label}
+        </Button>
+      ))}
+    </div>
+  )
+}
+
+export default function CareersPage() {
+  return (
     <div className="space-y-8">
       <section className="text-center space-y-4">
-        <h1 className="text-4xl font-bold tracking-tighter">BC Construction Careers</h1>
-        <p className="text-lg text-muted-foreground">
-          BC&apos;s construction industry is evolving. Discover how you&apos;ll fit into tomorrow&apos;s workforce.
+        <h1 className="text-4xl font-bold tracking-tighter md:text-5xl">
+          Construction Careers
+        </h1>
+        <p className="text-xl text-muted-foreground">
+          Explore career opportunities in modern construction
         </p>
-        <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-          <MapPin className="h-4 w-4" />
-          <span>British Columbia, Canada</span>
-        </div>
       </section>
 
-      {/* Category Tabs */}
-      <div className="flex gap-2 overflow-x-auto pb-2">
-        {categories.map((category) => (
-          <Button
-            key={category.id}
-            variant={currentCategory === category.id ? "default" : "outline"}
-            className="flex items-center gap-2"
-            onClick={() => {
-              const params = new URLSearchParams(searchParams)
-              if (category.id === 'all') {
-                params.delete('category')
-              } else {
-                params.set('category', category.id)
-              }
-              router.push(`/careers?${params.toString()}`)
-            }}
-          >
-            {category.icon}
-            {category.label}
-          </Button>
-        ))}
-      </div>
+      <Suspense fallback={<div>Loading search...</div>}>
+        <CareerSearch />
+      </Suspense>
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {filteredCareers.map((career) => (
+        {updatedCareers.map((career) => (
           <div 
             key={career.id}
             className="rounded-lg border border-border hover:border-foreground/50 transition-colors"
