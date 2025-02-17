@@ -1,68 +1,151 @@
-import { ProgramLayout } from "@/components/academy/program-layout"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
+import { Building2, HardHat, Shield, Clock, Award, Construction, Warehouse, Users } from "lucide-react"
+
+const programs = [
+  {
+    title: "Supervisor Training",
+    description: "Comprehensive crane and rigging awareness training for supervisory personnel and management teams.",
+    duration: "2 days",
+    certification: "Supervisor Certificate",
+    features: [
+      "Risk assessment",
+      "Regulatory compliance",
+      "Emergency procedures",
+      "Team coordination"
+    ],
+    icon: <Users className="h-12 w-12 text-blue-500" />,
+    href: "/bigfoot-academy/programs/onsite/supervisor"
+  },
+  {
+    title: "Overhead Crane & Rigging",
+    description: "Site-specific training for overhead crane operations and rigging procedures.",
+    duration: "1-3 days",
+    certification: "Operator Certificate",
+    features: [
+      "Equipment operation",
+      "Load control",
+      "Rigging techniques",
+      "Safety protocols"
+    ],
+    icon: <Construction className="h-12 w-12 text-green-500" />,
+    href: "/bigfoot-academy/programs/onsite/overhead-crane"
+  },
+  {
+    title: "Construction Hoist",
+    description: "Customized training for construction hoist operations at your worksite.",
+    duration: "3 days",
+    certification: "Operator Certificate",
+    features: [
+      "Operational procedures",
+      "Emergency protocols",
+      "Maintenance checks",
+      "Site integration"
+    ],
+    icon: <Warehouse className="h-12 w-12 text-orange-500" />,
+    href: "/bigfoot-academy/programs/onsite/hoist"
+  }
+]
+
+const certifications = [
+  "WorkSafeBC Compliant",
+  "Site-Specific Training",
+  "Industry Standards",
+  "Company Customized",
+  "Documentation Provided"
+]
 
 export default function OnSiteTrainingPage() {
   return (
-    <ProgramLayout
-      title="On-Site Training Programs"
-      description="Customized training programs delivered at your location. Our expert instructors bring comprehensive crane operations, rigging, and safety courses directly to your workplace."
-      duration="Flexible"
-      certification="Various Available"
-      features={[
-        "Training at your facility",
-        "Customized program content",
-        "Equipment-specific training",
-        "Group training options",
-        "Flexible scheduling",
-        "Real workplace scenarios",
-        "Immediate skill application",
-        "Cost-effective solutions"
-      ]}
-      modules={[
-        {
-          title: "Supervisor Training",
-          description: "Crane and rigging awareness for supervisory personnel.",
-          topics: [
-            "Risk assessment and management",
-            "Regulatory compliance",
-            "Lift planning oversight",
-            "Safety protocol implementation",
-            "Emergency response coordination"
-          ]
-        },
-        {
-          title: "Overhead Crane & Rigging",
-          description: "Comprehensive training for overhead crane operations.",
-          topics: [
-            "Safe operating procedures",
-            "Load chart interpretation",
-            "Rigging techniques",
-            "Equipment inspection",
-            "Workplace-specific applications"
-          ]
-        },
-        {
-          title: "Construction Hoist",
-          description: "Site-specific hoist operation training.",
-          topics: [
-            "Operational procedures",
-            "Safety requirements",
-            "Emergency protocols",
-            "Maintenance checks",
-            "Site integration practices"
-          ]
-        },
-        {
-          title: "Assessment Preparation",
-          description: "Targeted training for certification assessments.",
-          topics: [
-            "Theory review sessions",
-            "Practical skills preparation",
-            "Documentation requirements",
-            "Assessment strategies",
-            "Industry standards review"
-          ]
-        }
-      ]}
-    />
+    <div className="space-y-16 py-8">
+      {/* Hero Section */}
+      <section className="text-center space-y-4">
+        <h1 className="text-4xl font-bold tracking-tighter md:text-5xl">
+          On-Site Training Programs
+        </h1>
+        <p className="text-xl text-muted-foreground max-w-[800px] mx-auto">
+          Customized training programs delivered at your location by our expert instructors
+        </p>
+      </section>
+
+      {/* Programs Grid */}
+      <section className="container mx-auto px-4">
+        <div className="grid gap-6 md:grid-cols-3">
+          {programs.map((program) => (
+            <Link 
+              key={program.title}
+              href={program.href}
+              className="group relative rounded-lg border p-6 hover:border-foreground/50 transition-colors"
+            >
+              <div className="space-y-4">
+                {program.icon}
+                <h3 className="text-xl font-semibold">{program.title}</h3>
+                <p className="text-sm text-muted-foreground">{program.description}</p>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2 text-sm">
+                    <Clock className="h-4 w-4" />
+                    <span>{program.duration}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm">
+                    <Award className="h-4 w-4" />
+                    <span>{program.certification}</span>
+                  </div>
+                </div>
+                <ul className="space-y-2 text-sm">
+                  {program.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-2">
+                      <Shield className="h-4 w-4 mt-1 text-muted-foreground" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Certifications Section */}
+      <section className="container mx-auto px-4 text-center space-y-8">
+        <h2 className="text-3xl font-bold tracking-tighter">
+          Training Standards
+        </h2>
+        <div className="flex flex-wrap justify-center gap-4">
+          {certifications.map((cert) => (
+            <div 
+              key={cert}
+              className="flex items-center gap-2 px-4 py-2 rounded-full bg-muted"
+            >
+              <Award className="h-4 w-4" />
+              <span className="text-sm">{cert}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="container mx-auto px-4 text-center space-y-6">
+        <h2 className="text-3xl font-bold tracking-tighter">
+          Book Your Training
+        </h2>
+        <p className="text-lg text-muted-foreground max-w-[600px] mx-auto">
+          Schedule customized on-site training for your team today.
+        </p>
+        <div className="flex justify-center gap-4">
+          <Link href="/contact">
+            <Button size="lg">
+              <Building2 className="mr-2 h-5 w-5" />
+              Request Training
+            </Button>
+          </Link>
+          <Link href="/contact">
+            <Button variant="outline" size="lg">
+              <HardHat className="mr-2 h-5 w-5" />
+              Learn More
+            </Button>
+          </Link>
+        </div>
+      </section>
+    </div>
   )
 } 

@@ -1,68 +1,151 @@
-import { ProgramLayout } from "@/components/academy/program-layout"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
+import { Link2, HardHat, Shield, Clock, Award, Building2, Construction } from "lucide-react"
+
+const programs = [
+  {
+    title: "Level 1 Rigger Certification",
+    description: "Essential rigging and hoisting skills certification for entry-level riggers.",
+    duration: "5 days",
+    certification: "Level 1 Certificate",
+    features: [
+      "Basic rigging principles",
+      "Load weight calculations",
+      "Equipment inspection",
+      "Safety procedures"
+    ],
+    icon: <Link2 className="h-12 w-12 text-blue-500" />,
+    href: "/bigfoot-academy/programs/rigging/level-1"
+  },
+  {
+    title: "Level 2 Advanced Rigging",
+    description: "Advanced certification for complex rigging operations and specialized techniques.",
+    duration: "5 days",
+    certification: "Level 2 Certificate",
+    features: [
+      "Complex lift planning",
+      "Multiple crane lifts",
+      "Load turning procedures",
+      "Critical operations"
+    ],
+    icon: <Link2 className="h-12 w-12 text-green-500" />,
+    href: "/bigfoot-academy/programs/rigging/level-2"
+  },
+  {
+    title: "Civil Rigging Training",
+    description: "Specialized rigging training for civil construction projects and infrastructure work.",
+    duration: "3 days",
+    certification: "Specialized Certificate",
+    features: [
+      "Concrete element rigging",
+      "Steel structure handling",
+      "Underground components",
+      "Project coordination"
+    ],
+    icon: <Construction className="h-12 w-12 text-orange-500" />,
+    href: "/bigfoot-academy/programs/rigging/civil"
+  }
+]
+
+const certifications = [
+  "WorkSafeBC Compliant",
+  "Industry Recognized",
+  "NCCCO Standards",
+  "Level 1 & 2 Certification",
+  "Specialized Endorsements"
+]
 
 export default function RiggerCertificationsPage() {
   return (
-    <ProgramLayout
-      title="Rigger Certifications"
-      description="Essential rigging and hoisting skills certification programs from basic to advanced levels. Our comprehensive training prepares you for safe and efficient rigging operations in construction and industrial settings."
-      duration="1-2 weeks"
-      certification="Level 1 & 2 Certified"
-      features={[
-        "Comprehensive rigging techniques",
-        "Load weight calculations",
-        "Sling angle and tension principles",
-        "Hardware selection and inspection",
-        "Complex rigging configurations",
-        "Critical lift planning",
-        "Industry-standard documentation",
-        "Hands-on practical training"
-      ]}
-      modules={[
-        {
-          title: "Level 1 Rigger Certification",
-          description: "Fundamental rigging principles and practices.",
-          topics: [
-            "Basic rigging principles",
-            "Sling and hardware types",
-            "Load weight estimation",
-            "Center of gravity determination",
-            "Safe working load limits"
-          ]
-        },
-        {
-          title: "Level 2 Advanced Rigging",
-          description: "Complex rigging operations and specialized techniques.",
-          topics: [
-            "Multiple crane lifts",
-            "Advanced load calculations",
-            "Critical lift planning",
-            "Complex hardware systems",
-            "Load turning procedures"
-          ]
-        },
-        {
-          title: "Civil Rigging Training",
-          description: "Specialized rigging for civil construction projects.",
-          topics: [
-            "Concrete element rigging",
-            "Steel structure handling",
-            "Underground component lifting",
-            "Site-specific requirements",
-            "Project coordination"
-          ]
-        },
-        {
-          title: "Specialized Applications",
-          description: "Advanced techniques for specific industries.",
-          topics: [
-            "Load turning and drifting",
-            "Marine rigging applications",
-            "Industrial plant operations",
-            "High-angle rigging",
-            "Custom lifting solutions"
-          ]
-        }
-      ]}
-    />
+    <div className="space-y-16 py-8">
+      {/* Hero Section */}
+      <section className="text-center space-y-4">
+        <h1 className="text-4xl font-bold tracking-tighter md:text-5xl">
+          Rigger Certification Programs
+        </h1>
+        <p className="text-xl text-muted-foreground max-w-[800px] mx-auto">
+          Comprehensive rigging certification programs from basic to advanced levels
+        </p>
+      </section>
+
+      {/* Programs Grid */}
+      <section className="container mx-auto px-4">
+        <div className="grid gap-6 md:grid-cols-3">
+          {programs.map((program) => (
+            <Link 
+              key={program.title}
+              href={program.href}
+              className="group relative rounded-lg border p-6 hover:border-foreground/50 transition-colors"
+            >
+              <div className="space-y-4">
+                {program.icon}
+                <h3 className="text-xl font-semibold">{program.title}</h3>
+                <p className="text-sm text-muted-foreground">{program.description}</p>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2 text-sm">
+                    <Clock className="h-4 w-4" />
+                    <span>{program.duration}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm">
+                    <Award className="h-4 w-4" />
+                    <span>{program.certification}</span>
+                  </div>
+                </div>
+                <ul className="space-y-2 text-sm">
+                  {program.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-2">
+                      <Shield className="h-4 w-4 mt-1 text-muted-foreground" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Certifications Section */}
+      <section className="container mx-auto px-4 text-center space-y-8">
+        <h2 className="text-3xl font-bold tracking-tighter">
+          Industry Recognized Certifications
+        </h2>
+        <div className="flex flex-wrap justify-center gap-4">
+          {certifications.map((cert) => (
+            <div 
+              key={cert}
+              className="flex items-center gap-2 px-4 py-2 rounded-full bg-muted"
+            >
+              <Award className="h-4 w-4" />
+              <span className="text-sm">{cert}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="container mx-auto px-4 text-center space-y-6">
+        <h2 className="text-3xl font-bold tracking-tighter">
+          Advance Your Career
+        </h2>
+        <p className="text-lg text-muted-foreground max-w-[600px] mx-auto">
+          Get certified with industry-leading rigging training from Bigfoot Academy.
+        </p>
+        <div className="flex justify-center gap-4">
+          <Link href="/contact">
+            <Button size="lg">
+              <HardHat className="mr-2 h-5 w-5" />
+              Apply Now
+            </Button>
+          </Link>
+          <Link href="/contact">
+            <Button variant="outline" size="lg">
+              <Building2 className="mr-2 h-5 w-5" />
+              Schedule Tour
+            </Button>
+          </Link>
+        </div>
+      </section>
+    </div>
   )
 } 
