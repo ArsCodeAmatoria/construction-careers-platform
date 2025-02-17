@@ -1034,27 +1034,37 @@ export const careers: Career[] = [
     id: 'structural-superintendent',
     title: 'Structural Superintendent',
     category: 'management',
-    description: 'Oversee structural construction aspects of major projects.',
-    salary: '$90,000 - $140,000',
+    description: 'Oversee structural construction activities and ensure quality control.',
+    salary: '$85,000 - $130,000',
+    skills: [
+      'Structural Planning',
+      'Quality Control',
+      'Team Supervision',
+      'Safety Management',
+      'Blueprint Reading',
+      'Construction Methods',
+      'Material Management',
+      'Schedule Coordination'
+    ],
     certification: [
       'Gold Seal Certification',
-      'Structural Inspection Certificate',
-      'Advanced Safety Management'
+      'Red Seal in Carpentry',
+      'Construction Superintendent Certificate'
     ],
     requirements: [
-      'Extensive experience in structural construction',
-      '10+ years construction experience',
-      'Strong technical knowledge of structural systems',
-      'Leadership experience'
+      'Red Seal Certification in relevant trade',
+      '7+ years construction experience',
+      'Strong leadership abilities',
+      'Experience with structural projects'
     ],
     bcSpecific: {
       demand: 'High',
-      regions: ['Vancouver', 'Surrey', 'Burnaby', 'Richmond'],
+      regions: ['Metro Vancouver', 'Victoria', 'Kelowna'],
       certifications: ['Gold Seal Certification'],
-      union: 'Optional - varies by employer',
+      union: 'Various unions represent superintendents',
       regulations: [
-        'BC Building Code structural requirements',
-        'Seismic construction standards'
+        'WorkSafeBC regulations',
+        'BC Building Code requirements'
       ]
     }
   },
@@ -1068,6 +1078,16 @@ export const careers: Career[] = [
       'Gold Seal Certification',
       'Interior Systems Supervision Certificate',
       'Quality Control Management'
+    ],
+    skills: [
+      'Interior Systems Management',
+      'Quality Control',
+      'Trade Coordination',
+      'Material Planning',
+      'Schedule Management',
+      'Team Leadership',
+      'Cost Control',
+      'Safety Oversight'
     ],
     requirements: [
       'Extensive experience in interior finishing trades',
@@ -1097,6 +1117,16 @@ export const careers: Career[] = [
       'PMP Certification',
       'Construction Management Certificate'
     ],
+    skills: [
+      'Project Leadership',
+      'Strategic Planning',
+      'Risk Management',
+      'Financial Management',
+      'Stakeholder Relations',
+      'Contract Administration',
+      'Team Development',
+      'Multi-project Coordination'
+    ],
     requirements: [
       'Bachelor\'s degree in Construction Management or Engineering',
       '10+ years construction experience',
@@ -1124,6 +1154,16 @@ export const careers: Career[] = [
       'CRSP (Canadian Registered Safety Professional)',
       'NCSO (National Construction Safety Officer)',
       'First Aid Level 3'
+    ],
+    skills: [
+      'Safety Program Development',
+      'Risk Assessment',
+      'Incident Investigation',
+      'Training Development',
+      'Regulatory Compliance',
+      'Emergency Response',
+      'Safety Auditing',
+      'Team Leadership'
     ],
     requirements: [
       'Degree in Occupational Health and Safety or related field',
@@ -1153,6 +1193,16 @@ export const careers: Career[] = [
       'ISO 9001 Lead Auditor',
       'Construction Quality Management Certificate'
     ],
+    skills: [
+      'Quality Systems Management',
+      'Inspection Protocols',
+      'Documentation Control',
+      'Process Improvement',
+      'Testing Procedures',
+      'Team Training',
+      'Standards Implementation',
+      'Audit Management'
+    ],
     requirements: [
       'Degree in Engineering or Construction Management',
       '7+ years construction experience',
@@ -1181,6 +1231,16 @@ export const careers: Career[] = [
       'Gold Seal Certification in Estimating',
       'Construction Estimating Certificate'
     ],
+    skills: [
+      'Cost Analysis',
+      'Quantity Takeoff',
+      'Bid Strategy',
+      'Contract Review',
+      'Market Analysis',
+      'Risk Assessment',
+      'Software Proficiency',
+      'Team Leadership'
+    ],
     requirements: [
       'Degree in Construction Management or Engineering',
       '8+ years estimating experience',
@@ -1208,6 +1268,16 @@ export const careers: Career[] = [
       'Red Seal in relevant trade',
       'Gold Seal Certification',
       'Mechanical Systems Management Certificate'
+    ],
+    skills: [
+      'Mechanical Systems Planning',
+      'Coordination Management',
+      'Quality Control',
+      'System Testing',
+      'Team Leadership',
+      'Schedule Management',
+      'BIM Coordination',
+      'Problem Solving'
     ],
     requirements: [
       'Red Seal certification in mechanical trade',
@@ -1238,6 +1308,16 @@ export const careers: Career[] = [
       'FSR Class A or B',
       'High Voltage Systems Certificate'
     ],
+    skills: [
+      'Electrical Systems Planning',
+      'High Voltage Management',
+      'Code Compliance',
+      'System Testing',
+      'Team Leadership',
+      'Schedule Management',
+      'Safety Protocols',
+      'Quality Control'
+    ],
     requirements: [
       'Red Seal Electrician certification',
       '8+ years electrical construction experience',
@@ -1266,6 +1346,16 @@ export const careers: Career[] = [
       'Civil Engineering Technology Diploma',
       'Ground Disturbance Level II',
       'Erosion and Sediment Control certification'
+    ],
+    skills: [
+      'Civil Engineering Principles',
+      'Site Management',
+      'Infrastructure Planning',
+      'Equipment Coordination',
+      'Quality Control',
+      'Environmental Compliance',
+      'Team Leadership',
+      'Project Scheduling'
     ],
     requirements: [
       'Civil Engineering or Construction Management degree',
@@ -1296,6 +1386,16 @@ export const careers: Career[] = [
       'Certified Environmental Practitioner',
       'Erosion and Sediment Control Lead'
     ],
+    skills: [
+      'Environmental Assessment',
+      'Compliance Monitoring',
+      'Sustainability Planning',
+      'Waste Management',
+      'Regulatory Reporting',
+      'Team Leadership',
+      'Risk Management',
+      'Stakeholder Communication'
+    ],
     requirements: [
       'Degree in Environmental Science or related field',
       '5+ years environmental management experience',
@@ -1324,6 +1424,16 @@ export const careers: Career[] = [
       'VDC Certificate',
       'PMP Certification',
       'Digital Construction Management Certificate'
+    ],
+    skills: [
+      'BIM Management',
+      'Digital Workflow Development',
+      'Technology Integration',
+      'Team Leadership',
+      'Project Coordination',
+      'Software Implementation',
+      'Process Optimization',
+      'Technical Training'
     ],
     requirements: [
       'Degree in Architecture, Engineering, or Construction',
@@ -1354,6 +1464,16 @@ export const careers: Career[] = [
       'Contract Management Professional',
       'PMAC Certification'
     ],
+    skills: [
+      'Strategic Sourcing',
+      'Contract Negotiation',
+      'Vendor Management',
+      'Cost Analysis',
+      'Supply Chain Optimization',
+      'Risk Management',
+      'Team Leadership',
+      'Market Analysis'
+    ],
     requirements: [
       'Degree in Supply Chain Management or related field',
       '6+ years procurement experience',
@@ -1382,6 +1502,16 @@ export const careers: Career[] = [
       'Construction HR Management Certificate',
       'Workplace Safety Management',
       'Labour Relations Certificate'
+    ],
+    skills: [
+      'HR Strategy Development',
+      'Employee Relations',
+      'Policy Development',
+      'Recruitment Planning',
+      'Performance Management',
+      'Labour Relations',
+      'Training Program Development',
+      'Conflict Resolution'
     ],
     requirements: [
       'Bachelor\'s degree in HR Management or related field',
@@ -1412,6 +1542,16 @@ export const careers: Career[] = [
       'Construction Industry Recruitment Certificate',
       'Trade Skills Assessment Certification'
     ],
+    skills: [
+      'Recruitment Strategy',
+      'Candidate Assessment',
+      'Industry Networking',
+      'Interview Management',
+      'Talent Pipeline Development',
+      'Market Analysis',
+      'Compliance Management',
+      'Onboarding Coordination'
+    ],
     requirements: [
       'Degree in HR, Business, or related field',
       '3+ years construction recruitment experience',
@@ -1440,6 +1580,16 @@ export const careers: Career[] = [
       'Construction Training Professional',
       'Safety Training Management',
       'Instructional Design Certificate'
+    ],
+    skills: [
+      'Training Program Development',
+      'Instructional Design',
+      'Needs Assessment',
+      'Performance Evaluation',
+      'Program Management',
+      'Adult Learning Principles',
+      'Technology Integration',
+      'Team Leadership'
     ],
     requirements: [
       'Degree in Education, HR, or Construction field',
@@ -1470,6 +1620,16 @@ export const careers: Career[] = [
       'Alternative Dispute Resolution Certificate',
       'Construction Labour Law Certificate'
     ],
+    skills: [
+      'Labour Negotiations',
+      'Dispute Resolution',
+      'Contract Administration',
+      'Policy Development',
+      'Stakeholder Relations',
+      'Compliance Management',
+      'Strategic Planning',
+      'Team Leadership'
+    ],
     requirements: [
       'Degree in Labour Relations, Law, or HR',
       '7+ years labour relations experience',
@@ -1498,6 +1658,16 @@ export const careers: Career[] = [
       'CPHR Designation',
       'Project Management Professional',
       'Construction Management Certificate'
+    ],
+    skills: [
+      'Workforce Analysis',
+      'Strategic Planning',
+      'Data Analysis',
+      'Resource Allocation',
+      'Succession Planning',
+      'Project Scheduling',
+      'Budget Management',
+      'Team Leadership'
     ],
     requirements: [
       'Degree in HR, Business, or Construction Management',
