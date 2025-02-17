@@ -1,3 +1,5 @@
+import { ReactElement } from 'react'
+
 export interface TradeProgram {
   title: string
   description: string
@@ -18,4 +20,18 @@ export interface ProgramDetails {
   location: string
   certification: string
   prerequisites: string[]
+}
+
+export interface Trade {
+  title: string
+  description: string
+  features: string[]
+  icon: ReactElement
+  href: string
+}
+
+export interface TradeGroup {
+  title: string
+  description: string
+  trades: Trade[]
 } 
