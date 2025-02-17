@@ -831,20 +831,33 @@ export const careers: Career[] = [
       'Documentation Review',
       'Compliance Verification'
     ],
+    requirements: [
+      'Diploma or degree in Building Science or related field',
+      '3+ years construction or inspection experience',
+      'Knowledge of BC Energy Step Code',
+      'Understanding of sustainable building practices'
+    ],
     bcSpecific: {
+      demand: 'High demand with BC Energy Step Code implementation',
+      regions: [
+        'Greater Vancouver',
+        'Victoria',
+        'Kelowna',
+        'Prince George'
+      ],
+      certifications: [
+        'BC Building Officials Certification',
+        'Energy Step Code Training'
+      ],
       regulations: [
         'BC Building Code (Part 10)',
         'Vancouver Building Bylaw',
         'BC Energy Step Code',
         'Zero Carbon Building Standards'
-      ],
-      companies: [
-        'City of Vancouver',
-        'City of Surrey',
-        'BC Housing',
-        'Passive House Canada'
       ]
-    }
+    },
+    trainingProvider: 'BCIT Building Science',
+    trainingUrl: '/programs/technology/building-science'
   },
   {
     id: 'waste-management-specialist',
@@ -863,21 +876,38 @@ export const careers: Career[] = [
       'Recycling Programs',
       'Material Recovery',
       'Regulatory Compliance',
-      'Data Analysis'
+      'Data Analysis',
+      'Sustainability Assessment',
+      'Vendor Management',
+      'Environmental Reporting'
+    ],
+    requirements: [
+      'Degree in Environmental Science or related field',
+      '3+ years waste management experience',
+      'Knowledge of BC waste regulations',
+      'Experience with recycling programs'
     ],
     bcSpecific: {
+      demand: 'Growing demand with increased focus on sustainability',
+      regions: [
+        'Metro Vancouver',
+        'Fraser Valley',
+        'Vancouver Island',
+        'Okanagan'
+      ],
+      certifications: [
+        'Waste Management Association of BC certification',
+        'Environmental Management Systems training'
+      ],
       regulations: [
         'Metro Vancouver Waste Regulations',
         'BC Construction Waste Guidelines',
-        'Clean BC Waste Reduction Requirements'
-      ],
-      companies: [
-        'Urban Impact Recycling',
-        'Sea to Sky Removal',
-        'Revolution Resource Recovery',
-        'Recycling Alternative'
+        'Clean BC Waste Reduction Requirements',
+        'Municipal recycling bylaws'
       ]
-    }
+    },
+    trainingProvider: 'BCIT Environmental Engineering',
+    trainingUrl: '/programs/technology/environmental-engineering'
   },
   {
     id: 'project-manager',
@@ -933,6 +963,16 @@ export const careers: Career[] = [
     category: 'management',
     description: 'Coordinate on-site construction activities and resources.',
     salary: '$65,000 - $95,000',
+    skills: [
+      'Site Coordination',
+      'Resource Management',
+      'Schedule Optimization',
+      'Team Communication',
+      'Safety Compliance',
+      'Documentation',
+      'Problem Solving',
+      'Quality Control'
+    ],
     certification: [
       'Construction Safety Officer (CSO)',
       'First Aid Level 1',
@@ -959,6 +999,16 @@ export const careers: Career[] = [
     category: 'management',
     description: 'Support project management team with documentation and coordination.',
     salary: '$55,000 - $85,000',
+    skills: [
+      'Document Control',
+      'Meeting Coordination',
+      'Schedule Management',
+      'Administrative Support',
+      'Project Software',
+      'Team Communication',
+      'Budget Tracking',
+      'Vendor Coordination'
+    ],
     certification: [
       'Construction Documentation Technician',
       'Project Coordination Certificate',
