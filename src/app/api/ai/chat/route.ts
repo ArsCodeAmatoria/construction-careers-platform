@@ -1,6 +1,5 @@
 import OpenAI from "openai"
 import type { ChatMessage } from "@/types/chat"
-import { queryLlama } from "@/lib/huggingface"
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -54,21 +53,16 @@ export async function POST(req: Request) {
       }
     )
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('API Error:', error)
-    const status = error.status || 500
+    const status = error instanceof Error ? 500 : 500
     const message = status === 429 
       ? "AI service is currently unavailable. Please try again later."
       : "Sorry, there was an error processing your request."
 
     return new Response(
-      JSON.stringify({ 
-        error: 'API Error',
-        details: message,
-      }), {
-        status,
-        headers: { 'Content-Type': 'application/json' },
-      }
+      JSON.stringify({ message }),
+      { status, headers: { 'Content-Type': 'application/json' } }
     )
   }
 } 

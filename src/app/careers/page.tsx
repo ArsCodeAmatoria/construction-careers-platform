@@ -4,29 +4,23 @@ import { careers as careerData } from '@/data/careers'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { 
-  HardHat, 
-  Construction as CraneIcon, 
-  Brain, 
-  MapPin, 
-  Building2, 
-  Truck, 
-  Leaf, 
   Users, 
+  GraduationCap, 
+  Building, 
+  Shield,
+  MapPin,
+  Brain,
+  Truck,
+  Leaf,
   Briefcase,
-  GraduationCap,
   BookOpen,
-  Shield, 
-  ShieldCheck, 
-  Award, 
-  ClipboardCheck,
-  Wrench,
-  Search, 
-  Menu, 
-  Cpu, 
-  Flame
+  Building2,
+  Construction as CraneIcon,
+  ShieldCheck,
+  Award,
+  ClipboardCheck
 } from 'lucide-react'
 import { useSearchParams, useRouter } from 'next/navigation'
-import { type LucideIcon } from 'lucide-react'
 
 interface CategoryIcon {
   [key: string]: React.ReactNode
@@ -72,7 +66,7 @@ interface SafetyRole {
 }
 
 const categoryIcons: CategoryIcon = {
-  'trades': <HardHat className="h-5 w-5" />,
+  'trades': <Users className="h-5 w-5" />,
   'crane-operations': <CraneIcon className="h-5 w-5" />,
   'technology': <Brain className="h-5 w-5" />,
   'heavy-equipment': <Truck className="h-5 w-5" />,
@@ -86,7 +80,7 @@ const categoryIcons: CategoryIcon = {
 
 const categories: Category[] = [
   { id: 'all', label: 'All Careers', icon: <Building2 className="h-5 w-5" /> },
-  { id: 'trades', label: 'Trades', icon: <HardHat className="h-5 w-5" /> },
+  { id: 'trades', label: 'Trades', icon: <Users className="h-5 w-5" /> },
   { id: 'crane-operations', label: 'Crane Operations', icon: <CraneIcon className="h-5 w-5" /> },
   { id: 'heavy-equipment', label: 'Heavy Equipment', icon: <Truck className="h-5 w-5" /> },
   { id: 'technology', label: 'Tech Careers', icon: <Brain className="h-5 w-5" /> },
@@ -212,9 +206,8 @@ export default function CareersPage() {
     <div className="space-y-8">
       <section className="text-center space-y-4">
         <h1 className="text-4xl font-bold tracking-tighter">BC Construction Careers</h1>
-        <p className="text-lg text-muted-foreground max-w-[700px] mx-auto">
-          Explore opportunities in British Columbia's thriving construction industry. 
-          From Vancouver's urban developments to northern BC's resource projects, start your journey with comprehensive training and certification.
+        <p className="text-lg text-muted-foreground">
+          BC&apos;s construction industry is evolving. Discover how you&apos;ll fit into tomorrow&apos;s workforce.
         </p>
         <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
           <MapPin className="h-4 w-4" />
