@@ -75,7 +75,7 @@ const modules = [
 ]
 
 const programDetails = {
-  duration: "2 weeks (80 hours)",
+  duration: "1 day (8 hours)",
   schedule: "Monday to Friday, 8:00 AM - 4:00 PM",
   location: "Abbotsford Campus",
   certification: "Advanced Rigging Certification",
@@ -100,7 +100,7 @@ export default function RiggingAdvancedPage() {
         <div className="flex items-center justify-center gap-4 text-muted-foreground">
           <div className="flex items-center gap-2">
             <Clock className="h-5 w-5" />
-            <span>40 Hours</span>
+            <span>8 Hours</span>
           </div>
           <div className="flex items-center gap-2">
             <Shield className="h-5 w-5" />
