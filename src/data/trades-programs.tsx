@@ -1,23 +1,10 @@
-import { 
-  Hammer, 
-  Wrench, 
-  Zap, 
-  Droplets,
-  Flame,
-  Paintbrush,
-  Cable,
-  Cog,
-  Boxes,
-  Warehouse,
-  Ruler,
-  Building
-} from "lucide-react"
+import { Hammer } from "lucide-react"
 import { TradeProgram } from "@/types/trades"
 
 export const tradesPrograms: TradeProgram[] = [
   {
     title: "Carpentry",
-    description: "Master the fundamentals of construction carpentry",
+    description: "Master fundamental carpentry skills",
     features: [
       "Residential and commercial construction",
       "Blueprint reading",

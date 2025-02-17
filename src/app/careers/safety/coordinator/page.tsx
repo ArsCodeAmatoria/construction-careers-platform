@@ -1,18 +1,10 @@
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { 
-  ClipboardCheck, 
-  FileText, 
-  Users, 
-  Target, 
-  Book,
+  Shield, 
   FileCheck,
-  Building,
   Briefcase,
-  CheckSquare,
-  HardHat,
-  Megaphone,
-  Shield
+  Users
 } from "lucide-react"
 
 const responsibilities = [

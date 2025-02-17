@@ -1,19 +1,11 @@
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { 
-  Link2, 
-  Clock, 
-  Calendar,
-  CheckCircle,
-  Book,
-  Users,
-  HardHat,
-  Cog,
   Shield,
-  Building,
-  Wrench,
-  Calculator,
-  Container
+  Clock,
+  CheckCircle,
+  Container,
+  Calculator
 } from "lucide-react"
 
 const courseContent = [
@@ -46,41 +38,6 @@ const courseContent = [
       "Documentation requirements"
     ],
     icon: <Calculator className="h-12 w-12 text-green-500" />
-  }
-]
-
-const details = {
-  duration: "40 hours (5 days)",
-  schedule: "Full-time weekday courses",
-  certification: "Fulford Harbour Group Advanced Rigging Certificate",
-  validity: "Valid for 3 years in BC",
-  class_size: "Maximum 6 students per instructor",
-  prerequisites: [
-    "Valid Fulford Level 1 Rigging Certificate",
-    "Minimum 2000 hours rigging experience",
-    "Letter of recommendation from employer",
-    "CSA-approved safety equipment",
-    "Physical capability for advanced operations"
-  ],
-  materials: "Advanced rigging manual, Technical documentation, Engineering tables",
-  practical: "Complex lift scenarios and critical operations training"
-}
-
-const highlights = [
-  {
-    title: "Expert Level",
-    description: "Advanced certification for complex lifting operations",
-    icon: <Shield className="h-6 w-6 text-red-500" />
-  },
-  {
-    title: "Industry Leadership",
-    description: "Prepare for supervisory and planning roles",
-    icon: <Users className="h-6 w-6 text-blue-500" />
-  },
-  {
-    title: "Specialized Skills",
-    description: "Handle high-risk and engineered lifts",
-    icon: <Container className="h-6 w-6 text-green-500" />
   }
 ]
 

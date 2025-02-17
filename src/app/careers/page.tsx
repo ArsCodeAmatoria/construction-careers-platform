@@ -48,12 +48,6 @@ interface Career {
   trainingUrl?: string
 }
 
-interface CategoryLink {
-  id: string
-  label: string
-  icon: React.ReactElement
-}
-
 interface SafetyRole {
   id: string
   title: string
