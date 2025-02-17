@@ -1,6 +1,5 @@
 import OpenAI from "openai"
 import type { ChatMessage } from "@/types/chat"
-import { OpenAIStream, StreamingTextResponse } from 'ai'
 import { NextResponse } from 'next/server'
 
 const openai = new OpenAI({
