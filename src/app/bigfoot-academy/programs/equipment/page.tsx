@@ -1,12 +1,13 @@
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Truck, HardHat, Shield, Clock, Award, Building2, Forklift, Cog } from "lucide-react"
+import Image from "next/image"
 
 const programs = [
   {
     title: "Forklift Training",
     description: "IVES certified forklift operator training with comprehensive safety and operational instruction.",
-    duration: "1-2 days",
+    duration: "1 day",
     certification: "IVES Certification",
     features: [
       "Pre-operation inspection",
@@ -20,8 +21,8 @@ const programs = [
   {
     title: "Telehandler Operation",
     description: "Specialized training for telehandler and variable reach equipment operation.",
-    duration: "2 days",
-    certification: "IVES Certification",
+    duration: "1 day",
+    certification: "Operator Certificate",
     features: [
       "Load charts and capacity",
       "Attachment operations",
@@ -32,10 +33,10 @@ const programs = [
     href: "/bigfoot-academy/programs/equipment/telehandler"
   },
   {
-    title: "Aerial Work Platforms",
-    description: "Comprehensive training for scissor lifts and boom-supported platforms.",
+    title: "Aerial Work Platform",
+    description: "Certification for boom lifts, scissor lifts, and other aerial work platforms.",
     duration: "1 day",
-    certification: "IVES Certification",
+    certification: "AWP Certificate",
     features: [
       "Fall protection",
       "Platform safety",
@@ -44,15 +45,25 @@ const programs = [
     ],
     icon: <Cog className="h-12 w-12 text-orange-500" />,
     href: "/bigfoot-academy/programs/equipment/aerial"
+  },
+  {
+    title: "Skid Steer Operation",
+    description: "Safe operation training for skid steer loaders and attachments.",
+    duration: "1 day",
+    certification: "Operator Certificate",
+    features: [
+      // ... rest of skid steer program ...
+    ],
+    icon: <Forklift className="h-12 w-12 text-blue-500" />,
+    href: "/bigfoot-academy/programs/equipment/skid-steer"
   }
 ]
 
 const certifications = [
-  "IVES Certified",
-  "WorkSafeBC Compliant",
-  "CSA Standards",
-  "Industry Recognized",
-  "Manufacturer Approved"
+  "/BCCraneSafety.png",
+  "/csa.png",
+  "/fulford.png",
+  "/ives.png"
 ]
 
 export default function EquipmentTrainingPage() {
@@ -110,14 +121,19 @@ export default function EquipmentTrainingPage() {
         <h2 className="text-3xl font-bold tracking-tighter">
           Industry Recognized Certifications
         </h2>
-        <div className="flex flex-wrap justify-center gap-4">
+        <div className="flex flex-wrap justify-center items-center gap-8">
           {certifications.map((cert) => (
             <div 
               key={cert}
-              className="flex items-center gap-2 px-4 py-2 rounded-full bg-muted"
+              className="relative w-32 h-16"
             >
-              <Award className="h-4 w-4" />
-              <span className="text-sm">{cert}</span>
+              <Image
+                src={cert}
+                alt="Certification Logo"
+                fill
+                className="object-contain"
+                sizes="(max-width: 768px) 100px, 128px"
+              />
             </div>
           ))}
         </div>

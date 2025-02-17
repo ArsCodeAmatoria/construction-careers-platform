@@ -8,22 +8,36 @@ A modern platform for construction trades education and career development.
 - **AI Career Assistant**: Interactive chat to help students explore and choose trade programs
 - **Program Details**: Duration, prerequisites, and certification information
 - **Responsive Design**: Mobile-friendly interface for easy access
+- **Comprehensive career exploration in construction trades**
+- **Detailed program information and certification paths**
+- **Interactive AI-powered career guidance**
+- **Mobile-responsive design**
+- **Real-time search functionality**
+- **Industry certification verification**
+
+## Deployment
+
+This project is deployed on Vercel with automatic deployments from the main branch. Visit the live site at [constructtech-careers.vercel.app](https://constructtech-careers.vercel.app)
+
+### Environment Variables
+
+Required environment variables for deployment:
+
+```env
+OPENAI_API_KEY=
+OPENAI_ORG_ID=
+OPENAI_API_BASE_URL=
+OPENAI_API_VERSION=
+HUGGING_FACE_API_KEY=
+HUGGING_FACE_MODEL=
+```
+
+These can be configured in your Vercel project settings under Environment Variables.
 
 ## Prerequisites
 
 - Node.js 18+ and npm
 - OpenAI API access (for AI chat feature)
-
-## Environment Variables
-
-Copy `.env.example` to `.env.local` and fill in your OpenAI credentials:
-
-```bash
-OPENAI_API_KEY=your-api-key-here
-OPENAI_ORG_ID=your-org-id-here
-```
-
-You can get these from the [OpenAI Dashboard](https://platform.openai.com/account/api-keys).
 
 ## Getting Started
 

@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Cpu, HardHat, Shield, Clock, Award, Building2, Construction, Truck } from "lucide-react"
+import Image from "next/image"
 
 const programs = [
   {
@@ -48,11 +49,10 @@ const programs = [
 ]
 
 const certifications = [
-  "Skills Verification",
-  "Performance Assessment",
-  "Industry Standard",
-  "Competency Validation",
-  "Training Documentation"
+  "/BCCraneSafety.png",
+  "/csa.png",
+  "/fulford.png",
+  "/ives.png"
 ]
 
 export default function SimulatorTrainingPage() {
@@ -108,16 +108,21 @@ export default function SimulatorTrainingPage() {
       {/* Certifications Section */}
       <section className="container mx-auto px-4 text-center space-y-8">
         <h2 className="text-3xl font-bold tracking-tighter">
-          Training Validation
+          Industry Recognized Certifications
         </h2>
-        <div className="flex flex-wrap justify-center gap-4">
+        <div className="flex flex-wrap justify-center items-center gap-8">
           {certifications.map((cert) => (
             <div 
               key={cert}
-              className="flex items-center gap-2 px-4 py-2 rounded-full bg-muted"
+              className="relative w-32 h-16"
             >
-              <Award className="h-4 w-4" />
-              <span className="text-sm">{cert}</span>
+              <Image
+                src={cert}
+                alt="Certification Logo"
+                fill
+                className="object-contain"
+                sizes="(max-width: 768px) 100px, 128px"
+              />
             </div>
           ))}
         </div>

@@ -1,12 +1,13 @@
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Link2, HardHat, Shield, Clock, Award, Building2, Construction } from "lucide-react"
+import Image from "next/image"
 
 const programs = [
   {
     title: "Level 1 Rigger Certification",
     description: "Essential rigging and hoisting skills certification for entry-level riggers.",
-    duration: "5 days",
+    duration: "1 day",
     certification: "Level 1 Certificate",
     features: [
       "Basic rigging principles",
@@ -19,8 +20,8 @@ const programs = [
   },
   {
     title: "Level 2 Advanced Rigging",
-    description: "Advanced certification for complex rigging operations and specialized techniques.",
-    duration: "5 days",
+    description: "Advanced rigging techniques and complex lift planning for experienced riggers.",
+    duration: "1 day",
     certification: "Level 2 Certificate",
     features: [
       "Complex lift planning",
@@ -34,7 +35,7 @@ const programs = [
   {
     title: "Civil Rigging Training",
     description: "Specialized rigging training for civil construction projects and infrastructure work.",
-    duration: "3 days",
+    duration: "1 day",
     certification: "Specialized Certificate",
     features: [
       "Concrete element rigging",
@@ -48,11 +49,10 @@ const programs = [
 ]
 
 const certifications = [
-  "WorkSafeBC Compliant",
-  "Industry Recognized",
-  "NCCCO Standards",
-  "Level 1 & 2 Certification",
-  "Specialized Endorsements"
+  "/BCCraneSafety.png",
+  "/csa.png",
+  "/fulford.png",
+  "/ives.png"
 ]
 
 export default function RiggerCertificationsPage() {
@@ -110,14 +110,19 @@ export default function RiggerCertificationsPage() {
         <h2 className="text-3xl font-bold tracking-tighter">
           Industry Recognized Certifications
         </h2>
-        <div className="flex flex-wrap justify-center gap-4">
+        <div className="flex flex-wrap justify-center items-center gap-8">
           {certifications.map((cert) => (
             <div 
               key={cert}
-              className="flex items-center gap-2 px-4 py-2 rounded-full bg-muted"
+              className="relative w-32 h-16"
             >
-              <Award className="h-4 w-4" />
-              <span className="text-sm">{cert}</span>
+              <Image
+                src={cert}
+                alt="Certification Logo"
+                fill
+                className="object-contain"
+                sizes="(max-width: 768px) 100px, 128px"
+              />
             </div>
           ))}
         </div>
