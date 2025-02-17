@@ -4,11 +4,19 @@ import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/footer";
 import { ChatButton } from "@/components/ai/chat-button"
+import { GeistSans } from 'geist/font'
 
 const geist = Geist({
   subsets: ["latin"],
   variable: "--font-geist",
 });
+
+// Add fallback system fonts
+const fontSans = GeistSans({
+  subsets: ['latin'],
+  variable: '--font-sans',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: "ConstructTech Careers",
@@ -22,7 +30,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geist.variable} font-sans`}>
+      <body className={`${geist.variable} ${fontSans.variable} font-sans`}>
         <Header />
         <main className="container mx-auto px-4 py-8">
           {children}
