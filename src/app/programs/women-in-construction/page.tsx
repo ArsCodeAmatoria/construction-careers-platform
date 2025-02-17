@@ -70,7 +70,7 @@ export default function WomenInConstructionPage() {
           Women in Construction
         </h1>
         <p className="text-xl text-muted-foreground max-w-[700px] mx-auto">
-          Discover programs and opportunities supporting women in BC's construction industry. 
+          Discover programs and opportunities supporting women in BC&apos;s construction industry. 
           From skills training to mentorship, find resources to build your career.
         </p>
       </section>
@@ -129,7 +129,7 @@ export default function WomenInConstructionPage() {
           Start Your Journey Today
         </h2>
         <p className="text-lg text-muted-foreground">
-          Join the growing community of women building BC's future through careers in construction.
+          Join the growing community of women building BC&apos;s future through careers in construction.
         </p>
         <Link href="/careers">
           <Button size="lg">

@@ -1,17 +1,8 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
-import { 
-  Construction as CraneIcon, 
-  Search, 
-  Menu, 
-  Cpu, 
-  Truck,
-  Building2,
-  Flame
-} from 'lucide-react'
-import Image from 'next/image'
-import { Search as SearchComponent } from "@/components/search"
+import { Construction as CraneIcon, Flame, Menu } from 'lucide-react'
+import { Search } from "@/components/search"
 
 const navLinks = [
   {
@@ -121,7 +112,7 @@ export function Header() {
           </Sheet>
 
           {/* Search Button */}
-          <SearchComponent />
+          <Search />
         </nav>
       </div>
     </header>

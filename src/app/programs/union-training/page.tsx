@@ -43,7 +43,7 @@ export default function UnionTrainingPage() {
           Union Training Programs
         </h1>
         <p className="text-xl text-muted-foreground max-w-[800px] mx-auto">
-          Access high-quality training and career development through BC's construction unions
+          Access high-quality training and career development through BC&apos;s largest unions
         </p>
       </section>
 
