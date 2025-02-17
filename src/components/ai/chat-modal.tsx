@@ -30,7 +30,7 @@ export function ChatModal({ open, onClose }: ChatModalProps) {
           <div className="flex items-center gap-2">
             <Bot className="h-5 w-5" />
             <DialogTitle className="text-lg font-semibold text-zinc-50">
-              Bigfoot Career Assistant
+              Career Assistant
             </DialogTitle>
           </div>
           <p className="text-sm text-zinc-400 mt-1">
