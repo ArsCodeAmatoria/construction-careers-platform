@@ -883,30 +883,49 @@ export const careers: Career[] = [
     id: 'project-manager',
     title: 'Project Manager',
     category: 'management',
-    description: 'Lead and oversee construction projects from inception to completion.',
-    salary: '$85,000 - $150,000',
+    description: 'Lead and oversee construction projects from inception to completion',
+    salary: '$80,000 - $150,000',
+    skills: [
+      'Project Planning',
+      'Budget Management',
+      'Team Leadership',
+      'Risk Assessment',
+      'Contract Management',
+      'Scheduling',
+      'Quality Control',
+      'Stakeholder Communication'
+    ],
     certification: [
-      'Project Management Professional (PMP)',
+      'PMP (Project Management Professional)',
       'Gold Seal Certification',
-      'Construction Management Certificate'
+      'CAPM (Certified Associate in Project Management)'
     ],
     requirements: [
-      'Bachelor\'s degree in Construction Management, Engineering, or related field',
+      'Bachelor\'s degree in Construction Management or related field',
       '5+ years of construction experience',
-      'PMP certification preferred',
-      'Strong leadership and communication skills'
+      'Strong leadership and communication skills',
+      'Experience with project management software'
     ],
     bcSpecific: {
-      demand: 'High',
-      regions: ['Vancouver', 'Victoria', 'Kelowna', 'Prince George'],
-      certifications: ['Gold Seal Certification', 'PMP'],
+      demand: 'High demand across BC, particularly in major urban centers',
+      regions: [
+        'Greater Vancouver',
+        'Victoria',
+        'Kelowna',
+        'Prince George'
+      ],
+      certifications: [
+        'Gold Seal Certification preferred',
+        'Provincial safety certifications'
+      ],
       regulations: [
-        'WorkSafeBC OHS Regulations',
-        'BC Building Code compliance'
+        'WorkSafeBC regulations',
+        'BC Building Code compliance',
+        'Municipal construction bylaws'
       ]
     },
-    trainingProvider: 'BCIT',
-    trainingUrl: 'https://www.bcit.ca/programs/construction-management/'
+    trainingProvider: 'BCIT Construction Management',
+    trainingUrl: '/programs/management/construction'
   },
   {
     id: 'field-coordinator',
