@@ -4,14 +4,14 @@ export interface TradeProgram {
   title: string
   description: string
   features: string[]
-  icon: JSX.Element
+  icon: ReactElement
   href: string
 }
 
 export interface CourseModule {
   title: string
   items: string[]
-  icon: JSX.Element
+  icon: ReactElement
 }
 
 export interface ProgramDetails {
