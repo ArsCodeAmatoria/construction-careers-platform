@@ -3,7 +3,9 @@ import {
   Clock,
   CheckCircle,
   Container,
-  Calculator
+  Calculator,
+  Building2,
+  FileCheck
 } from "lucide-react"
 
 const courseContent = [
@@ -38,6 +40,52 @@ const courseContent = [
     icon: <Calculator className="h-12 w-12 text-green-500" />
   }
 ]
+
+const modules = [
+  {
+    title: "Advanced Safety",
+    icon: <Shield className="h-6 w-6 text-red-500" />,
+    items: [
+      "Critical lift planning",
+      "Multi-crane operations",
+      "High-risk environments",
+      "Emergency procedures"
+    ]
+  },
+  {
+    title: "Complex Operations",
+    icon: <Building2 className="h-6 w-6 text-blue-500" />,
+    items: [
+      "Advanced load calculations",
+      "Multi-point lifting",
+      "Engineered lifts",
+      "Specialized equipment"
+    ]
+  },
+  {
+    title: "Technical Requirements",
+    icon: <FileCheck className="h-6 w-6 text-green-500" />,
+    items: [
+      "Advanced rigging techniques",
+      "Lift plan development",
+      "Load testing procedures",
+      "Documentation requirements"
+    ]
+  }
+]
+
+const programDetails = {
+  duration: "2 weeks (80 hours)",
+  schedule: "Monday to Friday, 8:00 AM - 4:00 PM",
+  location: "Abbotsford Campus",
+  certification: "Advanced Rigging Certification",
+  prerequisites: [
+    "Basic Rigging Certification",
+    "Minimum 2 years rigging experience",
+    "Valid Basic First Aid",
+    "Physical capability to perform rigging tasks"
+  ]
+}
 
 export default function RiggingAdvancedPage() {
   return (
@@ -90,11 +138,36 @@ export default function RiggingAdvancedPage() {
       </section>
 
       {/* Program Details section */}
-      <section className="w-full max-w-5xl mx-auto px-4 space-y-8">
-        <h2 className="text-3xl font-bold tracking-tighter text-center">
-          Program Details
-        </h2>
-        {/* Rest of the sections following the same structure as rigging-1 page */}
+      <section className="space-y-8">
+        <h2 className="text-3xl font-bold tracking-tighter">Program Details</h2>
+        <dl className="grid gap-4 md:grid-cols-2">
+          <div className="space-y-2">
+            <dt className="font-medium">Duration</dt>
+            <dd className="text-muted-foreground">{programDetails.duration}</dd>
+          </div>
+          <div className="space-y-2">
+            <dt className="font-medium">Schedule</dt>
+            <dd className="text-muted-foreground">{programDetails.schedule}</dd>
+          </div>
+          <div className="space-y-2">
+            <dt className="font-medium">Location</dt>
+            <dd className="text-muted-foreground">{programDetails.location}</dd>
+          </div>
+          <div className="space-y-2">
+            <dt className="font-medium">Certification</dt>
+            <dd className="text-muted-foreground">{programDetails.certification}</dd>
+          </div>
+          <div className="space-y-2 md:col-span-2">
+            <dt className="font-medium">Prerequisites</dt>
+            <dd>
+              <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+                {programDetails.prerequisites.map((prereq) => (
+                  <li key={prereq}>{prereq}</li>
+                ))}
+              </ul>
+            </dd>
+          </div>
+        </dl>
       </section>
 
       {/* Program Highlights section */}
