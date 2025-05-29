@@ -298,45 +298,50 @@ export default function BIMPage() {
         </h2>
         <AnimatedContainer className="grid gap-6 md:grid-cols-2" stagger={0.08}>
           {bimFeatures.map((feature, index) => (
-            <Card 
+            <Link 
               key={feature.title}
-              delay={index * 0.08}
-              className="h-full"
+              href={`/technologies/digital-construction/bim/${feature.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`}
+              className="block transition-transform hover:scale-105"
             >
-              <CardHeader className="text-center">
-                <div className="flex justify-center mb-4">
-                  {feature.icon}
-                </div>
-                <CardTitle className="text-xl">{feature.title}</CardTitle>
-                <CardDescription>{feature.description}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="text-sm font-semibold text-muted-foreground mb-2">Features:</h4>
-                    <ul className="space-y-1">
-                      {feature.features.map((item) => (
-                        <li key={item} className="flex items-center text-sm text-muted-foreground">
-                          <CheckCircle className="h-3 w-3 mr-2 text-green-500 flex-shrink-0" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
+              <Card 
+                delay={index * 0.08}
+                className="h-full hover:shadow-lg transition-shadow"
+              >
+                <CardHeader className="text-center">
+                  <div className="flex justify-center mb-4">
+                    {feature.icon}
                   </div>
-                  
-                  <div className="bg-muted/30 p-3 rounded-lg">
-                    <h4 className="text-sm font-semibold mb-2">Specifications:</h4>
-                    <div className="space-y-1 text-xs">
-                      {Object.entries(feature.specifications).map(([key, value]) => (
-                        <div key={key}>
-                          <span className="font-medium capitalize">{key}:</span> {value}
-                        </div>
-                      ))}
+                  <CardTitle className="text-xl">{feature.title}</CardTitle>
+                  <CardDescription>{feature.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="text-sm font-semibold text-muted-foreground mb-2">Features:</h4>
+                      <ul className="space-y-1">
+                        {feature.features.map((item) => (
+                          <li key={item} className="flex items-center text-sm text-muted-foreground">
+                            <CheckCircle className="h-3 w-3 mr-2 text-green-500 flex-shrink-0" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div className="bg-muted/30 p-3 rounded-lg">
+                      <h4 className="text-sm font-semibold mb-2">Specifications:</h4>
+                      <div className="space-y-1 text-xs">
+                        {Object.entries(feature.specifications).map(([key, value]) => (
+                          <div key={key}>
+                            <span className="font-medium capitalize">{key}:</span> {value}
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </AnimatedContainer>
       </section>
