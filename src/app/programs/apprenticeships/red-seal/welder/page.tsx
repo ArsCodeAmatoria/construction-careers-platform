@@ -75,7 +75,7 @@ const weldingProcesses = [
     icon: <Zap className="h-6 w-6 text-blue-500 float" />
   },
   {
-    title: "GMAW (MIG Welding)",
+    process: "GMAW (MIG Welding)",
     description: "Gas Metal Arc Welding", 
     applications: ["Automotive", "Manufacturing", "Sheet metal", "Production welding"],
     advantages: ["High speed", "Clean welds", "Easy to learn", "Minimal cleanup"],
