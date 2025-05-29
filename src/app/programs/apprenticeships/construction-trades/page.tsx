@@ -36,7 +36,8 @@ const constructionTrades = [
     description: "Smooth and finish surfaces of poured concrete floors, walls, and sidewalks",
     skills: ["Surface finishing", "Texture application", "Quality control", "Tool mastery"],
     demand: "High",
-    icon: <Square className="h-8 w-8 text-gray-500 float" />
+    icon: <Square className="h-8 w-8 text-gray-500 float" />,
+    slug: "concrete-finisher"
   },
   {
     name: "Roofer",
@@ -45,7 +46,8 @@ const constructionTrades = [
     description: "Install and repair roofs using various materials and techniques",
     skills: ["Material installation", "Weather sealing", "Safety procedures", "Repair techniques"],
     demand: "Very High",
-    icon: <Home className="h-8 w-8 text-red-500 float" />
+    icon: <Home className="h-8 w-8 text-red-500 float" />,
+    slug: "roofer"
   },
   {
     name: "Drywall Installer",
@@ -54,7 +56,8 @@ const constructionTrades = [
     description: "Install and finish drywall panels in residential and commercial buildings",
     skills: ["Panel installation", "Taping and mudding", "Texture finishing", "Quality assurance"],
     demand: "High",
-    icon: <Grid className="h-8 w-8 text-blue-500 float" />
+    icon: <Grid className="h-8 w-8 text-blue-500 float" />,
+    slug: "drywall-installer"
   },
   {
     name: "Painter",
@@ -63,7 +66,8 @@ const constructionTrades = [
     description: "Apply paint, stain, and coatings to buildings and structures",
     skills: ["Surface preparation", "Color matching", "Application techniques", "Equipment maintenance"],
     demand: "High", 
-    icon: <Palette className="h-8 w-8 text-purple-500 float" />
+    icon: <Palette className="h-8 w-8 text-purple-500 float" />,
+    slug: "painter"
   },
   {
     name: "Glazier",
@@ -72,7 +76,8 @@ const constructionTrades = [
     description: "Install windows, glass doors, skylights, and glass curtain walls",
     skills: ["Glass cutting", "Frame installation", "Sealing techniques", "Safety protocols"],
     demand: "Medium",
-    icon: <Layers className="h-8 w-8 text-cyan-500 float" />
+    icon: <Layers className="h-8 w-8 text-cyan-500 float" />,
+    slug: "glazier"
   },
   {
     name: "Flooring Installer",
@@ -81,7 +86,8 @@ const constructionTrades = [
     description: "Install various types of flooring materials in residential and commercial spaces",
     skills: ["Material preparation", "Installation techniques", "Pattern layout", "Finishing work"],
     demand: "High",
-    icon: <Settings className="h-8 w-8 text-orange-500 float" />
+    icon: <Settings className="h-8 w-8 text-orange-500 float" />,
+    slug: "flooring-installer"
   }
 ]
 
@@ -253,50 +259,57 @@ export default function ConstructionTradesPage() {
         </h2>
         <AnimatedContainer className="grid gap-6 md:grid-cols-2 lg:grid-cols-3" stagger={0.08}>
           {constructionTrades.map((trade, index) => (
-            <Card 
-              key={trade.name}
-              delay={index * 0.08}
-              className="h-full"
-            >
-              <CardHeader className="text-center">
-                <div className="flex justify-center mb-4">
-                  {trade.icon}
-                </div>
-                <CardTitle className="text-lg">{trade.name}</CardTitle>
-                <CardDescription>{trade.description}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  <div className="grid grid-cols-2 gap-3 text-sm">
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">Duration:</span>
-                      <span className="font-medium">{trade.duration}</span>
+            <Link key={trade.name} href={`/programs/apprenticeships/construction-trades/${trade.slug}`}>
+              <Card 
+                delay={index * 0.08}
+                className="h-full hover:shadow-lg transition-shadow cursor-pointer"
+              >
+                <CardHeader className="text-center">
+                  <div className="flex justify-center mb-4">
+                    {trade.icon}
+                  </div>
+                  <CardTitle className="text-lg">{trade.name}</CardTitle>
+                  <CardDescription>{trade.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-2 gap-3 text-sm">
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Duration:</span>
+                        <span className="font-medium">{trade.duration}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Wage:</span>
+                        <span className="font-medium text-green-600">{trade.wage}</span>
+                      </div>
                     </div>
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">Wage:</span>
-                      <span className="font-medium text-green-600">{trade.wage}</span>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-muted-foreground">Demand:</span>
+                      <span className={`font-medium ${trade.demand === 'Very High' ? 'text-red-500' : trade.demand === 'High' ? 'text-orange-500' : 'text-yellow-500'}`}>
+                        {trade.demand}
+                      </span>
+                    </div>
+                    
+                    <div>
+                      <h4 className="text-sm font-semibold text-muted-foreground mb-2">Key Skills:</h4>
+                      <div className="flex flex-wrap gap-1">
+                        {trade.skills.map((skill) => (
+                          <span key={skill} className="text-xs bg-primary/10 text-primary px-2 py-1 rounded">
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    <div className="pt-2 border-t">
+                      <Button variant="ghost" size="sm" className="w-full">
+                        Learn More →
+                      </Button>
                     </div>
                   </div>
-                  <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Demand:</span>
-                    <span className={`font-medium ${trade.demand === 'Very High' ? 'text-red-500' : trade.demand === 'High' ? 'text-orange-500' : 'text-yellow-500'}`}>
-                      {trade.demand}
-                    </span>
-                  </div>
-                  
-                  <div>
-                    <h4 className="text-sm font-semibold text-muted-foreground mb-2">Key Skills:</h4>
-                    <div className="flex flex-wrap gap-1">
-                      {trade.skills.map((skill) => (
-                        <span key={skill} className="text-xs bg-primary/10 text-primary px-2 py-1 rounded">
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </AnimatedContainer>
       </section>
