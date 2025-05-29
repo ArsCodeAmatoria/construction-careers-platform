@@ -29,7 +29,9 @@ import {
   Cog,
   Factory,
   Building2,
-  Square
+  Square,
+  Power,
+  ArrowUp
 } from "lucide-react"
 
 const redSealTrades = [
@@ -112,6 +114,26 @@ const redSealTrades = [
     demand: "High",
     slug: "sheet-metal-worker",
     icon: <Square className="h-8 w-8 text-slate-500 float" />
+  },
+  {
+    name: "Powerlinesman",
+    code: "442A",
+    duration: "4 years",
+    wage: "$25-50/hour",
+    description: "Install, maintain, and repair electrical power transmission and distribution systems",
+    demand: "Very High",
+    slug: "powerlinesman",
+    icon: <Power className="h-8 w-8 text-yellow-600 float" />
+  },
+  {
+    name: "Crane Operator",
+    code: "7371",
+    duration: "3 years",
+    wage: "$25-55/hour",
+    description: "Operate various types of cranes to lift, move, and position materials in construction and industrial environments",
+    demand: "Very High",
+    slug: "crane-operator",
+    icon: <ArrowUp className="h-8 w-8 text-blue-500 float" />
   }
 ]
 
