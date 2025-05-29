@@ -2,6 +2,8 @@
 
 import { careers as careerData } from '@/data/careers'
 import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { AnimatedContainer } from '@/components/ui/animated-container'
 import Link from 'next/link'
 import { 
   Users, 
@@ -17,7 +19,10 @@ import {
   Construction as CraneIcon,
   ShieldCheck,
   Award,
-  ClipboardCheck
+  ClipboardCheck,
+  CheckCircle,
+  DollarSign,
+  Building
 } from 'lucide-react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { Suspense } from 'react'
@@ -104,7 +109,7 @@ const safetyRoles: SafetyRole[] = [
       "Incident investigation",
       "Safety training delivery"
     ],
-    icon: <Shield className="h-12 w-12 text-red-500" />,
+    icon: <Shield className="h-12 w-12 text-red-500 float" />,
     href: "/careers/safety/cso"
   },
   {
@@ -124,7 +129,7 @@ const safetyRoles: SafetyRole[] = [
       "Risk management",
       "Team leadership"
     ],
-    icon: <ShieldCheck className="h-12 w-12 text-blue-500" />,
+    icon: <ShieldCheck className="h-12 w-12 text-blue-500 float" />,
     href: "/careers/safety/ncso"
   },
   {
@@ -144,7 +149,7 @@ const safetyRoles: SafetyRole[] = [
       "Corporate safety leadership",
       "Stakeholder management"
     ],
-    icon: <Award className="h-12 w-12 text-green-500" />,
+    icon: <Award className="h-12 w-12 text-green-500 float" />,
     href: "/careers/safety/crsp"
   },
   {
@@ -164,7 +169,7 @@ const safetyRoles: SafetyRole[] = [
       "Inspection assistance",
       "Reporting"
     ],
-    icon: <ClipboardCheck className="h-12 w-12 text-orange-500" />,
+    icon: <ClipboardCheck className="h-12 w-12 text-orange-500 float" />,
     href: "/careers/safety/coordinator"
   }
 ]
@@ -197,118 +202,148 @@ function CareerSearch() {
     : updatedCareers.filter(career => career.category === currentCategory)
 
   return (
-    <div className="flex gap-2 overflow-x-auto pb-2">
-      {categories.map((category) => (
-        <Button
-          key={category.id}
-          variant={currentCategory === category.id ? "default" : "outline"}
-          className="flex items-center gap-2"
-          onClick={() => {
-            const params = new URLSearchParams(searchParams)
-            if (category.id === 'all') {
-              params.delete('category')
-            } else {
-              params.set('category', category.id)
-            }
-            router.push(`/careers?${params.toString()}`)
-          }}
-        >
-          {category.icon}
-          {category.label}
-        </Button>
-      ))}
+    <div className="space-y-8">
+      <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-thin">
+        {categories.map((category) => (
+          <Button
+            key={category.id}
+            variant={currentCategory === category.id ? "default" : "outline"}
+            className="flex items-center gap-2 button-glow"
+            onClick={() => {
+              const params = new URLSearchParams(searchParams)
+              if (category.id === 'all') {
+                params.delete('category')
+              } else {
+                params.set('category', category.id)
+              }
+              router.push(`/careers?${params.toString()}`)
+            }}
+          >
+            {category.icon}
+            {category.label}
+          </Button>
+        ))}
+      </div>
+
+      <AnimatedContainer className="grid gap-6 md:grid-cols-2 lg:grid-cols-3" stagger={0.08}>
+        {filteredCareers.map((career, index) => {
+          const safetyRole = safetyRoles.find(role => role.id === career.id)
+          
+          if (safetyRole) {
+            return (
+              <Link key={career.id} href={safetyRole.href} className="group">
+                <Card delay={index * 0.08}>
+                  <CardHeader className="text-center">
+                    <div className="flex justify-center mb-4">
+                      {safetyRole.icon}
+                    </div>
+                    <CardTitle className="text-xl">{career.title}</CardTitle>
+                    <CardDescription>{career.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div>
+                      <h4 className="text-sm font-semibold mb-2 flex items-center gap-2">
+                        <CheckCircle className="h-4 w-4 text-blue-500" />
+                        Requirements
+                      </h4>
+                      <ul className="space-y-1 text-sm">
+                        {safetyRole.requirements.slice(0, 3).map((req) => (
+                          <li key={req} className="flex items-center">
+                            <CheckCircle className="h-3 w-3 mr-2 text-green-500" />
+                            <span>{req}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+            )
+          }
+
+          return (
+            <Card key={career.id} delay={index * 0.08}>
+              <CardHeader>
+                <div className="flex items-center gap-4 mb-2">
+                  {categoryIcons[career.category] || <Building2 className="h-5 w-5" />}
+                  <CardTitle className="text-xl">{career.title}</CardTitle>
+                </div>
+                <CardDescription>{career.description}</CardDescription>
+              </CardHeader>
+              
+              <CardContent className="space-y-4">
+                {career.salary && (
+                  <div className="flex items-center gap-2 p-3 bg-muted/50 rounded-lg">
+                    <DollarSign className="h-4 w-4 text-green-500" />
+                    <div>
+                      <div className="text-sm font-medium">BC Salary Range</div>
+                      <div className="text-sm text-muted-foreground">{career.salary}</div>
+                    </div>
+                  </div>
+                )}
+
+                {career.certification && career.certification.length > 0 && (
+                  <div>
+                    <h4 className="text-sm font-semibold mb-2 flex items-center gap-2">
+                      <Award className="h-4 w-4 text-blue-500" />
+                      Required Certifications
+                    </h4>
+                    <ul className="space-y-1 text-sm">
+                      {career.certification.slice(0, 3).map((cert) => (
+                        <li key={cert} className="flex items-center">
+                          <CheckCircle className="h-3 w-3 mr-2 text-green-500" />
+                          <span>{cert}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {career.bcSpecific?.union && (
+                  <div className="flex items-center gap-2 p-3 bg-muted/50 rounded-lg">
+                    <Building className="h-4 w-4 text-orange-500" />
+                    <div>
+                      <div className="text-sm font-medium">BC Union</div>
+                      <div className="text-sm text-muted-foreground">{career.bcSpecific.union}</div>
+                    </div>
+                  </div>
+                )}
+
+                {career.trainingProvider && (
+                  <div className="pt-2">
+                    <Link href={career.trainingUrl || '#'}>
+                      <Button className="w-full button-glow">
+                        <GraduationCap className="mr-2 h-4 w-4" />
+                        Training at {career.trainingProvider}
+                      </Button>
+                    </Link>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+          )
+        })}
+      </AnimatedContainer>
     </div>
   )
 }
 
 export default function CareersPage() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 py-8">
       <section className="text-center space-y-4">
-        <h1 className="text-4xl font-bold tracking-tighter md:text-5xl">
+        <h1 className="text-4xl font-bold tracking-tighter md:text-5xl shimmer-text">
           Construction Careers
         </h1>
-        <p className="text-xl text-muted-foreground">
-          Explore career opportunities in modern construction
+        <p className="text-xl text-muted-foreground max-w-[800px] mx-auto">
+          Explore diverse career opportunities in British Columbia's thriving construction industry. 
+          From traditional trades to cutting-edge technology roles, find your path to success.
         </p>
       </section>
 
       <Suspense fallback={<div>Loading search...</div>}>
         <CareerSearch />
       </Suspense>
-
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {updatedCareers.map((career) => (
-          <div 
-            key={career.id}
-            className="rounded-lg border border-border hover:border-foreground/50 transition-colors"
-          >
-            <div className="p-6 space-y-4">
-              <div className="flex items-center gap-4">
-                {categoryIcons[career.category] || <Building2 className="h-5 w-5" />}
-                <h3 className="text-xl font-semibold">{career.title}</h3>
-              </div>
-              
-              <p className="text-sm text-muted-foreground">{career.description}</p>
-              
-              <div className="space-y-2">
-                <div className="text-sm font-medium">BC Salary Range:</div>
-                <div className="text-sm text-muted-foreground">{career.salary}</div>
-              </div>
-
-              <div className="space-y-2">
-                <div className="text-sm font-medium">Required Certifications:</div>
-                <ul className="text-sm text-muted-foreground list-disc list-inside">
-                  {career.certification.map((cert) => (
-                    <li key={cert}>{cert}</li>
-                  ))}
-                </ul>
-              </div>
-
-              {career.bcSpecific && (
-                <div className="space-y-2">
-                  {career.bcSpecific.companies && (
-                    <div>
-                      <div className="text-sm font-medium">BC Companies:</div>
-                      <ul className="text-sm text-muted-foreground list-disc list-inside">
-                        {career.bcSpecific.companies.map((company) => (
-                          <li key={company}>{company}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                  {career.bcSpecific.union && (
-                    <div>
-                      <div className="text-sm font-medium">BC Union:</div>
-                      <div className="text-sm text-muted-foreground">{career.bcSpecific.union}</div>
-                    </div>
-                  )}
-                  {career.bcSpecific.regulations && (
-                    <div>
-                      <div className="text-sm font-medium">BC Regulations:</div>
-                      <ul className="text-sm text-muted-foreground list-disc list-inside">
-                        {career.bcSpecific.regulations.map((reg) => (
-                          <li key={reg}>{reg}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                </div>
-              )}
-
-              {career.trainingProvider && (
-                <div className="pt-4">
-                  <Link href={career.trainingUrl || '#'}>
-                    <Button className="w-full">
-                      Training at {career.trainingProvider}
-                    </Button>
-                  </Link>
-                </div>
-              )}
-            </div>
-          </div>
-        ))}
-      </div>
     </div>
   )
 } 
