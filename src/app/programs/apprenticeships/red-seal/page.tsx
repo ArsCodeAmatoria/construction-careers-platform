@@ -27,7 +27,9 @@ import {
   Hammer,
   Settings,
   Cog,
-  Factory
+  Factory,
+  Building2,
+  Square
 } from "lucide-react"
 
 const redSealTrades = [
@@ -84,6 +86,24 @@ const redSealTrades = [
     description: "Operate heavy machinery for construction projects",
     demand: "High",
     icon: <Building className="h-8 w-8 text-green-500 float" />
+  },
+  {
+    name: "Ironworker",
+    code: "420A",
+    duration: "3 years",
+    wage: "$22-45/hour",
+    description: "Install structural steel and iron frameworks",
+    demand: "High",
+    icon: <Building2 className="h-8 w-8 text-gray-500 float" />
+  },
+  {
+    name: "Sheet Metal Worker",
+    code: "308A",
+    duration: "4 years",
+    wage: "$20-42/hour",
+    description: "Fabricate and install sheet metal products for HVAC and construction",
+    demand: "High",
+    icon: <Square className="h-8 w-8 text-slate-500 float" />
   }
 ]
 
