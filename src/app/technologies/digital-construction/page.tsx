@@ -111,7 +111,7 @@ const bcProjects = [
 export default function DigitalConstructionPage() {
   return (
     <div className="container mx-auto px-4 py-8 space-y-12">
-      <section className="text-center space-y-6 max-w-4xl px-4">
+      <section className="text-center space-y-6 max-w-4xl mx-auto px-4">
         <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl shimmer-text">
           Digital Construction
         </h1>
