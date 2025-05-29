@@ -1,4 +1,8 @@
+'use client'
+
 import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { AnimatedContainer } from "@/components/ui/animated-container"
 import Link from "next/link"
 import { 
   Users, 
@@ -23,77 +27,98 @@ import {
   Box
 } from "lucide-react"
 
-const programCategories = [
+interface Partner {
+  name: string
+  icon: React.ReactElement
+}
+
+interface Program {
+  title: string
+  description: string
+  icon: React.ReactElement
+  href: string
+  features?: string[]
+  partners?: string[]
+}
+
+interface ProgramCategory {
+  title: string
+  description: string
+  partners: Partner[]
+  programs: Program[]
+}
+
+const programCategories: ProgramCategory[] = [
   {
     title: "Career Entry Programs",
     description: "Starting your journey in construction",
     partners: [
       { 
         name: "WorkBC", 
-        icon: <Briefcase className="h-12 w-12 text-blue-500" />
+        icon: <Briefcase className="h-8 w-8 text-blue-500 float" />
       },
       { 
         name: "BC Construction Association", 
-        icon: <Building2 className="h-12 w-12 text-orange-500" />
+        icon: <Building2 className="h-8 w-8 text-orange-500 float" />
       },
       { 
         name: "Industry Training Authority BC", 
-        icon: <HardHat className="h-12 w-12 text-green-500" />
+        icon: <HardHat className="h-8 w-8 text-green-500 float" />
       }
     ],
     programs: [
       {
         title: "Apprenticeships",
         description: "Start your career with hands-on training and mentorship",
-        icon: <Users className="h-12 w-12 text-blue-500" />,
+        icon: <Users className="h-12 w-12 text-blue-500 float" />,
         href: "/programs/apprenticeships"
       },
       {
         title: "Entry Level Programs",
         description: "Begin your construction journey with no prior experience",
-        icon: <GraduationCap className="h-12 w-12 text-green-500" />,
+        icon: <GraduationCap className="h-12 w-12 text-green-500 float" />,
         href: "/programs/entry-level"
       },
       {
         title: "Training Programs",
         description: "Develop new skills and certifications",
-        icon: <BookOpen className="h-12 w-12 text-purple-500" />,
+        icon: <BookOpen className="h-12 w-12 text-purple-500 float" />,
         href: "/programs/training"
       },
       {
         title: "BIM Integration",
         description: "Learn Building Information Modeling for modern construction",
-        icon: <Box className="h-12 w-12 text-indigo-500" />,
+        icon: <Box className="h-12 w-12 text-indigo-500 float" />,
         href: "/programs/bim-integration"
       },
       {
         title: "Women in Construction",
         description: "Programs designed to support women in the industry",
-        icon: <Users2 className="h-12 w-12 text-pink-500" />,
+        icon: <Users2 className="h-12 w-12 text-pink-500 float" />,
         href: "/programs/women-in-construction"
       },
       {
         title: "Indigenous Programs",
         description: "Opportunities and support for Indigenous communities",
-        icon: <Building2 className="h-12 w-12 text-orange-500" />,
+        icon: <Building2 className="h-12 w-12 text-orange-500 float" />,
         href: "/programs/indigenous"
       },
       {
         title: "Newcomers to Canada",
         description: "Resources for international construction professionals",
-        icon: <Plane className="h-12 w-12 text-sky-500" />,
+        icon: <Plane className="h-12 w-12 text-sky-500 float" />,
         href: "/programs/newcomers"
       },
       {
         title: "Accessibility Programs",
         description: "Inclusive opportunities in construction",
-        icon: <Heart className="h-12 w-12 text-red-500" />,
+        icon: <Heart className="h-12 w-12 text-red-500 float" />,
         href: "/programs/accessibility"
       },
       {
         title: "Union Training",
         description: "Union-sponsored training and development",
-        icon: <Building className="h-12 w-12 text-yellow-500" />,
+        icon: <Building className="h-12 w-12 text-yellow-500 float" />,
         href: "/programs/union-training"
       }
     ]
@@ -104,15 +129,15 @@ const programCategories = [
     partners: [
       { 
         name: "BC Construction Association", 
-        icon: <Building2 className="h-12 w-12 text-orange-500" />
+        icon: <Building2 className="h-8 w-8 text-orange-500 float" />
       },
       { 
         name: "WorkSafeBC", 
-        icon: <Shield className="h-12 w-12 text-red-500" />
+        icon: <Shield className="h-8 w-8 text-red-500 float" />
       },
       { 
         name: "Industry Training Authority", 
-        icon: <HardHat className="h-12 w-12 text-green-500" />
+        icon: <HardHat className="h-8 w-8 text-green-500 float" />
       }
     ],
     programs: [
@@ -125,7 +150,7 @@ const programCategories = [
           "Build TogetHER BC"
         ],
         description: "Supporting women entering and advancing in construction.",
-        icon: <Users className="h-12 w-12 text-purple-500" />,
+        icon: <Users className="h-12 w-12 text-purple-500 float" />,
         href: "/programs/women-in-construction",
         features: [
           "Skills Training",
@@ -143,7 +168,7 @@ const programCategories = [
           "BC First Nations Construction Council"
         ],
         description: "Construction programs supporting Indigenous communities.",
-        icon: <Handshake className="h-12 w-12 text-green-500" />,
+        icon: <Handshake className="h-12 w-12 text-green-500 float" />,
         href: "/programs/indigenous",
         features: [
           "Cultural Integration",
@@ -161,7 +186,7 @@ const programCategories = [
           "Canadian Armed Forces Transition Group"
         ],
         description: "Supporting veterans transitioning to construction careers.",
-        icon: <Shield className="h-12 w-12 text-red-500" />,
+        icon: <Shield className="h-12 w-12 text-red-500 float" />,
         href: "/programs/veterans",
         features: [
           "Skills Translation",
@@ -178,22 +203,22 @@ const programCategories = [
     partners: [
       { 
         name: "BCIT", 
-        icon: <School className="h-12 w-12 text-blue-500" />
+        icon: <School className="h-8 w-8 text-blue-500 float" />
       },
       { 
         name: "BC Construction Safety Alliance", 
-        icon: <Shield className="h-12 w-12 text-red-500" />
+        icon: <Shield className="h-8 w-8 text-red-500 float" />
       },
       { 
         name: "BC Building Trades", 
-        icon: <Construction className="h-12 w-12 text-yellow-500" />
+        icon: <Construction className="h-8 w-8 text-yellow-500 float" />
       }
     ],
     programs: [
       {
         title: "Leadership Development",
         description: "Developing construction industry leaders.",
-        icon: <Target className="h-12 w-12 text-purple-500" />,
+        icon: <Target className="h-12 w-12 text-purple-500 float" />,
         href: "/programs/leadership",
         features: [
           "Project Management",
@@ -205,7 +230,7 @@ const programCategories = [
       {
         title: "Union Training",
         description: "Specialized training through BC construction unions.",
-        icon: <Blocks className="h-12 w-12 text-blue-500" />,
+        icon: <Blocks className="h-12 w-12 text-blue-500 float" />,
         href: "/programs/union-training",
         features: [
           "Apprenticeship Programs",
@@ -222,22 +247,22 @@ const programCategories = [
     partners: [
       { 
         name: "WorkBC", 
-        icon: <Briefcase className="h-12 w-12 text-blue-500" />
+        icon: <Briefcase className="h-8 w-8 text-blue-500 float" />
       },
       { 
         name: "BC Construction Association", 
-        icon: <Building2 className="h-12 w-12 text-orange-500" />
+        icon: <Building2 className="h-8 w-8 text-orange-500 float" />
       },
       { 
         name: "Access BC", 
-        icon: <Heart className="h-12 w-12 text-pink-500" />
+        icon: <Heart className="h-8 w-8 text-pink-500 float" />
       }
     ],
     programs: [
       {
         title: "Accessible Construction",
         description: "Supporting people with disabilities in construction.",
-        icon: <Heart className="h-12 w-12 text-pink-500" />,
+        icon: <Heart className="h-12 w-12 text-pink-500 float" />,
         href: "/programs/accessibility",
         features: [
           "Workplace Accommodation",
@@ -249,7 +274,7 @@ const programCategories = [
       {
         title: "Career Transitions",
         description: "Support for transitioning into construction.",
-        icon: <ArrowRightCircle className="h-12 w-12 text-orange-500" />,
+        icon: <ArrowRightCircle className="h-12 w-12 text-orange-500 float" />,
         href: "/programs/transitions",
         features: [
           "Skills Assessment",
@@ -266,7 +291,7 @@ export default function ProgramsPage() {
   return (
     <div className="space-y-16 py-8">
       <section className="text-center space-y-4">
-        <h1 className="text-4xl font-bold tracking-tighter md:text-5xl">
+        <h1 className="text-4xl font-bold tracking-tighter md:text-5xl shimmer-text">
           Construction Programs
         </h1>
         <p className="text-xl text-muted-foreground max-w-[800px] mx-auto">
@@ -277,34 +302,75 @@ export default function ProgramsPage() {
         </Link>
       </section>
 
-      {programCategories.map((category) => (
+      {programCategories.map((category, categoryIndex) => (
         <section key={category.title} className="w-full max-w-7xl mx-auto px-4 space-y-8">
           <div className="text-center space-y-4">
             <h2 className="text-3xl font-bold tracking-tighter">{category.title}</h2>
             <p className="text-lg text-muted-foreground max-w-[600px] mx-auto">
               {category.description}
             </p>
+            
+            {/* Partners Section */}
+            <div className="flex justify-center items-center gap-6 flex-wrap mt-6">
+              <span className="text-sm text-muted-foreground">Partners:</span>
+              {category.partners.map((partner, index) => (
+                <div key={partner.name} className="flex items-center gap-2">
+                  {partner.icon}
+                  <span className="text-sm font-medium">{partner.name}</span>
+                </div>
+              ))}
+            </div>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {category.programs.map((program) => (
+          <AnimatedContainer className="grid gap-6 md:grid-cols-2 lg:grid-cols-3" stagger={0.08}>
+            {category.programs.map((program, programIndex) => (
               <Link 
                 key={program.title}
                 href={program.href}
                 className="group"
               >
-                <div className="h-full border border-border hover:border-foreground/50 rounded-lg p-6 transition-colors">
-                  <div className="flex flex-col items-center text-center space-y-4">
-                    {program.icon}
-                    <h3 className="text-xl font-semibold">{program.title}</h3>
-                    <p className="text-sm text-muted-foreground">
-                      {program.description}
-                    </p>
-                  </div>
-                </div>
+                <Card delay={(categoryIndex * 3 + programIndex) * 0.08} className="h-full">
+                  <CardHeader className="text-center">
+                    <div className="flex justify-center mb-4">
+                      {program.icon}
+                    </div>
+                    <CardTitle className="text-xl group-hover:text-primary transition-colors">{program.title}</CardTitle>
+                    <CardDescription>{program.description}</CardDescription>
+                  </CardHeader>
+                  
+                  {program.features && (
+                    <CardContent>
+                      <div className="space-y-2">
+                        <h4 className="text-sm font-semibold text-muted-foreground">Key Features:</h4>
+                        <ul className="grid grid-cols-2 gap-1 text-sm">
+                          {program.features.map((feature: string) => (
+                            <li key={feature} className="flex items-center text-muted-foreground">
+                              <div className="w-1 h-1 bg-primary rounded-full mr-2"></div>
+                              {feature}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      
+                      {program.partners && (
+                        <div className="mt-4 pt-4 border-t border-border">
+                          <h4 className="text-sm font-semibold text-muted-foreground mb-2">Program Partners:</h4>
+                          <div className="text-xs text-muted-foreground space-y-1">
+                            {program.partners.slice(0, 2).map((partner: string) => (
+                              <div key={partner}>• {partner}</div>
+                            ))}
+                            {program.partners.length > 2 && (
+                              <div className="text-xs text-primary">+{program.partners.length - 2} more</div>
+                            )}
+                          </div>
+                        </div>
+                      )}
+                    </CardContent>
+                  )}
+                </Card>
               </Link>
             ))}
-          </div>
+          </AnimatedContainer>
         </section>
       ))}
     </div>
