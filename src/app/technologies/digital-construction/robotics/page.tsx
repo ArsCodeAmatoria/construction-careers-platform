@@ -35,7 +35,8 @@ const roboticSolutions = [
       "Robotic welding automation",
       "Tile installation robots"
     ],
-    icon: <Bot className="h-12 w-12 text-blue-500 float" />
+    icon: <Bot className="h-12 w-12 text-blue-500 float" />,
+    href: "/technologies/digital-construction/robotics/construction-robots"
   },
   {
     title: "Autonomous Equipment",
@@ -47,7 +48,8 @@ const roboticSolutions = [
       "Self-driving concrete mixers",
       "Automated crane systems"
     ],
-    icon: <Truck className="h-12 w-12 text-green-500 float" />
+    icon: <Truck className="h-12 w-12 text-green-500 float" />,
+    href: "/technologies/digital-construction/robotics/autonomous-equipment"
   },
   {
     title: "Automated Systems",
@@ -59,7 +61,8 @@ const roboticSolutions = [
       "Inventory management systems",
       "Prefabrication automation"
     ],
-    icon: <Cog className="h-12 w-12 text-orange-500 float" />
+    icon: <Cog className="h-12 w-12 text-orange-500 float" />,
+    href: "/technologies/digital-construction/robotics/automated-systems"
   },
   {
     title: "AI-Powered Robotics",
@@ -71,7 +74,8 @@ const roboticSolutions = [
       "Environmental adaptation",
       "Human-robot collaboration"
     ],
-    icon: <Brain className="h-12 w-12 text-purple-500 float" />
+    icon: <Brain className="h-12 w-12 text-purple-500 float" />,
+    href: "/technologies/digital-construction/robotics/ai-powered-robotics"
   }
 ]
 
@@ -200,32 +204,35 @@ export default function RoboticsPage() {
         </h2>
         <AnimatedContainer className="grid gap-6 md:grid-cols-2" stagger={0.08}>
           {roboticSolutions.map((solution, index) => (
-            <Card 
-              key={solution.title}
-              delay={index * 0.08}
-              className="h-full"
-            >
-              <CardHeader className="text-center">
-                <div className="flex justify-center mb-4">
-                  {solution.icon}
-                </div>
-                <CardTitle className="text-xl">{solution.title}</CardTitle>
-                <CardDescription>{solution.description}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-2">
-                  <h4 className="text-sm font-semibold text-muted-foreground">Capabilities:</h4>
-                  <ul className="space-y-2">
-                    {solution.details.map((detail) => (
-                      <li key={detail} className="flex items-center text-sm text-muted-foreground">
-                        <CheckCircle className="h-3 w-3 mr-2 text-green-500 flex-shrink-0" />
-                        <span>{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </CardContent>
-            </Card>
+            <Link key={solution.title} href={solution.href} className="group">
+              <Card 
+                delay={index * 0.08}
+                className="h-full transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl cursor-pointer"
+              >
+                <CardHeader className="text-center">
+                  <div className="flex justify-center mb-4">
+                    {solution.icon}
+                  </div>
+                  <CardTitle className="text-xl group-hover:text-primary transition-colors">
+                    {solution.title}
+                  </CardTitle>
+                  <CardDescription>{solution.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-2">
+                    <h4 className="text-sm font-semibold text-muted-foreground">Capabilities:</h4>
+                    <ul className="space-y-2">
+                      {solution.details.map((detail) => (
+                        <li key={detail} className="flex items-center text-sm text-muted-foreground">
+                          <CheckCircle className="h-3 w-3 mr-2 text-green-500 flex-shrink-0" />
+                          <span>{detail}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </AnimatedContainer>
       </section>
