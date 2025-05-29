@@ -1,4 +1,8 @@
+'use client'
+
 import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { AnimatedContainer } from "@/components/ui/animated-container"
 import Link from "next/link"
 import { 
   Brain, 
@@ -8,7 +12,8 @@ import {
   Clock, 
   Target, 
   Zap,
-  Building 
+  Building,
+  CheckCircle
 } from "lucide-react"
 
 const aiSolutions = [
@@ -21,7 +26,7 @@ const aiSolutions = [
       "Risk prediction",
       "Resource allocation"
     ],
-    icon: <LineChart className="h-12 w-12 text-blue-500" />
+    icon: <LineChart className="h-12 w-12 text-blue-500 float" />
   },
   {
     title: "Computer Vision",
@@ -32,7 +37,7 @@ const aiSolutions = [
       "Quality control",
       "Site surveillance"
     ],
-    icon: <Search className="h-12 w-12 text-green-500" />
+    icon: <Search className="h-12 w-12 text-green-500 float" />
   },
   {
     title: "Machine Learning",
@@ -43,7 +48,7 @@ const aiSolutions = [
       "Performance optimization",
       "Automated reporting"
     ],
-    icon: <Brain className="h-12 w-12 text-purple-500" />
+    icon: <Brain className="h-12 w-12 text-purple-500 float" />
   }
 ]
 
@@ -51,22 +56,22 @@ const benefits = [
   {
     title: "Enhanced Efficiency",
     description: "Streamline processes and reduce manual work",
-    icon: <Zap className="h-6 w-6 text-yellow-500" />
+    icon: <Zap className="h-8 w-8 text-yellow-500 float" />
   },
   {
     title: "Improved Safety",
     description: "Proactive risk identification and prevention",
-    icon: <Shield className="h-6 w-6 text-red-500" />
+    icon: <Shield className="h-8 w-8 text-red-500 float" />
   },
   {
     title: "Better Decision Making",
     description: "Data-driven insights for project management",
-    icon: <Brain className="h-6 w-6 text-blue-500" />
+    icon: <Brain className="h-8 w-8 text-blue-500 float" />
   },
   {
     title: "Time Savings",
     description: "Faster project delivery through automation",
-    icon: <Clock className="h-6 w-6 text-green-500" />
+    icon: <Clock className="h-8 w-8 text-green-500 float" />
   }
 ]
 
@@ -74,7 +79,7 @@ export default function AIConstructionPage() {
   return (
     <div className="space-y-16 py-8">
       <section className="text-center space-y-4">
-        <h1 className="text-4xl font-bold tracking-tighter md:text-5xl">
+        <h1 className="text-4xl font-bold tracking-tighter md:text-5xl shimmer-text">
           AI in Construction
         </h1>
         <p className="text-xl text-muted-foreground max-w-[800px] mx-auto">
@@ -83,48 +88,59 @@ export default function AIConstructionPage() {
       </section>
 
       <section className="w-full max-w-7xl mx-auto px-4 space-y-8">
-        <div className="grid gap-6 md:grid-cols-3">
-          {aiSolutions.map((solution) => (
-            <div 
+        <AnimatedContainer className="grid gap-6 md:grid-cols-3" stagger={0.08}>
+          {aiSolutions.map((solution, index) => (
+            <Card 
               key={solution.title}
-              className="border border-border hover:border-foreground/50 rounded-lg p-6 transition-colors"
+              delay={index * 0.08}
+              className="h-full"
             >
-              <div className="flex flex-col items-center text-center space-y-4">
-                {solution.icon}
-                <h3 className="text-xl font-semibold">{solution.title}</h3>
-                <p className="text-sm text-muted-foreground">{solution.description}</p>
-                <ul className="w-full space-y-2 text-sm">
-                  {solution.features.map((feature) => (
-                    <li key={feature} className="flex items-center">
-                      <Target className="h-4 w-4 mr-2 text-muted-foreground" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+              <CardHeader className="text-center">
+                <div className="flex justify-center mb-4">
+                  {solution.icon}
+                </div>
+                <CardTitle className="text-xl">{solution.title}</CardTitle>
+                <CardDescription>{solution.description}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-2">
+                  <h4 className="text-sm font-semibold text-muted-foreground">Key Features:</h4>
+                  <ul className="space-y-2">
+                    {solution.features.map((feature) => (
+                      <li key={feature} className="flex items-center text-sm text-muted-foreground">
+                        <CheckCircle className="h-3 w-3 mr-2 text-green-500 flex-shrink-0" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </CardContent>
+            </Card>
           ))}
-        </div>
+        </AnimatedContainer>
       </section>
 
       <section className="w-full max-w-4xl mx-auto px-4 text-center space-y-8">
         <h2 className="text-3xl font-bold tracking-tighter">
           Benefits of AI
         </h2>
-        <div className="grid gap-6 md:grid-cols-2">
-          {benefits.map((benefit) => (
-            <div 
+        <AnimatedContainer className="grid gap-6 md:grid-cols-2" stagger={0.08}>
+          {benefits.map((benefit, index) => (
+            <Card 
               key={benefit.title}
-              className="p-6 border border-border rounded-lg"
+              delay={index * 0.08}
+              className="text-center"
             >
-              <div className="flex flex-col items-center space-y-3">
-                {benefit.icon}
-                <h3 className="font-semibold">{benefit.title}</h3>
-                <p className="text-sm text-muted-foreground">{benefit.description}</p>
-              </div>
-            </div>
+              <CardContent className="p-6">
+                <div className="flex flex-col items-center space-y-3">
+                  {benefit.icon}
+                  <h3 className="font-semibold">{benefit.title}</h3>
+                  <p className="text-sm text-muted-foreground">{benefit.description}</p>
+                </div>
+              </CardContent>
+            </Card>
           ))}
-        </div>
+        </AnimatedContainer>
       </section>
 
       <section className="w-full max-w-4xl mx-auto px-4 text-center space-y-6">
@@ -134,14 +150,14 @@ export default function AIConstructionPage() {
         <p className="text-lg text-muted-foreground">
           Discover how AI can transform your construction projects
         </p>
-        <div className="flex justify-center gap-4">
+        <div className="flex justify-center gap-4 flex-wrap">
           <Link href="/contact">
-            <Button size="lg">
+            <Button size="lg" className="button-glow pulse-glow">
               <Brain className="mr-2 h-5 w-5" />
               Schedule Demo
             </Button>
           </Link>
-          <Button variant="outline" size="lg">
+          <Button variant="outline" size="lg" className="button-glow">
             <Building className="mr-2 h-5 w-5" />
             View Case Studies
           </Button>
