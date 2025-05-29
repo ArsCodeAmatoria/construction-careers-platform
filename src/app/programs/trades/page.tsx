@@ -1,4 +1,6 @@
 import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { AnimatedContainer } from '@/components/ui/animated-container'
 import Link from "next/link"
 import { 
   Hammer, 
@@ -31,7 +33,7 @@ const tradesPrograms = [
       "Safety certifications",
       "Tool mastery"
     ],
-    icon: <Hammer className="h-12 w-12 text-orange-500" />,
+    icon: <Hammer className="h-12 w-12 text-orange-500 float" />,
     href: "/programs/trades/carpentry"
   },
   {
@@ -43,7 +45,7 @@ const tradesPrograms = [
       "Safety protocols",
       "Troubleshooting"
     ],
-    icon: <Zap className="h-12 w-12 text-yellow-500" />,
+    icon: <Zap className="h-12 w-12 text-yellow-500 float" />,
     href: "/programs/trades/electrical"
   },
   {
@@ -55,7 +57,7 @@ const tradesPrograms = [
       "Code compliance",
       "Maintenance"
     ],
-    icon: <Droplets className="h-12 w-12 text-blue-500" />,
+    icon: <Droplets className="h-12 w-12 text-blue-500 float" />,
     href: "/programs/trades/plumbing"
   },
   {
@@ -67,7 +69,7 @@ const tradesPrograms = [
       "Blueprint interpretation",
       "Quality control"
     ],
-    icon: <Flame className="h-12 w-12 text-red-500" />,
+    icon: <Flame className="h-12 w-12 text-red-500 float" />,
     href: "/programs/trades/welding"
   },
   {
@@ -79,7 +81,7 @@ const tradesPrograms = [
       "Troubleshooting",
       "Energy efficiency"
     ],
-    icon: <Wrench className="h-12 w-12 text-green-500" />,
+    icon: <Wrench className="h-12 w-12 text-green-500 float" />,
     href: "/programs/trades/hvac"
   },
   {
@@ -91,7 +93,7 @@ const tradesPrograms = [
       "Surface preparation",
       "Quality finishing"
     ],
-    icon: <Paintbrush className="h-12 w-12 text-purple-500" />,
+    icon: <Paintbrush className="h-12 w-12 text-purple-500 float" />,
     href: "/programs/trades/finishing"
   },
   {
@@ -103,7 +105,7 @@ const tradesPrograms = [
       "Underground systems",
       "Emergency response"
     ],
-    icon: <Cable className="h-12 w-12 text-cyan-500" />,
+    icon: <Cable className="h-12 w-12 text-cyan-500 float" />,
     href: "/programs/trades/lineworker"
   },
   {
@@ -115,7 +117,7 @@ const tradesPrograms = [
       "Rigging and hoisting",
       "Blueprint reading"
     ],
-    icon: <Building className="h-12 w-12 text-slate-500" />,
+    icon: <Building className="h-12 w-12 text-slate-500 float" />,
     href: "/programs/trades/ironworker"
   },
   {
@@ -127,7 +129,7 @@ const tradesPrograms = [
       "Preventive maintenance",
       "Troubleshooting"
     ],
-    icon: <Cog className="h-12 w-12 text-indigo-500" />,
+    icon: <Cog className="h-12 w-12 text-indigo-500 float" />,
     href: "/programs/trades/millwright"
   },
   {
@@ -139,7 +141,7 @@ const tradesPrograms = [
       "Blueprint reading",
       "Installation techniques"
     ],
-    icon: <Ruler className="h-12 w-12 text-zinc-500" />,
+    icon: <Ruler className="h-12 w-12 text-zinc-500 float" />,
     href: "/programs/trades/sheet-metal"
   },
   {
@@ -151,7 +153,7 @@ const tradesPrograms = [
       "Storefront installation",
       "Safety protocols"
     ],
-    icon: <Boxes className="h-12 w-12 text-sky-500" />,
+    icon: <Boxes className="h-12 w-12 text-sky-500 float" />,
     href: "/programs/trades/glazier"
   },
   {
@@ -163,7 +165,7 @@ const tradesPrograms = [
       "Electronic diagnostics",
       "Preventive maintenance"
     ],
-    icon: <Wrench className="h-12 w-12 text-amber-500" />,
+    icon: <Wrench className="h-12 w-12 text-amber-500 float" />,
     href: "/programs/trades/heavy-duty-mechanic"
   },
   {
@@ -175,7 +177,7 @@ const tradesPrograms = [
       "Quality control",
       "Safety standards"
     ],
-    icon: <Flame className="h-12 w-12 text-rose-500" />,
+    icon: <Flame className="h-12 w-12 text-rose-500 float" />,
     href: "/programs/trades/boilermaker"
   },
   {
@@ -187,7 +189,7 @@ const tradesPrograms = [
       "Rigging techniques",
       "Load calculations"
     ],
-    icon: <Warehouse className="h-12 w-12 text-emerald-500" />,
+    icon: <Warehouse className="h-12 w-12 text-emerald-500 float" />,
     href: "/programs/crane"
   }
 ]
@@ -204,7 +206,7 @@ export default function TradesPage() {
   return (
     <div className="space-y-16 py-8">
       <section className="text-center space-y-4">
-        <h1 className="text-4xl font-bold tracking-tighter md:text-5xl">
+        <h1 className="text-4xl font-bold tracking-tighter md:text-5xl shimmer-text">
           Traditional Trades Programs
         </h1>
         <p className="text-xl text-muted-foreground max-w-[800px] mx-auto">
@@ -213,48 +215,56 @@ export default function TradesPage() {
       </section>
 
       <section className="w-full max-w-7xl mx-auto px-4">
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {tradesPrograms.map((program) => (
+        <AnimatedContainer className="grid gap-6 md:grid-cols-2 lg:grid-cols-3" stagger={0.08}>
+          {tradesPrograms.map((program, index) => (
             <Link 
               key={program.title}
               href={program.href}
-              className="block group"
+              className="group"
             >
-              <div className="border border-border group-hover:border-foreground/50 rounded-lg p-6 transition-colors h-full">
-                <div className="flex flex-col items-center text-center space-y-4">
-                  {program.icon}
-                  <h3 className="text-xl font-semibold">{program.title}</h3>
-                  <p className="text-sm text-muted-foreground">{program.description}</p>
-                  <ul className="w-full space-y-2 text-sm">
+              <Card delay={index * 0.08}>
+                <CardHeader className="text-center">
+                  <div className="flex justify-center mb-4">
+                    {program.icon}
+                  </div>
+                  <CardTitle className="text-xl">{program.title}</CardTitle>
+                  <CardDescription>{program.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2 text-sm">
                     {program.features.map((feature) => (
                       <li key={feature} className="flex items-center">
-                        <CheckCircle className="h-4 w-4 mr-2 text-muted-foreground" />
+                        <CheckCircle className="h-4 w-4 mr-2 text-green-500" />
                         <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
-                </div>
-              </div>
+                </CardContent>
+              </Card>
             </Link>
           ))}
-        </div>
+        </AnimatedContainer>
       </section>
 
       <section className="w-full max-w-4xl mx-auto px-4 space-y-8">
         <h2 className="text-3xl font-bold tracking-tighter text-center">
           Industry Certifications
         </h2>
-        <div className="grid gap-4 md:grid-cols-2 max-w-3xl mx-auto">
-          {certifications.map((cert) => (
-            <div 
+        <AnimatedContainer className="grid gap-4 md:grid-cols-2 max-w-3xl mx-auto" stagger={0.1}>
+          {certifications.map((cert, index) => (
+            <Card 
               key={cert}
-              className="flex items-center space-x-3 p-4 border border-border rounded-lg"
+              delay={index * 0.1}
+              hover={false}
+              className="p-4"
             >
-              <Award className="h-5 w-5 text-blue-500 flex-shrink-0" />
-              <span className="text-sm">{cert}</span>
-            </div>
+              <div className="flex items-center space-x-3">
+                <Award className="h-5 w-5 text-blue-500 flex-shrink-0" />
+                <span className="text-sm font-medium">{cert}</span>
+              </div>
+            </Card>
           ))}
-        </div>
+        </AnimatedContainer>
       </section>
 
       <section className="w-full max-w-4xl mx-auto px-4 text-center space-y-6">
@@ -264,15 +274,15 @@ export default function TradesPage() {
         <p className="text-lg text-muted-foreground">
           Join our comprehensive trades training programs and build your future in construction
         </p>
-        <div className="flex justify-center gap-4">
+        <div className="flex flex-col sm:flex-row justify-center gap-4">
           <Link href="/contact">
-            <Button size="lg">
+            <Button size="lg" className="w-full sm:w-auto button-glow pulse-glow">
               <HardHat className="mr-2 h-5 w-5" />
               Apply Now
             </Button>
           </Link>
           <Link href="/contact">
-            <Button variant="outline" size="lg">
+            <Button variant="outline" size="lg" className="w-full sm:w-auto button-glow">
               <Book className="mr-2 h-5 w-5" />
               Program Guide
             </Button>

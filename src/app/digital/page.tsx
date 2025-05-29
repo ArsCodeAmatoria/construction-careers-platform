@@ -6,6 +6,9 @@ import {
   Wifi,
   Boxes 
 } from 'lucide-react'
+import Link from 'next/link'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { AnimatedContainer } from '@/components/ui/animated-container'
 
 export default function DigitalPage() {
   const digitalTechnologies = [
@@ -48,16 +51,34 @@ export default function DigitalPage() {
   ]
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {digitalTechnologies.map((tech) => (
-          <div key={tech.title} className="card">
-            {tech.icon}
-            <h3>{tech.title}</h3>
-            <p>{tech.description}</p>
-          </div>
-        ))}
+    <div className="container mx-auto px-4 py-8 space-y-8">
+      <div className="text-center space-y-4">
+        <h1 className="text-4xl font-bold tracking-tighter">Digital Construction Technologies</h1>
+        <p className="text-lg text-muted-foreground max-w-[800px] mx-auto">
+          Explore cutting-edge digital technologies transforming the construction industry. 
+          From AI and robotics to BIM and IoT, discover the future of construction.
+        </p>
       </div>
+      
+      <AnimatedContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {digitalTechnologies.map((tech, index) => (
+          <Link key={tech.title} href={tech.href} className="group">
+            <Card delay={index * 0.1}>
+              <CardHeader className="text-center">
+                <div className="flex justify-center mb-4">
+                  {tech.icon}
+                </div>
+                <CardTitle className="text-xl">{tech.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-center">
+                  {tech.description}
+                </CardDescription>
+              </CardContent>
+            </Card>
+          </Link>
+        ))}
+      </AnimatedContainer>
     </div>
   )
 } 
