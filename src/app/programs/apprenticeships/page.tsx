@@ -39,6 +39,7 @@ const apprenticeshipPrograms = [
     description: "Nationally recognized certification programs in high-demand trades",
     duration: "4 years",
     wage: "$18-35/hour",
+    path: "/programs/apprenticeships/red-seal",
     features: [
       "Paid on-the-job training (80%)",
       "Technical classroom instruction (20%)",
@@ -62,6 +63,7 @@ const apprenticeshipPrograms = [
     description: "Specialized training in high-demand construction trades",
     duration: "2-4 years",
     wage: "$16-32/hour",
+    path: "/programs/apprenticeships/construction-trades",
     features: [
       "Hands-on project experience",
       "Modern equipment training",
@@ -85,6 +87,7 @@ const apprenticeshipPrograms = [
     description: "Union-sponsored apprenticeship programs with guaranteed benefits",
     duration: "3-5 years",
     wage: "$20-40/hour",
+    path: "/programs/apprenticeships/union-apprenticeships",
     features: [
       "Guaranteed work placements",
       "Comprehensive benefits package",
@@ -108,6 +111,7 @@ const apprenticeshipPrograms = [
     description: "Future-focused apprenticeships in sustainable construction",
     duration: "3-4 years",
     wage: "$19-36/hour",
+    path: "/programs/apprenticeships/green-technology",
     features: [
       "Renewable energy systems training",
       "Energy efficiency specialization",
@@ -285,67 +289,68 @@ export default function ApprenticeshipPage() {
         </h2>
         <AnimatedContainer className="grid gap-6 md:grid-cols-2" stagger={0.08}>
           {apprenticeshipPrograms.map((program, index) => (
-            <Card 
-              key={program.title}
-              delay={index * 0.08}
-              className="h-full"
-            >
-              <CardHeader className="text-center">
-                <div className="flex justify-center mb-4">
-                  {program.icon}
-                </div>
-                <CardTitle className="text-xl">{program.title}</CardTitle>
-                <CardDescription>{program.description}</CardDescription>
-                <div className="flex justify-center gap-4 text-sm text-muted-foreground mt-2">
-                  <span className="flex items-center">
-                    <Clock className="h-4 w-4 mr-1" />
-                    {program.duration}
-                  </span>
-                  <span className="flex items-center">
-                    <DollarSign className="h-4 w-4 mr-1" />
-                    {program.wage}
-                  </span>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="text-sm font-semibold text-muted-foreground mb-2">Program Features:</h4>
-                    <ul className="space-y-1">
-                      {program.features.map((feature) => (
-                        <li key={feature} className="flex items-center text-sm text-muted-foreground">
-                          <CheckCircle className="h-3 w-3 mr-2 text-green-500 flex-shrink-0" />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
+            <Link key={program.title} href={program.path}>
+              <Card 
+                delay={index * 0.08}
+                className="h-full hover:scale-105 transition-transform duration-300 cursor-pointer"
+              >
+                <CardHeader className="text-center">
+                  <div className="flex justify-center mb-4">
+                    {program.icon}
                   </div>
+                  <CardTitle className="text-xl">{program.title}</CardTitle>
+                  <CardDescription>{program.description}</CardDescription>
+                  <div className="flex justify-center gap-4 text-sm text-muted-foreground mt-2">
+                    <span className="flex items-center">
+                      <Clock className="h-4 w-4 mr-1" />
+                      {program.duration}
+                    </span>
+                    <span className="flex items-center">
+                      <DollarSign className="h-4 w-4 mr-1" />
+                      {program.wage}
+                    </span>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="text-sm font-semibold text-muted-foreground mb-2">Program Features:</h4>
+                      <ul className="space-y-1">
+                        {program.features.map((feature) => (
+                          <li key={feature} className="flex items-center text-sm text-muted-foreground">
+                            <CheckCircle className="h-3 w-3 mr-2 text-green-500 flex-shrink-0" />
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
 
-                  <div>
-                    <h4 className="text-sm font-semibold text-muted-foreground mb-2">Available Trades:</h4>
-                    <div className="flex flex-wrap gap-1">
-                      {program.trades.map((trade) => (
-                        <span key={trade} className="text-xs bg-primary/10 text-primary px-2 py-1 rounded">
-                          {trade}
-                        </span>
-                      ))}
+                    <div>
+                      <h4 className="text-sm font-semibold text-muted-foreground mb-2">Available Trades:</h4>
+                      <div className="flex flex-wrap gap-1">
+                        {program.trades.map((trade) => (
+                          <span key={trade} className="text-xs bg-primary/10 text-primary px-2 py-1 rounded">
+                            {trade}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div>
+                      <h4 className="text-sm font-semibold text-muted-foreground mb-2">Requirements:</h4>
+                      <ul className="space-y-1">
+                        {program.requirements.map((req) => (
+                          <li key={req} className="flex items-center text-xs text-muted-foreground">
+                            <Target className="h-2 w-2 mr-2 text-blue-500 flex-shrink-0" />
+                            <span>{req}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
-
-                  <div>
-                    <h4 className="text-sm font-semibold text-muted-foreground mb-2">Requirements:</h4>
-                    <ul className="space-y-1">
-                      {program.requirements.map((req) => (
-                        <li key={req} className="flex items-center text-xs text-muted-foreground">
-                          <Target className="h-2 w-2 mr-2 text-blue-500 flex-shrink-0" />
-                          <span>{req}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </AnimatedContainer>
       </section>
