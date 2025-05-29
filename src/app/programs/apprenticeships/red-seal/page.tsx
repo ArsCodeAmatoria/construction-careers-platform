@@ -40,6 +40,7 @@ const redSealTrades = [
     wage: "$20-40/hour",
     description: "Install, maintain, and repair electrical systems",
     demand: "Very High",
+    slug: "electrician",
     icon: <Zap className="h-8 w-8 text-yellow-500 float" />
   },
   {
@@ -49,6 +50,7 @@ const redSealTrades = [
     wage: "$22-38/hour",
     description: "Install and maintain water and drainage systems",
     demand: "High",
+    slug: "plumber",
     icon: <Settings className="h-8 w-8 text-blue-500 float" />
   },
   {
@@ -58,6 +60,7 @@ const redSealTrades = [
     wage: "$18-35/hour",
     description: "Construct, install, and repair structures and fixtures",
     demand: "Very High",
+    slug: "carpenter",
     icon: <Hammer className="h-8 w-8 text-amber-500 float" />
   },
   {
@@ -67,6 +70,7 @@ const redSealTrades = [
     wage: "$20-42/hour",
     description: "Join metals using various welding techniques",
     demand: "High",
+    slug: "welder",
     icon: <Factory className="h-8 w-8 text-orange-500 float" />
   },
   {
@@ -76,6 +80,7 @@ const redSealTrades = [
     wage: "$19-36/hour", 
     description: "Install and service heating, ventilation, and air conditioning",
     demand: "Very High",
+    slug: "hvac-technician",
     icon: <Cog className="h-8 w-8 text-cyan-500 float" />
   },
   {
@@ -85,6 +90,7 @@ const redSealTrades = [
     wage: "$24-45/hour",
     description: "Operate heavy machinery for construction projects",
     demand: "High",
+    slug: "heavy-equipment-operator",
     icon: <Building className="h-8 w-8 text-green-500 float" />
   },
   {
@@ -94,6 +100,7 @@ const redSealTrades = [
     wage: "$22-45/hour",
     description: "Install structural steel and iron frameworks",
     demand: "High",
+    slug: "ironworker",
     icon: <Building2 className="h-8 w-8 text-gray-500 float" />
   },
   {
@@ -103,6 +110,7 @@ const redSealTrades = [
     wage: "$20-42/hour",
     description: "Fabricate and install sheet metal products for HVAC and construction",
     demand: "High",
+    slug: "sheet-metal-worker",
     icon: <Square className="h-8 w-8 text-slate-500 float" />
   }
 ]
@@ -266,40 +274,41 @@ export default function RedSealTradesPage() {
         </h2>
         <AnimatedContainer className="grid gap-6 md:grid-cols-2 lg:grid-cols-3" stagger={0.08}>
           {redSealTrades.map((trade, index) => (
-            <Card 
-              key={trade.name}
-              delay={index * 0.08}
-              className="h-full"
-            >
-              <CardHeader className="text-center">
-                <div className="flex justify-center mb-4">
-                  {trade.icon}
-                </div>
-                <CardTitle className="text-lg">{trade.name}</CardTitle>
-                <CardDescription>{trade.description}</CardDescription>
-                <div className="text-sm text-muted-foreground">
-                  <span className="font-medium">Code:</span> {trade.code}
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Duration:</span>
-                    <span className="font-medium">{trade.duration}</span>
+            <Link key={trade.name} href={`/programs/apprenticeships/red-seal/${trade.slug}`}>
+              <Card 
+                delay={index * 0.08}
+                className="h-full cursor-pointer hover:scale-105 transition-transform duration-200"
+              >
+                <CardHeader className="text-center">
+                  <div className="flex justify-center mb-4">
+                    {trade.icon}
                   </div>
-                  <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Wage Range:</span>
-                    <span className="font-medium text-green-600">{trade.wage}</span>
+                  <CardTitle className="text-lg">{trade.name}</CardTitle>
+                  <CardDescription>{trade.description}</CardDescription>
+                  <div className="text-sm text-muted-foreground">
+                    <span className="font-medium">Code:</span> {trade.code}
                   </div>
-                  <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Demand:</span>
-                    <span className={`font-medium ${trade.demand === 'Very High' ? 'text-red-500' : 'text-orange-500'}`}>
-                      {trade.demand}
-                    </span>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div className="flex justify-between text-sm">
+                      <span className="text-muted-foreground">Duration:</span>
+                      <span className="font-medium">{trade.duration}</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-muted-foreground">Wage Range:</span>
+                      <span className="font-medium text-green-600">{trade.wage}</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-muted-foreground">Demand:</span>
+                      <span className={`font-medium ${trade.demand === 'Very High' ? 'text-red-500' : 'text-orange-500'}`}>
+                        {trade.demand}
+                      </span>
+                    </div>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </AnimatedContainer>
       </section>
