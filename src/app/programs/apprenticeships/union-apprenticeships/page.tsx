@@ -34,6 +34,7 @@ import {
 const unionTrades = [
   {
     name: "Ironworker",
+    slug: "../red-seal/ironworker",
     union: "Local 97",
     duration: "4 years",
     wage: "$25-45/hour",
@@ -44,6 +45,7 @@ const unionTrades = [
   },
   {
     name: "Crane Operator",
+    slug: "../red-seal/crane-operator",
     union: "Local 115", 
     duration: "3 years",
     wage: "$30-50/hour",
@@ -54,6 +56,7 @@ const unionTrades = [
   },
   {
     name: "Sheet Metal Worker",
+    slug: "../red-seal/sheet-metal-worker",
     union: "Local 280",
     duration: "4 years", 
     wage: "$24-42/hour",
@@ -64,6 +67,7 @@ const unionTrades = [
   },
   {
     name: "Millwright",
+    slug: "../../trades/millwright",
     union: "Local 1304",
     duration: "4 years",
     wage: "$26-44/hour", 
@@ -74,6 +78,7 @@ const unionTrades = [
   },
   {
     name: "Boilermaker",
+    slug: "../../trades/boilermaker",
     union: "Local 359",
     duration: "4 years",
     wage: "$28-48/hour",
@@ -84,6 +89,7 @@ const unionTrades = [
   },
   {
     name: "Steamfitter",
+    slug: "steamfitter",
     union: "Local 170",
     duration: "5 years",
     wage: "$27-46/hour",
@@ -286,54 +292,64 @@ export default function UnionApprenticeshipsPage() {
         </h2>
         <AnimatedContainer className="grid gap-6 md:grid-cols-2 lg:grid-cols-3" stagger={0.08}>
           {unionTrades.map((trade, index) => (
-            <Card 
+            <Link 
               key={trade.name}
-              delay={index * 0.08}
-              className="h-full"
+              href={`/programs/apprenticeships/union-apprenticeships/${trade.slug}`}
             >
-              <CardHeader className="text-center">
-                <div className="flex justify-center mb-4">
-                  {trade.icon}
-                </div>
-                <CardTitle className="text-lg">{trade.name}</CardTitle>
-                <CardDescription>{trade.description}</CardDescription>
-                <div className="text-sm text-muted-foreground">
-                  <span className="font-medium">{trade.union}</span>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  <div className="grid grid-cols-2 gap-3 text-sm">
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">Duration:</span>
-                      <span className="font-medium">{trade.duration}</span>
+              <Card 
+                delay={index * 0.08}
+                className="h-full hover:shadow-lg transition-shadow cursor-pointer"
+              >
+                <CardHeader className="text-center">
+                  <div className="flex justify-center mb-4">
+                    {trade.icon}
+                  </div>
+                  <CardTitle className="text-lg">{trade.name}</CardTitle>
+                  <CardDescription>{trade.description}</CardDescription>
+                  <div className="text-sm text-muted-foreground">
+                    <span className="font-medium">{trade.union}</span>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-2 gap-3 text-sm">
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Duration:</span>
+                        <span className="font-medium">{trade.duration}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Wage:</span>
+                        <span className="font-medium text-green-600">{trade.wage}</span>
+                      </div>
                     </div>
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">Wage:</span>
-                      <span className="font-medium text-green-600">{trade.wage}</span>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-muted-foreground">Demand:</span>
+                      <span className={`font-medium ${trade.demand === 'Very High' ? 'text-red-500' : trade.demand === 'High' ? 'text-orange-500' : 'text-yellow-500'}`}>
+                        {trade.demand}
+                      </span>
+                    </div>
+                    
+                    <div>
+                      <h4 className="text-sm font-semibold text-muted-foreground mb-2">Union Benefits:</h4>
+                      <ul className="space-y-1">
+                        {trade.benefits.map((benefit) => (
+                          <li key={benefit} className="flex items-center text-xs">
+                            <CheckCircle className="h-2 w-2 mr-2 text-green-500 flex-shrink-0" />
+                            <span>{benefit}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div className="pt-2">
+                      <Button variant="outline" size="sm" className="w-full">
+                        Learn More
+                      </Button>
                     </div>
                   </div>
-                  <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Demand:</span>
-                    <span className={`font-medium ${trade.demand === 'Very High' ? 'text-red-500' : trade.demand === 'High' ? 'text-orange-500' : 'text-yellow-500'}`}>
-                      {trade.demand}
-                    </span>
-                  </div>
-                  
-                  <div>
-                    <h4 className="text-sm font-semibold text-muted-foreground mb-2">Union Benefits:</h4>
-                    <ul className="space-y-1">
-                      {trade.benefits.map((benefit) => (
-                        <li key={benefit} className="flex items-center text-xs">
-                          <CheckCircle className="h-2 w-2 mr-2 text-green-500 flex-shrink-0" />
-                          <span>{benefit}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </AnimatedContainer>
       </section>
