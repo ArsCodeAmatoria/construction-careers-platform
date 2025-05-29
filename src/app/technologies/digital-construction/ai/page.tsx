@@ -26,7 +26,8 @@ const aiSolutions = [
       "Risk prediction",
       "Resource allocation"
     ],
-    icon: <LineChart className="h-12 w-12 text-blue-500 float" />
+    icon: <LineChart className="h-12 w-12 text-blue-500 float" />,
+    href: "/technologies/digital-construction/ai/predictive-analytics"
   },
   {
     title: "Computer Vision",
@@ -37,7 +38,8 @@ const aiSolutions = [
       "Quality control",
       "Site surveillance"
     ],
-    icon: <Search className="h-12 w-12 text-green-500 float" />
+    icon: <Search className="h-12 w-12 text-green-500 float" />,
+    href: "/technologies/digital-construction/ai/computer-vision"
   },
   {
     title: "Machine Learning",
@@ -48,7 +50,8 @@ const aiSolutions = [
       "Performance optimization",
       "Automated reporting"
     ],
-    icon: <Brain className="h-12 w-12 text-purple-500 float" />
+    icon: <Brain className="h-12 w-12 text-purple-500 float" />,
+    href: "/technologies/digital-construction/ai/machine-learning"
   }
 ]
 
@@ -90,32 +93,33 @@ export default function AIConstructionPage() {
       <section className="w-full max-w-7xl mx-auto px-4 space-y-8">
         <AnimatedContainer className="grid gap-6 md:grid-cols-3" stagger={0.08}>
           {aiSolutions.map((solution, index) => (
-            <Card 
-              key={solution.title}
-              delay={index * 0.08}
-              className="h-full"
-            >
-              <CardHeader className="text-center">
-                <div className="flex justify-center mb-4">
-                  {solution.icon}
-                </div>
-                <CardTitle className="text-xl">{solution.title}</CardTitle>
-                <CardDescription>{solution.description}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-2">
-                  <h4 className="text-sm font-semibold text-muted-foreground">Key Features:</h4>
-                  <ul className="space-y-2">
-                    {solution.features.map((feature) => (
-                      <li key={feature} className="flex items-center text-sm text-muted-foreground">
-                        <CheckCircle className="h-3 w-3 mr-2 text-green-500 flex-shrink-0" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </CardContent>
-            </Card>
+            <Link key={solution.title} href={solution.href}>
+              <Card 
+                delay={index * 0.08}
+                className="h-full cursor-pointer transition-all duration-300 hover:scale-105"
+              >
+                <CardHeader className="text-center">
+                  <div className="flex justify-center mb-4">
+                    {solution.icon}
+                  </div>
+                  <CardTitle className="text-xl">{solution.title}</CardTitle>
+                  <CardDescription>{solution.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-2">
+                    <h4 className="text-sm font-semibold text-muted-foreground">Key Features:</h4>
+                    <ul className="space-y-2">
+                      {solution.features.map((feature) => (
+                        <li key={feature} className="flex items-center text-sm text-muted-foreground">
+                          <CheckCircle className="h-3 w-3 mr-2 text-green-500 flex-shrink-0" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </AnimatedContainer>
       </section>
