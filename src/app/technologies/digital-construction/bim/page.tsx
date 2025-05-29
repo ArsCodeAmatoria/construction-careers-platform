@@ -45,7 +45,8 @@ const bimFeatures = [
       performance: "Real-time rendering",
       compatibility: "Universal file format support"
     },
-    icon: <Box className="h-12 w-12 text-blue-500 float" />
+    icon: <Box className="h-12 w-12 text-blue-500 float" />,
+    path: "3d-modeling"
   },
   {
     title: "Collaboration & Coordination",
@@ -62,7 +63,8 @@ const bimFeatures = [
       sync: "Real-time synchronization",
       access: "Global cloud accessibility"
     },
-    icon: <Users className="h-12 w-12 text-green-500 float" />
+    icon: <Users className="h-12 w-12 text-green-500 float" />,
+    path: "collaboration"
   },
   {
     title: "Data Management",
@@ -79,7 +81,8 @@ const bimFeatures = [
       analytics: "Advanced data analytics",
       integration: "ERP system integration"
     },
-    icon: <Database className="h-12 w-12 text-purple-500 float" />
+    icon: <Database className="h-12 w-12 text-purple-500 float" />,
+    path: "data-management"
   },
   {
     title: "4D/5D Integration",
@@ -96,7 +99,8 @@ const bimFeatures = [
       costing: "Real-time 5D cost analysis",
       optimization: "AI-powered resource planning"
     },
-    icon: <Clock className="h-12 w-12 text-orange-500 float" />
+    icon: <Clock className="h-12 w-12 text-orange-500 float" />,
+    path: "4d-5d-integration"
   }
 ]
 
@@ -300,7 +304,7 @@ export default function BIMPage() {
           {bimFeatures.map((feature, index) => (
             <Link 
               key={feature.title}
-              href={`/technologies/digital-construction/bim/${feature.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`}
+              href={`/technologies/digital-construction/bim/${feature.path}`}
               className="block transition-transform hover:scale-105"
             >
               <Card 
